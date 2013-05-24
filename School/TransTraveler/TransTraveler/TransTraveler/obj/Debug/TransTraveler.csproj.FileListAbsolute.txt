@@ -1,0 +1,122 @@
+C:\Users\Scott\Documents\Visual Studio 2010\Projects\TransTraveler\TransTraveler\Bin\Debug\ApplicationIcon.png
+C:\Users\Scott\Documents\Visual Studio 2010\Projects\TransTraveler\TransTraveler\Bin\Debug\Background.png
+C:\Users\Scott\Documents\Visual Studio 2010\Projects\TransTraveler\TransTraveler\Bin\Debug\TransTraveler.dll
+C:\Users\Scott\Documents\Visual Studio 2010\Projects\TransTraveler\TransTraveler\Bin\Debug\TransTraveler.pdb
+C:\Users\Scott\Documents\Visual Studio 2010\Projects\TransTraveler\TransTraveler\Bin\Debug\AppManifest.xaml
+C:\Users\Scott\Documents\Visual Studio 2010\Projects\TransTraveler\TransTraveler\Bin\Debug\TransTraveler.xap
+C:\Users\Scott\Documents\Visual Studio 2010\Projects\TransTraveler\TransTraveler\Bin\Debug\Microsoft.Phone.Controls.dll
+C:\Users\Scott\Documents\Visual Studio 2010\Projects\TransTraveler\TransTraveler\Bin\Debug\Microsoft.Phone.Controls.xml
+C:\Users\Scott\Documents\Visual Studio 2010\Projects\TransTraveler\TransTraveler\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Scott\Documents\Visual Studio 2010\Projects\TransTraveler\TransTraveler\obj\Debug\App.g.i.cs
+C:\Users\Scott\Documents\Visual Studio 2010\Projects\TransTraveler\TransTraveler\obj\Debug\MainPage.g.i.cs
+C:\Users\Scott\Documents\Visual Studio 2010\Projects\TransTraveler\TransTraveler\obj\Debug\TransTraveler.g.resources
+C:\Users\Scott\Documents\Visual Studio 2010\Projects\TransTraveler\TransTraveler\obj\Debug\TransTraveler.dll
+C:\Users\Scott\Documents\Visual Studio 2010\Projects\TransTraveler\TransTraveler\obj\Debug\TransTraveler.pdb
+C:\Users\Scott\Documents\Visual Studio 2010\Projects\TransTraveler\TransTraveler\obj\Debug\XapCacheFile.xml
+C:\Users\Scott\Documents\Visual Studio 2010\Projects\TransTraveler\TransTraveler\obj\Debug\DataPages\Signs.g.i.cs
+E:\TransTraveler\TransTraveler\Bin\Debug\ApplicationIcon.png
+E:\TransTraveler\TransTraveler\Bin\Debug\Background.png
+E:\TransTraveler\TransTraveler\Bin\Debug\TransTraveler.dll
+E:\TransTraveler\TransTraveler\Bin\Debug\TransTraveler.pdb
+E:\TransTraveler\TransTraveler\Bin\Debug\AppManifest.xaml
+E:\TransTraveler\TransTraveler\Bin\Debug\TransTraveler.xap
+E:\TransTraveler\TransTraveler\Bin\Debug\Microsoft.Phone.Controls.dll
+E:\TransTraveler\TransTraveler\Bin\Debug\Microsoft.Phone.Controls.xml
+E:\TransTraveler\TransTraveler\obj\Debug\ResolveAssemblyReference.cache
+E:\TransTraveler\TransTraveler\obj\Debug\App.g.i.cs
+E:\TransTraveler\TransTraveler\obj\Debug\MainPage.g.i.cs
+E:\TransTraveler\TransTraveler\obj\Debug\DataPages\Signs.g.i.cs
+E:\TransTraveler\TransTraveler\obj\Debug\TransTraveler.g.resources
+E:\TransTraveler\TransTraveler\obj\Debug\TransTraveler.dll
+E:\TransTraveler\TransTraveler\obj\Debug\TransTraveler.pdb
+E:\TransTraveler\TransTraveler\obj\Debug\XapCacheFile.xml
+E:\TransTraveler\TransTraveler\Bin\Debug\Datastore\Japan\All Prohibited.jpg
+E:\TransTraveler\TransTraveler\Bin\Debug\Datastore\Japan\Maximum_Speed.jpg
+E:\TransTraveler\TransTraveler\Bin\Debug\Datastore\Japan\Minimum Speed.jpg
+E:\TransTraveler\TransTraveler\Bin\Debug\Datastore\Japan\No Crossing Center Line to Overtake.jpg
+E:\TransTraveler\TransTraveler\Bin\Debug\Datastore\Japan\No Motor Vehicles Except Motorcycles.jpg
+E:\TransTraveler\TransTraveler\Bin\Debug\Datastore\Japan\No Motor Vehicles.jpg
+E:\TransTraveler\TransTraveler\Bin\Debug\Datastore\Japan\No Parking.jpg
+E:\TransTraveler\TransTraveler\Bin\Debug\Datastore\Japan\No Stopping.jpg
+E:\TransTraveler\TransTraveler\Bin\Debug\Datastore\Japan\One Way Traffic.jpg
+E:\TransTraveler\TransTraveler\Bin\Debug\Datastore\Japan\Stop and Give Way.jpg
+C:\School\CSS360\TransTraveler\TransTraveler\Bin\Debug\ApplicationIcon.png
+C:\School\CSS360\TransTraveler\TransTraveler\Bin\Debug\Background.png
+C:\School\CSS360\TransTraveler\TransTraveler\Bin\Debug\Datastore\Japan\All Prohibited.jpg
+C:\School\CSS360\TransTraveler\TransTraveler\Bin\Debug\Datastore\Japan\Maximum_Speed.jpg
+C:\School\CSS360\TransTraveler\TransTraveler\Bin\Debug\Datastore\Japan\Minimum Speed.jpg
+C:\School\CSS360\TransTraveler\TransTraveler\Bin\Debug\Datastore\Japan\No Crossing Center Line to Overtake.jpg
+C:\School\CSS360\TransTraveler\TransTraveler\Bin\Debug\Datastore\Japan\No Motor Vehicles Except Motorcycles.jpg
+C:\School\CSS360\TransTraveler\TransTraveler\Bin\Debug\Datastore\Japan\No Motor Vehicles.jpg
+C:\School\CSS360\TransTraveler\TransTraveler\Bin\Debug\Datastore\Japan\No Parking.jpg
+C:\School\CSS360\TransTraveler\TransTraveler\Bin\Debug\Datastore\Japan\No Stopping.jpg
+C:\School\CSS360\TransTraveler\TransTraveler\Bin\Debug\Datastore\Japan\One Way Traffic.jpg
+C:\School\CSS360\TransTraveler\TransTraveler\Bin\Debug\Datastore\Japan\Stop and Give Way.jpg
+C:\School\CSS360\TransTraveler\TransTraveler\Bin\Debug\TransTraveler.dll
+C:\School\CSS360\TransTraveler\TransTraveler\Bin\Debug\TransTraveler.pdb
+C:\School\CSS360\TransTraveler\TransTraveler\Bin\Debug\AppManifest.xaml
+C:\School\CSS360\TransTraveler\TransTraveler\Bin\Debug\TransTraveler.xap
+C:\School\CSS360\TransTraveler\TransTraveler\Bin\Debug\Microsoft.Phone.Controls.dll
+C:\School\CSS360\TransTraveler\TransTraveler\Bin\Debug\Microsoft.Phone.Controls.xml
+C:\School\CSS360\TransTraveler\TransTraveler\obj\Debug\ResolveAssemblyReference.cache
+C:\School\CSS360\TransTraveler\TransTraveler\obj\Debug\App.g.i.cs
+C:\School\CSS360\TransTraveler\TransTraveler\obj\Debug\MainPage.g.i.cs
+C:\School\CSS360\TransTraveler\TransTraveler\obj\Debug\DataPages\Signs.g.i.cs
+C:\School\CSS360\TransTraveler\TransTraveler\obj\Debug\TransTraveler.g.resources
+C:\School\CSS360\TransTraveler\TransTraveler\obj\Debug\TransTraveler.dll
+C:\School\CSS360\TransTraveler\TransTraveler\obj\Debug\TransTraveler.pdb
+C:\School\CSS360\TransTraveler\TransTraveler\obj\Debug\XapCacheFile.xml
+C:\Users\Jondi\Dropbox\CSS360\TransTraveler\TransTraveler\Bin\Debug\ApplicationIcon.png
+C:\Users\Jondi\Dropbox\CSS360\TransTraveler\TransTraveler\Bin\Debug\Background.png
+C:\Users\Jondi\Dropbox\CSS360\TransTraveler\TransTraveler\Bin\Debug\Datastore\Japan\All Prohibited.jpg
+C:\Users\Jondi\Dropbox\CSS360\TransTraveler\TransTraveler\Bin\Debug\Datastore\Japan\Maximum_Speed.jpg
+C:\Users\Jondi\Dropbox\CSS360\TransTraveler\TransTraveler\Bin\Debug\Datastore\Japan\Minimum Speed.jpg
+C:\Users\Jondi\Dropbox\CSS360\TransTraveler\TransTraveler\Bin\Debug\Datastore\Japan\No Crossing Center Line to Overtake.jpg
+C:\Users\Jondi\Dropbox\CSS360\TransTraveler\TransTraveler\Bin\Debug\Datastore\Japan\No Motor Vehicles Except Motorcycles.jpg
+C:\Users\Jondi\Dropbox\CSS360\TransTraveler\TransTraveler\Bin\Debug\Datastore\Japan\No Motor Vehicles.jpg
+C:\Users\Jondi\Dropbox\CSS360\TransTraveler\TransTraveler\Bin\Debug\Datastore\Japan\No Parking.jpg
+C:\Users\Jondi\Dropbox\CSS360\TransTraveler\TransTraveler\Bin\Debug\Datastore\Japan\No Stopping.jpg
+C:\Users\Jondi\Dropbox\CSS360\TransTraveler\TransTraveler\Bin\Debug\Datastore\Japan\One Way Traffic.jpg
+C:\Users\Jondi\Dropbox\CSS360\TransTraveler\TransTraveler\Bin\Debug\Datastore\Japan\Stop and Give Way.jpg
+C:\Users\Jondi\Dropbox\CSS360\TransTraveler\TransTraveler\Bin\Debug\TransTraveler.dll
+C:\Users\Jondi\Dropbox\CSS360\TransTraveler\TransTraveler\Bin\Debug\TransTraveler.pdb
+C:\Users\Jondi\Dropbox\CSS360\TransTraveler\TransTraveler\Bin\Debug\AppManifest.xaml
+C:\Users\Jondi\Dropbox\CSS360\TransTraveler\TransTraveler\Bin\Debug\TransTraveler.xap
+C:\Users\Jondi\Dropbox\CSS360\TransTraveler\TransTraveler\Bin\Debug\Microsoft.Phone.Controls.dll
+C:\Users\Jondi\Dropbox\CSS360\TransTraveler\TransTraveler\Bin\Debug\Microsoft.Phone.Controls.xml
+C:\Users\Jondi\Dropbox\CSS360\TransTraveler\TransTraveler\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Jondi\Dropbox\CSS360\TransTraveler\TransTraveler\obj\Debug\App.g.i.cs
+C:\Users\Jondi\Dropbox\CSS360\TransTraveler\TransTraveler\obj\Debug\MainPage.g.i.cs
+C:\Users\Jondi\Dropbox\CSS360\TransTraveler\TransTraveler\obj\Debug\DataPages\Signs.g.i.cs
+C:\Users\Jondi\Dropbox\CSS360\TransTraveler\TransTraveler\obj\Debug\TransTraveler.g.resources
+C:\Users\Jondi\Dropbox\CSS360\TransTraveler\TransTraveler\obj\Debug\TransTraveler.dll
+C:\Users\Jondi\Dropbox\CSS360\TransTraveler\TransTraveler\obj\Debug\TransTraveler.pdb
+C:\Users\Jondi\Dropbox\CSS360\TransTraveler\TransTraveler\obj\Debug\XapCacheFile.xml
+C:\Users\Jondi\Dropbox\CSS360\TransTraveler\TransTraveler\obj\Debug\DataPages\Currency.g.i.cs
+C:\Users\Jon Di\Dropbox\CSS360\TransTraveler\TransTraveler\Bin\Debug\ApplicationIcon.png
+C:\Users\Jon Di\Dropbox\CSS360\TransTraveler\TransTraveler\Bin\Debug\Background.png
+C:\Users\Jon Di\Dropbox\CSS360\TransTraveler\TransTraveler\Bin\Debug\Datastore\Japan\All Prohibited.jpg
+C:\Users\Jon Di\Dropbox\CSS360\TransTraveler\TransTraveler\Bin\Debug\Datastore\Japan\Maximum_Speed.jpg
+C:\Users\Jon Di\Dropbox\CSS360\TransTraveler\TransTraveler\Bin\Debug\Datastore\Japan\Minimum Speed.jpg
+C:\Users\Jon Di\Dropbox\CSS360\TransTraveler\TransTraveler\Bin\Debug\Datastore\Japan\No Crossing Center Line to Overtake.jpg
+C:\Users\Jon Di\Dropbox\CSS360\TransTraveler\TransTraveler\Bin\Debug\Datastore\Japan\No Motor Vehicles Except Motorcycles.jpg
+C:\Users\Jon Di\Dropbox\CSS360\TransTraveler\TransTraveler\Bin\Debug\Datastore\Japan\No Motor Vehicles.jpg
+C:\Users\Jon Di\Dropbox\CSS360\TransTraveler\TransTraveler\Bin\Debug\Datastore\Japan\No Parking.jpg
+C:\Users\Jon Di\Dropbox\CSS360\TransTraveler\TransTraveler\Bin\Debug\Datastore\Japan\No Stopping.jpg
+C:\Users\Jon Di\Dropbox\CSS360\TransTraveler\TransTraveler\Bin\Debug\Datastore\Japan\One Way Traffic.jpg
+C:\Users\Jon Di\Dropbox\CSS360\TransTraveler\TransTraveler\Bin\Debug\Datastore\Japan\Stop and Give Way.jpg
+C:\Users\Jon Di\Dropbox\CSS360\TransTraveler\TransTraveler\Bin\Debug\TransTraveler.dll
+C:\Users\Jon Di\Dropbox\CSS360\TransTraveler\TransTraveler\Bin\Debug\TransTraveler.pdb
+C:\Users\Jon Di\Dropbox\CSS360\TransTraveler\TransTraveler\Bin\Debug\AppManifest.xaml
+C:\Users\Jon Di\Dropbox\CSS360\TransTraveler\TransTraveler\Bin\Debug\TransTraveler.xap
+C:\Users\Jon Di\Dropbox\CSS360\TransTraveler\TransTraveler\Bin\Debug\Microsoft.Phone.Controls.dll
+C:\Users\Jon Di\Dropbox\CSS360\TransTraveler\TransTraveler\Bin\Debug\Microsoft.Phone.Controls.xml
+C:\Users\Jon Di\Dropbox\CSS360\TransTraveler\TransTraveler\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Jon Di\Dropbox\CSS360\TransTraveler\TransTraveler\obj\Debug\App.g.i.cs
+C:\Users\Jon Di\Dropbox\CSS360\TransTraveler\TransTraveler\obj\Debug\DataPages\Currency.g.i.cs
+C:\Users\Jon Di\Dropbox\CSS360\TransTraveler\TransTraveler\obj\Debug\MainPage.g.i.cs
+C:\Users\Jon Di\Dropbox\CSS360\TransTraveler\TransTraveler\obj\Debug\DataPages\Signs.g.i.cs
+C:\Users\Jon Di\Dropbox\CSS360\TransTraveler\TransTraveler\obj\Debug\TransTraveler.g.resources
+C:\Users\Jon Di\Dropbox\CSS360\TransTraveler\TransTraveler\obj\Debug\TransTraveler.dll
+C:\Users\Jon Di\Dropbox\CSS360\TransTraveler\TransTraveler\obj\Debug\TransTraveler.pdb
+C:\Users\Jon Di\Dropbox\CSS360\TransTraveler\TransTraveler\obj\Debug\XapCacheFile.xml

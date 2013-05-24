@@ -1,0 +1,1088 @@
+Script started on Fri 20 Jan 2012 10:27:47 PM PST
+]0;jondi@uw1-320-18:~[jondi@uw1-320-18 ~]$ valgrind -v .a.out[K[K[K[K[K[K./a.out
+==15848== Memcheck, a memory error detector
+==15848== Copyright (C) 2002-2009, and GNU GPL'd, by Julian Seward et al.
+==15848== Using Valgrind-3.5.0 and LibVEX; rerun with -h for copyright info
+==15848== Command: ./a.out
+==15848== 
+--15848-- Valgrind options:
+--15848--    -v
+--15848-- Contents of /proc/version:
+--15848--   Linux version 2.6.18-274.17.1.el5 (mockbuild@x86-003.build.bos.redhat.com) (gcc version 4.1.2 20080704 (Red Hat 4.1.2-51)) #1 SMP Wed Jan 4 22:41:57 EST 2012
+--15848-- Arch and hwcaps: X86, x86-sse1-sse2
+--15848-- Page sizes: currently 4096, max supported 4096
+--15848-- Valgrind library directory: /usr/lib/valgrind
+--15848-- Reading syms from /lib/ld-2.5.so (0x75f000)
+--15848-- Reading syms from /net/metis/home2/jondi/a.out (0x8048000)
+--15848-- Reading syms from /usr/lib/valgrind/memcheck-x86-linux (0x38000000)
+--15848--    object doesn't have a dynamic symbol table
+--15848-- Reading suppressions file: /usr/lib/valgrind/default.supp
+--15848-- REDIR: 0x774910 (index) redirected to 0x3803e483 (vgPlain_x86_linux_REDIR_FOR_index)
+--15848-- Reading syms from /usr/lib/valgrind/vgpreload_core-x86-linux.so (0x4001000)
+--15848-- Reading syms from /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so (0x4003000)
+==15848== WARNING: new redirection conflicts with existing -- ignoring it
+--15848--     new: 0x00774910 (index               ) R-> 0x040068c0 index
+--15848-- REDIR: 0x774ab0 (strlen) redirected to 0x4006aa0 (strlen)
+--15848-- Reading syms from /usr/lib/libstdc++.so.6.0.8 (0x4023000)
+--15848--    object doesn't have a symbol table
+--15848-- Reading syms from /lib/libm-2.5.so (0x8d9000)
+--15848-- Reading syms from /lib/libgcc_s-4.1.2-20080825.so.1 (0xb91000)
+--15848--    object doesn't have a symbol table
+--15848-- Reading syms from /lib/libc-2.5.so (0x77e000)
+--15848-- REDIR: 0x7ee7c0 (rindex) redirected to 0x40067d0 (rindex)
+--15848-- REDIR: 0x7ef660 (memset) redirected to 0x4006e00 (memset)
+--15848-- REDIR: 0x7ee420 (strlen) redirected to 0x4006a80 (strlen)
+--15848-- REDIR: 0x7e9f50 (malloc) redirected to 0x4005afe (malloc)
+--15848-- REDIR: 0x40d7c10 (operator new[](unsigned int)) redirected to 0x4005f21 (operator new[](unsigned int))
+--15848-- REDIR: 0x40d7ad0 (operator new(unsigned int)) redirected to 0x40062c9 (operator new(unsigned int))
+--15848-- REDIR: 0x7efb50 (memcpy) redirected to 0x40081b0 (memcpy)
+Initial data:
+==15848== Conditional jump or move depends on uninitialised value(s)
+==15848==    at 0x80492B0: buildTree(BinTree&, std::basic_ifstream<char, std::char_traits<char> >&) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x8049774: main (in /net/metis/home2/jondi/a.out)
+==15848== 
+--15848-- REDIR: 0x40d65a0 (operator delete(void*)) redirected to 0x400542f (operator delete(void*))
+==15848== Invalid read of size 4
+==15848==    at 0x40B344C: std::string::compare(std::string const&) const (in /usr/lib/libstdc++.so.6.0.8)
+==15848==    by 0x80490E1: bool std::operator< <char, std::char_traits<char>, std::allocator<char> >(std::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x8048DCB: NodeData::operator<(NodeData const&) const (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x804A859: BinTree::insert(NodeData*) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x8049284: buildTree(BinTree&, std::basic_ifstream<char, std::char_traits<char> >&) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x8049774: main (in /net/metis/home2/jondi/a.out)
+==15848==  Address 0x41123a8 is 0 bytes inside a block of size 4 free'd
+==15848==    at 0x40054B4: operator delete(void*) (vg_replace_malloc.c:346)
+==15848==    by 0x80492DB: buildTree(BinTree&, std::basic_ifstream<char, std::char_traits<char> >&) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x8049774: main (in /net/metis/home2/jondi/a.out)
+==15848== 
+==15848== Invalid read of size 4
+==15848==    at 0x40B344C: std::string::compare(std::string const&) const (in /usr/lib/libstdc++.so.6.0.8)
+==15848==    by 0x8049121: bool std::operator==<char, std::char_traits<char>, std::allocator<char> >(std::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x8048E07: NodeData::operator==(NodeData const&) const (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x804A897: BinTree::insert(NodeData*) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x8049284: buildTree(BinTree&, std::basic_ifstream<char, std::char_traits<char> >&) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x8049774: main (in /net/metis/home2/jondi/a.out)
+==15848==  Address 0x41123a8 is 0 bytes inside a block of size 4 free'd
+==15848==    at 0x40054B4: operator delete(void*) (vg_replace_malloc.c:346)
+==15848==    by 0x80492DB: buildTree(BinTree&, std::basic_ifstream<char, std::char_traits<char> >&) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x8049774: main (in /net/metis/home2/jondi/a.out)
+==15848== 
+==15848== Invalid read of size 4
+==15848==    at 0x40B344E: std::string::compare(std::string const&) const (in /usr/lib/libstdc++.so.6.0.8)
+==15848==    by 0x80490E1: bool std::operator< <char, std::char_traits<char>, std::allocator<char> >(std::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x8048DCB: NodeData::operator<(NodeData const&) const (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x804A859: BinTree::insert(NodeData*) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x8049284: buildTree(BinTree&, std::basic_ifstream<char, std::char_traits<char> >&) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x8049774: main (in /net/metis/home2/jondi/a.out)
+==15848==  Address 0x4112368 is 0 bytes inside a block of size 16 free'd
+==15848==    at 0x40054B4: operator delete(void*) (vg_replace_malloc.c:346)
+==15848==    by 0x40B318C: std::string::_Rep::_M_destroy(std::allocator<char> const&) (in /usr/lib/libstdc++.so.6.0.8)
+==15848==    by 0x40B48E7: std::string::reserve(unsigned int) (in /usr/lib/libstdc++.so.6.0.8)
+==15848==    by 0x40B4AA8: std::string::append(char const*, unsigned int) (in /usr/lib/libstdc++.so.6.0.8)
+==15848==    by 0x408B35E: std::basic_istream<char, std::char_traits<char> >& std::operator>><char, std::char_traits<char>, std::allocator<char> >(std::basic_istream<char, std::char_traits<char> >&, std::basic_string<char, std::char_traits<char>, std::allocator<char> >&) (in /usr/lib/libstdc++.so.6.0.8)
+==15848==    by 0x80491ED: buildTree(BinTree&, std::basic_ifstream<char, std::char_traits<char> >&) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x8049774: main (in /net/metis/home2/jondi/a.out)
+==15848== 
+==15848== Invalid read of size 4
+==15848==    at 0x40B344E: std::string::compare(std::string const&) const (in /usr/lib/libstdc++.so.6.0.8)
+==15848==    by 0x8049121: bool std::operator==<char, std::char_traits<char>, std::allocator<char> >(std::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x8048E07: NodeData::operator==(NodeData const&) const (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x804A897: BinTree::insert(NodeData*) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x8049284: buildTree(BinTree&, std::basic_ifstream<char, std::char_traits<char> >&) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x8049774: main (in /net/metis/home2/jondi/a.out)
+==15848==  Address 0x4112368 is 0 bytes inside a block of size 16 free'd
+==15848==    at 0x40054B4: operator delete(void*) (vg_replace_malloc.c:346)
+==15848==    by 0x40B318C: std::string::_Rep::_M_destroy(std::allocator<char> const&) (in /usr/lib/libstdc++.so.6.0.8)
+==15848==    by 0x40B48E7: std::string::reserve(unsigned int) (in /usr/lib/libstdc++.so.6.0.8)
+==15848==    by 0x40B4AA8: std::string::append(char const*, unsigned int) (in /usr/lib/libstdc++.so.6.0.8)
+==15848==    by 0x408B35E: std::basic_istream<char, std::char_traits<char> >& std::operator>><char, std::char_traits<char>, std::allocator<char> >(std::basic_istream<char, std::char_traits<char> >&, std::basic_string<char, std::char_traits<char>, std::allocator<char> >&) (in /usr/lib/libstdc++.so.6.0.8)
+==15848==    by 0x80491ED: buildTree(BinTree&, std::basic_ifstream<char, std::char_traits<char> >&) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x8049774: main (in /net/metis/home2/jondi/a.out)
+==15848== 
+  iii not tttt eee r not and jj r eee pp r sssss eee not tttt ooo ff m m y z $$ 
+==15848== Invalid read of size 4
+==15848==    at 0x40B4745: std::string::assign(std::string const&) (in /usr/lib/libstdc++.so.6.0.8)
+==15848==    by 0x40B4833: std::string::operator=(std::string const&) (in /usr/lib/libstdc++.so.6.0.8)
+==15848==    by 0x8048D1B: NodeData::operator=(NodeData const&) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x804A152: BinTree::copyHelper(BinTree::Node*&, BinTree::Node*) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x804A575: BinTree::copy(BinTree const&) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x804A5B6: BinTree::BinTree(BinTree const&) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x804979A: main (in /net/metis/home2/jondi/a.out)
+==15848==  Address 0x41123a8 is 0 bytes inside a block of size 4 free'd
+==15848==    at 0x40054B4: operator delete(void*) (vg_replace_malloc.c:346)
+==15848==    by 0x80492DB: buildTree(BinTree&, std::basic_ifstream<char, std::char_traits<char> >&) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x8049774: main (in /net/metis/home2/jondi/a.out)
+==15848== 
+==15848== Invalid read of size 4
+==15848==    at 0x40B475E: std::string::assign(std::string const&) (in /usr/lib/libstdc++.so.6.0.8)
+==15848==    by 0x40B4833: std::string::operator=(std::string const&) (in /usr/lib/libstdc++.so.6.0.8)
+==15848==    by 0x8048D1B: NodeData::operator=(NodeData const&) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x804A152: BinTree::copyHelper(BinTree::Node*&, BinTree::Node*) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x804A575: BinTree::copy(BinTree const&) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x804A5B6: BinTree::BinTree(BinTree const&) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x804979A: main (in /net/metis/home2/jondi/a.out)
+==15848==  Address 0x4112370 is 8 bytes inside a block of size 16 free'd
+==15848==    at 0x40054B4: operator delete(void*) (vg_replace_malloc.c:346)
+==15848==    by 0x40B318C: std::string::_Rep::_M_destroy(std::allocator<char> const&) (in /usr/lib/libstdc++.so.6.0.8)
+==15848==    by 0x40B48E7: std::string::reserve(unsigned int) (in /usr/lib/libstdc++.so.6.0.8)
+==15848==    by 0x40B4AA8: std::string::append(char const*, unsigned int) (in /usr/lib/libstdc++.so.6.0.8)
+==15848==    by 0x408B35E: std::basic_istream<char, std::char_traits<char> >& std::operator>><char, std::char_traits<char>, std::allocator<char> >(std::basic_istream<char, std::char_traits<char> >&, std::basic_string<char, std::char_traits<char>, std::allocator<char> >&) (in /usr/lib/libstdc++.so.6.0.8)
+==15848==    by 0x80491ED: buildTree(BinTree&, std::basic_ifstream<char, std::char_traits<char> >&) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x8049774: main (in /net/metis/home2/jondi/a.out)
+==15848== 
+==15848== Invalid read of size 4
+==15848==    at 0x40B3CBC: std::string::_Rep::_M_clone(std::allocator<char> const&, unsigned int) (in /usr/lib/libstdc++.so.6.0.8)
+==15848==    by 0x40B47AA: std::string::assign(std::string const&) (in /usr/lib/libstdc++.so.6.0.8)
+==15848==    by 0x40B4833: std::string::operator=(std::string const&) (in /usr/lib/libstdc++.so.6.0.8)
+==15848==    by 0x8048D1B: NodeData::operator=(NodeData const&) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x804A152: BinTree::copyHelper(BinTree::Node*&, BinTree::Node*) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x804A575: BinTree::copy(BinTree const&) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x804A5B6: BinTree::BinTree(BinTree const&) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x804979A: main (in /net/metis/home2/jondi/a.out)
+==15848==  Address 0x411236c is 4 bytes inside a block of size 16 free'd
+==15848==    at 0x40054B4: operator delete(void*) (vg_replace_malloc.c:346)
+==15848==    by 0x40B318C: std::string::_Rep::_M_destroy(std::allocator<char> const&) (in /usr/lib/libstdc++.so.6.0.8)
+==15848==    by 0x40B48E7: std::string::reserve(unsigned int) (in /usr/lib/libstdc++.so.6.0.8)
+==15848==    by 0x40B4AA8: std::string::append(char const*, unsigned int) (in /usr/lib/libstdc++.so.6.0.8)
+==15848==    by 0x408B35E: std::basic_istream<char, std::char_traits<char> >& std::operator>><char, std::char_traits<char>, std::allocator<char> >(std::basic_istream<char, std::char_traits<char> >&, std::basic_string<char, std::char_traits<char>, std::allocator<char> >&) (in /usr/lib/libstdc++.so.6.0.8)
+==15848==    by 0x80491ED: buildTree(BinTree&, std::basic_ifstream<char, std::char_traits<char> >&) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x8049774: main (in /net/metis/home2/jondi/a.out)
+==15848== 
+==15848== Invalid read of size 4
+==15848==    at 0x40B3CCE: std::string::_Rep::_M_clone(std::allocator<char> const&, unsigned int) (in /usr/lib/libstdc++.so.6.0.8)
+==15848==    by 0x40B47AA: std::string::assign(std::string const&) (in /usr/lib/libstdc++.so.6.0.8)
+==15848==    by 0x40B4833: std::string::operator=(std::string const&) (in /usr/lib/libstdc++.so.6.0.8)
+==15848==    by 0x8048D1B: NodeData::operator=(NodeData const&) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x804A152: BinTree::copyHelper(BinTree::Node*&, BinTree::Node*) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x804A575: BinTree::copy(BinTree const&) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x804A5B6: BinTree::BinTree(BinTree const&) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x804979A: main (in /net/metis/home2/jondi/a.out)
+==15848==  Address 0x4112368 is 0 bytes inside a block of size 16 free'd
+==15848==    at 0x40054B4: operator delete(void*) (vg_replace_malloc.c:346)
+==15848==    by 0x40B318C: std::string::_Rep::_M_destroy(std::allocator<char> const&) (in /usr/lib/libstdc++.so.6.0.8)
+==15848==    by 0x40B48E7: std::string::reserve(unsigned int) (in /usr/lib/libstdc++.so.6.0.8)
+==15848==    by 0x40B4AA8: std::string::append(char const*, unsigned int) (in /usr/lib/libstdc++.so.6.0.8)
+==15848==    by 0x408B35E: std::basic_istream<char, std::char_traits<char> >& std::operator>><char, std::char_traits<char>, std::allocator<char> >(std::basic_istream<char, std::char_traits<char> >&, std::basic_string<char, std::char_traits<char>, std::allocator<char> >&) (in /usr/lib/libstdc++.so.6.0.8)
+==15848==    by 0x80491ED: buildTree(BinTree&, std::basic_ifstream<char, std::char_traits<char> >&) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x8049774: main (in /net/metis/home2/jondi/a.out)
+==15848== 
+==15848== Invalid read of size 4
+==15848==    at 0x40B3CDD: std::string::_Rep::_M_clone(std::allocator<char> const&, unsigned int) (in /usr/lib/libstdc++.so.6.0.8)
+==15848==    by 0x40B47AA: std::string::assign(std::string const&) (in /usr/lib/libstdc++.so.6.0.8)
+==15848==    by 0x40B4833: std::string::operator=(std::string const&) (in /usr/lib/libstdc++.so.6.0.8)
+==15848==    by 0x8048D1B: NodeData::operator=(NodeData const&) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x804A152: BinTree::copyHelper(BinTree::Node*&, BinTree::Node*) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x804A575: BinTree::copy(BinTree const&) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x804A5B6: BinTree::BinTree(BinTree const&) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x804979A: main (in /net/metis/home2/jondi/a.out)
+==15848==  Address 0x4112368 is 0 bytes inside a block of size 16 free'd
+==15848==    at 0x40054B4: operator delete(void*) (vg_replace_malloc.c:346)
+==15848==    by 0x40B318C: std::string::_Rep::_M_destroy(std::allocator<char> const&) (in /usr/lib/libstdc++.so.6.0.8)
+==15848==    by 0x40B48E7: std::string::reserve(unsigned int) (in /usr/lib/libstdc++.so.6.0.8)
+==15848==    by 0x40B4AA8: std::string::append(char const*, unsigned int) (in /usr/lib/libstdc++.so.6.0.8)
+==15848==    by 0x408B35E: std::basic_istream<char, std::char_traits<char> >& std::operator>><char, std::char_traits<char>, std::allocator<char> >(std::basic_istream<char, std::char_traits<char> >&, std::basic_string<char, std::char_traits<char>, std::allocator<char> >&) (in /usr/lib/libstdc++.so.6.0.8)
+==15848==    by 0x80491ED: buildTree(BinTree&, std::basic_ifstream<char, std::char_traits<char> >&) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x8049774: main (in /net/metis/home2/jondi/a.out)
+==15848== 
+==15848== Invalid read of size 1
+==15848==    at 0x4008270: memcpy (mc_replace_strmem.c:587)
+==15848==    by 0x40B3D03: std::string::_Rep::_M_clone(std::allocator<char> const&, unsigned int) (in /usr/lib/libstdc++.so.6.0.8)
+==15848==    by 0x40B47AA: std::string::assign(std::string const&) (in /usr/lib/libstdc++.so.6.0.8)
+==15848==    by 0x40B4833: std::string::operator=(std::string const&) (in /usr/lib/libstdc++.so.6.0.8)
+==15848==    by 0x8048D1B: NodeData::operator=(NodeData const&) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x804A152: BinTree::copyHelper(BinTree::Node*&, BinTree::Node*) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x804A19E: BinTree::copyHelper(BinTree::Node*&, BinTree::Node*) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x804A575: BinTree::copy(BinTree const&) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x804A5B6: BinTree::BinTree(BinTree const&) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x804979A: main (in /net/metis/home2/jondi/a.out)
+==15848==  Address 0x41124a5 is 13 bytes inside a block of size 19 free'd
+==15848==    at 0x40054B4: operator delete(void*) (vg_replace_malloc.c:346)
+==15848==    by 0x40B318C: std::string::_Rep::_M_destroy(std::allocator<char> const&) (in /usr/lib/libstdc++.so.6.0.8)
+==15848==    by 0x40B5D36: std::basic_string<char, std::char_traits<char>, std::allocator<char> >::~basic_string() (in /usr/lib/libstdc++.so.6.0.8)
+==15848==    by 0x80492EB: buildTree(BinTree&, std::basic_ifstream<char, std::char_traits<char> >&) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x8049774: main (in /net/metis/home2/jondi/a.out)
+==15848== 
+==15848== Invalid read of size 4
+==15848==    at 0x40B3D07: std::string::_Rep::_M_clone(std::allocator<char> const&, unsigned int) (in /usr/lib/libstdc++.so.6.0.8)
+==15848==    by 0x40B47AA: std::string::assign(std::string const&) (in /usr/lib/libstdc++.so.6.0.8)
+==15848==    by 0x40B4833: std::string::operator=(std::string const&) (in /usr/lib/libstdc++.so.6.0.8)
+==15848==    by 0x8048D1B: NodeData::operator=(NodeData const&) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x804A152: BinTree::copyHelper(BinTree::Node*&, BinTree::Node*) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x804A19E: BinTree::copyHelper(BinTree::Node*&, BinTree::Node*) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x804A575: BinTree::copy(BinTree const&) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x804A5B6: BinTree::BinTree(BinTree const&) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x804979A: main (in /net/metis/home2/jondi/a.out)
+==15848==  Address 0x4112498 is 0 bytes inside a block of size 19 free'd
+==15848==    at 0x40054B4: operator delete(void*) (vg_replace_malloc.c:346)
+==15848==    by 0x40B318C: std::string::_Rep::_M_destroy(std::allocator<char> const&) (in /usr/lib/libstdc++.so.6.0.8)
+==15848==    by 0x40B5D36: std::basic_string<char, std::char_traits<char>, std::allocator<char> >::~basic_string() (in /usr/lib/libstdc++.so.6.0.8)
+==15848==    by 0x80492EB: buildTree(BinTree&, std::basic_ifstream<char, std::char_traits<char> >&) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x8049774: main (in /net/metis/home2/jondi/a.out)
+==15848== 
+Tree Inorder:
+==15848== Invalid read of size 4
+==15848==    at 0x40A548C: std::basic_ostream<char, std::char_traits<char> >& std::operator<< <char, std::char_traits<char>, std::allocator<char> >(std::basic_ostream<char, std::char_traits<char> >&, std::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /usr/lib/libstdc++.so.6.0.8)
+==15848==    by 0x8048E97: operator<<(std::ostream&, NodeData const&) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x804AA75: BinTree::inorderHelper(std::ostream&, BinTree::Node*) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x804AACE: operator<<(std::ostream&, BinTree&) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x80497F5: main (in /net/metis/home2/jondi/a.out)
+==15848==  Address 0x41123a8 is 0 bytes inside a block of size 4 free'd
+==15848==    at 0x40054B4: operator delete(void*) (vg_replace_malloc.c:346)
+==15848==    by 0x80492DB: buildTree(BinTree&, std::basic_ifstream<char, std::char_traits<char> >&) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x8049774: main (in /net/metis/home2/jondi/a.out)
+==15848== 
+==15848== Invalid read of size 4
+==15848==    at 0x40A548E: std::basic_ostream<char, std::char_traits<char> >& std::operator<< <char, std::char_traits<char>, std::allocator<char> >(std::basic_ostream<char, std::char_traits<char> >&, std::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /usr/lib/libstdc++.so.6.0.8)
+==15848==    by 0x8048E97: operator<<(std::ostream&, NodeData const&) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x804AA75: BinTree::inorderHelper(std::ostream&, BinTree::Node*) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x804AACE: operator<<(std::ostream&, BinTree&) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x80497F5: main (in /net/metis/home2/jondi/a.out)
+==15848==  Address 0x4112368 is 0 bytes inside a block of size 16 free'd
+==15848==    at 0x40054B4: operator delete(void*) (vg_replace_malloc.c:346)
+==15848==    by 0x40B318C: std::string::_Rep::_M_destroy(std::allocator<char> const&) (in /usr/lib/libstdc++.so.6.0.8)
+==15848==    by 0x40B48E7: std::string::reserve(unsigned int) (in /usr/lib/libstdc++.so.6.0.8)
+==15848==    by 0x40B4AA8: std::string::append(char const*, unsigned int) (in /usr/lib/libstdc++.so.6.0.8)
+==15848==    by 0x408B35E: std::basic_istream<char, std::char_traits<char> >& std::operator>><char, std::char_traits<char>, std::allocator<char> >(std::basic_istream<char, std::char_traits<char> >&, std::basic_string<char, std::char_traits<char>, std::allocator<char> >&) (in /usr/lib/libstdc++.so.6.0.8)
+==15848==    by 0x80491ED: buildTree(BinTree&, std::basic_ifstream<char, std::char_traits<char> >&) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x8049774: main (in /net/metis/home2/jondi/a.out)
+==15848== 
+==15848== Invalid read of size 4
+==15848==    at 0x40A548C: std::basic_ostream<char, std::char_traits<char> >& std::operator<< <char, std::char_traits<char>, std::allocator<char> >(std::basic_ostream<char, std::char_traits<char> >&, std::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /usr/lib/libstdc++.so.6.0.8)
+==15848==    by 0x8048E97: operator<<(std::ostream&, NodeData const&) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x804AA75: BinTree::inorderHelper(std::ostream&, BinTree::Node*) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x804AAAB: BinTree::inorderHelper(std::ostream&, BinTree::Node*) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x804AACE: operator<<(std::ostream&, BinTree&) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x80497F5: main (in /net/metis/home2/jondi/a.out)
+==15848==  Address 0x41124e0 is 0 bytes inside a block of size 4 free'd
+==15848==    at 0x40054B4: operator delete(void*) (vg_replace_malloc.c:346)
+==15848==    by 0x80492DB: buildTree(BinTree&, std::basic_ifstream<char, std::char_traits<char> >&) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x8049774: main (in /net/metis/home2/jondi/a.out)
+==15848== 
+==15848== Invalid read of size 4
+==15848==    at 0x40A548E: std::basic_ostream<char, std::char_traits<char> >& std::operator<< <char, std::char_traits<char>, std::allocator<char> >(std::basic_ostream<char, std::char_traits<char> >&, std::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /usr/lib/libstdc++.so.6.0.8)
+==15848==    by 0x8048E97: operator<<(std::ostream&, NodeData const&) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x804AA75: BinTree::inorderHelper(std::ostream&, BinTree::Node*) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x804AAAB: BinTree::inorderHelper(std::ostream&, BinTree::Node*) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x804AACE: operator<<(std::ostream&, BinTree&) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x80497F5: main (in /net/metis/home2/jondi/a.out)
+==15848==  Address 0x4112498 is 0 bytes inside a block of size 19 free'd
+==15848==    at 0x40054B4: operator delete(void*) (vg_replace_malloc.c:346)
+==15848==    by 0x40B318C: std::string::_Rep::_M_destroy(std::allocator<char> const&) (in /usr/lib/libstdc++.so.6.0.8)
+==15848==    by 0x40B5D36: std::basic_string<char, std::char_traits<char>, std::allocator<char> >::~basic_string() (in /usr/lib/libstdc++.so.6.0.8)
+==15848==    by 0x80492EB: buildTree(BinTree&, std::basic_ifstream<char, std::char_traits<char> >&) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x8049774: main (in /net/metis/home2/jondi/a.out)
+==15848== 
+==15848== Invalid read of size 1
+==15848==    at 0x7E0CF9: _IO_file_xsputn@@GLIBC_2.1 (in /lib/libc-2.5.so)
+==15848==    by 0x7D728E: fwrite (in /lib/libc-2.5.so)
+==15848==    by 0x40A4745: ??? (in /usr/lib/libstdc++.so.6.0.8)
+==15848==    by 0x40A54B2: std::basic_ostream<char, std::char_traits<char> >& std::operator<< <char, std::char_traits<char>, std::allocator<char> >(std::basic_ostream<char, std::char_traits<char> >&, std::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /usr/lib/libstdc++.so.6.0.8)
+==15848==    by 0x8048E97: operator<<(std::ostream&, NodeData const&) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x804AA75: BinTree::inorderHelper(std::ostream&, BinTree::Node*) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x804AAAB: BinTree::inorderHelper(std::ostream&, BinTree::Node*) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x804AACE: operator<<(std::ostream&, BinTree&) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x80497F5: main (in /net/metis/home2/jondi/a.out)
+==15848==  Address 0x41124a5 is 13 bytes inside a block of size 19 free'd
+==15848==    at 0x40054B4: operator delete(void*) (vg_replace_malloc.c:346)
+==15848==    by 0x40B318C: std::string::_Rep::_M_destroy(std::allocator<char> const&) (in /usr/lib/libstdc++.so.6.0.8)
+==15848==    by 0x40B5D36: std::basic_string<char, std::char_traits<char>, std::allocator<char> >::~basic_string() (in /usr/lib/libstdc++.so.6.0.8)
+==15848==    by 0x80492EB: buildTree(BinTree&, std::basic_ifstream<char, std::char_traits<char> >&) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x8049774: main (in /net/metis/home2/jondi/a.out)
+==15848== 
+==15848== Invalid read of size 1
+==15848==    at 0x7E0D0A: _IO_file_xsputn@@GLIBC_2.1 (in /lib/libc-2.5.so)
+==15848==    by 0x7D728E: fwrite (in /lib/libc-2.5.so)
+==15848==    by 0x40A4745: ??? (in /usr/lib/libstdc++.so.6.0.8)
+==15848==    by 0x40A54B2: std::basic_ostream<char, std::char_traits<char> >& std::operator<< <char, std::char_traits<char>, std::allocator<char> >(std::basic_ostream<char, std::char_traits<char> >&, std::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /usr/lib/libstdc++.so.6.0.8)
+==15848==    by 0x8048E97: operator<<(std::ostream&, NodeData const&) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x804AA75: BinTree::inorderHelper(std::ostream&, BinTree::Node*) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x804AAAB: BinTree::inorderHelper(std::ostream&, BinTree::Node*) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x804AACE: operator<<(std::ostream&, BinTree&) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x80497F5: main (in /net/metis/home2/jondi/a.out)
+==15848==  Address 0x41124a4 is 12 bytes inside a block of size 19 free'd
+==15848==    at 0x40054B4: operator delete(void*) (vg_replace_malloc.c:346)
+==15848==    by 0x40B318C: std::string::_Rep::_M_destroy(std::allocator<char> const&) (in /usr/lib/libstdc++.so.6.0.8)
+==15848==    by 0x40B5D36: std::basic_string<char, std::char_traits<char>, std::allocator<char> >::~basic_string() (in /usr/lib/libstdc++.so.6.0.8)
+==15848==    by 0x80492EB: buildTree(BinTree&, std::basic_ifstream<char, std::char_traits<char> >&) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x8049774: main (in /net/metis/home2/jondi/a.out)
+==15848== 
+==15848== Invalid read of size 1
+==15848==    at 0x7E0C63: _IO_file_xsputn@@GLIBC_2.1 (in /lib/libc-2.5.so)
+==15848==    by 0x7D728E: fwrite (in /lib/libc-2.5.so)
+==15848==    by 0x40A4745: ??? (in /usr/lib/libstdc++.so.6.0.8)
+==15848==    by 0x40A54B2: std::basic_ostream<char, std::char_traits<char> >& std::operator<< <char, std::char_traits<char>, std::allocator<char> >(std::basic_ostream<char, std::char_traits<char> >&, std::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /usr/lib/libstdc++.so.6.0.8)
+==15848==    by 0x8048E97: operator<<(std::ostream&, NodeData const&) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x804AA75: BinTree::inorderHelper(std::ostream&, BinTree::Node*) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x804AAAB: BinTree::inorderHelper(std::ostream&, BinTree::Node*) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x804AACE: operator<<(std::ostream&, BinTree&) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x80497F5: main (in /net/metis/home2/jondi/a.out)
+==15848==  Address 0x41124a4 is 12 bytes inside a block of size 19 free'd
+==15848==    at 0x40054B4: operator delete(void*) (vg_replace_malloc.c:346)
+==15848==    by 0x40B318C: std::string::_Rep::_M_destroy(std::allocator<char> const&) (in /usr/lib/libstdc++.so.6.0.8)
+==15848==    by 0x40B5D36: std::basic_string<char, std::char_traits<char>, std::allocator<char> >::~basic_string() (in /usr/lib/libstdc++.so.6.0.8)
+==15848==    by 0x80492EB: buildTree(BinTree&, std::basic_ifstream<char, std::char_traits<char> >&) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x8049774: main (in /net/metis/home2/jondi/a.out)
+==15848== 
+ $$ 
+==15848== Invalid read of size 4
+==15848==    at 0x40A548C: std::basic_ostream<char, std::char_traits<char> >& std::operator<< <char, std::char_traits<char>, std::allocator<char> >(std::basic_ostream<char, std::char_traits<char> >&, std::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /usr/lib/libstdc++.so.6.0.8)
+==15848==    by 0x8048E97: operator<<(std::ostream&, NodeData const&) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x804A23A: BinTree::sideways(BinTree::Node*, int) const (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x804A1FF: BinTree::sideways(BinTree::Node*, int) const (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x804A28B: BinTree::displaySideways() const (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x8049800: main (in /net/metis/home2/jondi/a.out)
+==15848==  Address 0x41124e0 is 0 bytes inside a block of size 4 free'd
+==15848==    at 0x40054B4: operator delete(void*) (vg_replace_malloc.c:346)
+==15848==    by 0x80492DB: buildTree(BinTree&, std::basic_ifstream<char, std::char_traits<char> >&) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x8049774: main (in /net/metis/home2/jondi/a.out)
+==15848== 
+==15848== Invalid read of size 4
+==15848==    at 0x40A548E: std::basic_ostream<char, std::char_traits<char> >& std::operator<< <char, std::char_traits<char>, std::allocator<char> >(std::basic_ostream<char, std::char_traits<char> >&, std::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /usr/lib/libstdc++.so.6.0.8)
+==15848==    by 0x8048E97: operator<<(std::ostream&, NodeData const&) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x804A23A: BinTree::sideways(BinTree::Node*, int) const (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x804A1FF: BinTree::sideways(BinTree::Node*, int) const (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x804A28B: BinTree::displaySideways() const (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x8049800: main (in /net/metis/home2/jondi/a.out)
+==15848==  Address 0x4112498 is 0 bytes inside a block of size 19 free'd
+==15848==    at 0x40054B4: operator delete(void*) (vg_replace_malloc.c:346)
+==15848==    by 0x40B318C: std::string::_Rep::_M_destroy(std::allocator<char> const&) (in /usr/lib/libstdc++.so.6.0.8)
+==15848==    by 0x40B5D36: std::basic_string<char, std::char_traits<char>, std::allocator<char> >::~basic_string() (in /usr/lib/libstdc++.so.6.0.8)
+==15848==    by 0x80492EB: buildTree(BinTree&, std::basic_ifstream<char, std::char_traits<char> >&) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x8049774: main (in /net/metis/home2/jondi/a.out)
+==15848== 
+            $$
+==15848== Invalid read of size 4
+==15848==    at 0x40A548C: std::basic_ostream<char, std::char_traits<char> >& std::operator<< <char, std::char_traits<char>, std::allocator<char> >(std::basic_ostream<char, std::char_traits<char> >&, std::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /usr/lib/libstdc++.so.6.0.8)
+==15848==    by 0x8048E97: operator<<(std::ostream&, NodeData const&) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x804A23A: BinTree::sideways(BinTree::Node*, int) const (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x804A28B: BinTree::displaySideways() const (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x8049800: main (in /net/metis/home2/jondi/a.out)
+==15848==  Address 0x41123a8 is 0 bytes inside a block of size 4 free'd
+==15848==    at 0x40054B4: operator delete(void*) (vg_replace_malloc.c:346)
+==15848==    by 0x80492DB: buildTree(BinTree&, std::basic_ifstream<char, std::char_traits<char> >&) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x8049774: main (in /net/metis/home2/jondi/a.out)
+==15848== 
+==15848== Invalid read of size 4
+==15848==    at 0x40A548E: std::basic_ostream<char, std::char_traits<char> >& std::operator<< <char, std::char_traits<char>, std::allocator<char> >(std::basic_ostream<char, std::char_traits<char> >&, std::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /usr/lib/libstdc++.so.6.0.8)
+==15848==    by 0x8048E97: operator<<(std::ostream&, NodeData const&) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x804A23A: BinTree::sideways(BinTree::Node*, int) const (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x804A28B: BinTree::displaySideways() const (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x8049800: main (in /net/metis/home2/jondi/a.out)
+==15848==  Address 0x4112368 is 0 bytes inside a block of size 16 free'd
+==15848==    at 0x40054B4: operator delete(void*) (vg_replace_malloc.c:346)
+==15848==    by 0x40B318C: std::string::_Rep::_M_destroy(std::allocator<char> const&) (in /usr/lib/libstdc++.so.6.0.8)
+==15848==    by 0x40B48E7: std::string::reserve(unsigned int) (in /usr/lib/libstdc++.so.6.0.8)
+==15848==    by 0x40B4AA8: std::string::append(char const*, unsigned int) (in /usr/lib/libstdc++.so.6.0.8)
+==15848==    by 0x408B35E: std::basic_istream<char, std::char_traits<char> >& std::operator>><char, std::char_traits<char>, std::allocator<char> >(std::basic_istream<char, std::char_traits<char> >&, std::basic_string<char, std::char_traits<char>, std::allocator<char> >&) (in /usr/lib/libstdc++.so.6.0.8)
+==15848==    by 0x80491ED: buildTree(BinTree&, std::basic_ifstream<char, std::char_traits<char> >&) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x8049774: main (in /net/metis/home2/jondi/a.out)
+==15848== 
+        
+==15848== Invalid read of size 4
+==15848==    at 0x40B343B: std::string::compare(std::string const&) const (in /usr/lib/libstdc++.so.6.0.8)
+==15848==    by 0x8049121: bool std::operator==<char, std::char_traits<char>, std::allocator<char> >(std::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x8048E07: NodeData::operator==(NodeData const&) const (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x804A915: BinTree::retrieveHelper(BinTree::Node*, NodeData const&, NodeData*&) const (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x804AA10: BinTree::retrieve(NodeData const&, NodeData*&) const (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x8049819: main (in /net/metis/home2/jondi/a.out)
+==15848==  Address 0x41123a8 is 0 bytes inside a block of size 4 free'd
+==15848==    at 0x40054B4: operator delete(void*) (vg_replace_malloc.c:346)
+==15848==    by 0x80492DB: buildTree(BinTree&, std::basic_ifstream<char, std::char_traits<char> >&) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x8049774: main (in /net/metis/home2/jondi/a.out)
+==15848== 
+==15848== Invalid read of size 4
+==15848==    at 0x40B3440: std::string::compare(std::string const&) const (in /usr/lib/libstdc++.so.6.0.8)
+==15848==    by 0x8049121: bool std::operator==<char, std::char_traits<char>, std::allocator<char> >(std::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x8048E07: NodeData::operator==(NodeData const&) const (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x804A915: BinTree::retrieveHelper(BinTree::Node*, NodeData const&, NodeData*&) const (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x804AA10: BinTree::retrieve(NodeData const&, NodeData*&) const (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x8049819: main (in /net/metis/home2/jondi/a.out)
+==15848==  Address 0x4112368 is 0 bytes inside a block of size 16 free'd
+==15848==    at 0x40054B4: operator delete(void*) (vg_replace_malloc.c:346)
+==15848==    by 0x40B318C: std::string::_Rep::_M_destroy(std::allocator<char> const&) (in /usr/lib/libstdc++.so.6.0.8)
+==15848==    by 0x40B48E7: std::string::reserve(unsigned int) (in /usr/lib/libstdc++.so.6.0.8)
+==15848==    by 0x40B4AA8: std::string::append(char const*, unsigned int) (in /usr/lib/libstdc++.so.6.0.8)
+==15848==    by 0x408B35E: std::basic_istream<char, std::char_traits<char> >& std::operator>><char, std::char_traits<char>, std::allocator<char> >(std::basic_istream<char, std::char_traits<char> >&, std::basic_string<char, std::char_traits<char>, std::allocator<char> >&) (in /usr/lib/libstdc++.so.6.0.8)
+==15848==    by 0x80491ED: buildTree(BinTree&, std::basic_ifstream<char, std::char_traits<char> >&) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x8049774: main (in /net/metis/home2/jondi/a.out)
+==15848== 
+==15848== Invalid read of size 4
+==15848==    at 0x40B344C: std::string::compare(std::string const&) const (in /usr/lib/libstdc++.so.6.0.8)
+==15848==    by 0x80490BF: bool std::operator><char, std::char_traits<char>, std::allocator<char> >(std::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x8048DAD: NodeData::operator>(NodeData const&) const (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x804A9A0: BinTree::retrieveHelper(BinTree::Node*, NodeData const&, NodeData*&) const (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x804AA10: BinTree::retrieve(NodeData const&, NodeData*&) const (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x8049819: main (in /net/metis/home2/jondi/a.out)
+==15848==  Address 0x41123a8 is 0 bytes inside a block of size 4 free'd
+==15848==    at 0x40054B4: operator delete(void*) (vg_replace_malloc.c:346)
+==15848==    by 0x80492DB: buildTree(BinTree&, std::basic_ifstream<char, std::char_traits<char> >&) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x8049774: main (in /net/metis/home2/jondi/a.out)
+==15848== 
+==15848== Invalid read of size 4
+==15848==    at 0x40B344E: std::string::compare(std::string const&) const (in /usr/lib/libstdc++.so.6.0.8)
+==15848==    by 0x80490BF: bool std::operator><char, std::char_traits<char>, std::allocator<char> >(std::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x8048DAD: NodeData::operator>(NodeData const&) const (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x804A9A0: BinTree::retrieveHelper(BinTree::Node*, NodeData const&, NodeData*&) const (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x804AA10: BinTree::retrieve(NodeData const&, NodeData*&) const (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x8049819: main (in /net/metis/home2/jondi/a.out)
+==15848==  Address 0x4112368 is 0 bytes inside a block of size 16 free'd
+==15848==    at 0x40054B4: operator delete(void*) (vg_replace_malloc.c:346)
+==15848==    by 0x40B318C: std::string::_Rep::_M_destroy(std::allocator<char> const&) (in /usr/lib/libstdc++.so.6.0.8)
+==15848==    by 0x40B48E7: std::string::reserve(unsigned int) (in /usr/lib/libstdc++.so.6.0.8)
+==15848==    by 0x40B4AA8: std::string::append(char const*, unsigned int) (in /usr/lib/libstdc++.so.6.0.8)
+==15848==    by 0x408B35E: std::basic_istream<char, std::char_traits<char> >& std::operator>><char, std::char_traits<char>, std::allocator<char> >(std::basic_istream<char, std::char_traits<char> >&, std::basic_string<char, std::char_traits<char>, std::allocator<char> >&) (in /usr/lib/libstdc++.so.6.0.8)
+==15848==    by 0x80491ED: buildTree(BinTree&, std::basic_ifstream<char, std::char_traits<char> >&) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x8049774: main (in /net/metis/home2/jondi/a.out)
+==15848== 
+==15848== Invalid read of size 1
+==15848==    at 0x40B3469: std::string::compare(std::string const&) const (in /usr/lib/libstdc++.so.6.0.8)
+==15848==    by 0x8049121: bool std::operator==<char, std::char_traits<char>, std::allocator<char> >(std::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x8048E07: NodeData::operator==(NodeData const&) const (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x804A915: BinTree::retrieveHelper(BinTree::Node*, NodeData const&, NodeData*&) const (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x804A9DC: BinTree::retrieveHelper(BinTree::Node*, NodeData const&, NodeData*&) const (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x804AA10: BinTree::retrieve(NodeData const&, NodeData*&) const (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x8049819: main (in /net/metis/home2/jondi/a.out)
+==15848==  Address 0x41124a4 is 12 bytes inside a block of size 19 free'd
+==15848==    at 0x40054B4: operator delete(void*) (vg_replace_malloc.c:346)
+==15848==    by 0x40B318C: std::string::_Rep::_M_destroy(std::allocator<char> const&) (in /usr/lib/libstdc++.so.6.0.8)
+==15848==    by 0x40B5D36: std::basic_string<char, std::char_traits<char>, std::allocator<char> >::~basic_string() (in /usr/lib/libstdc++.so.6.0.8)
+==15848==    by 0x80492EB: buildTree(BinTree&, std::basic_ifstream<char, std::char_traits<char> >&) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x8049774: main (in /net/metis/home2/jondi/a.out)
+==15848== 
+Retrieve --> and:  not found
+Retrieve --> not:  not found
+Retrieve --> sss:  not found
+==15848== Invalid read of size 4
+==15848==    at 0x40B343B: std::string::compare(std::string const&) const (in /usr/lib/libstdc++.so.6.0.8)
+==15848==    by 0x8049121: bool std::operator==<char, std::char_traits<char>, std::allocator<char> >(std::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x8048E07: NodeData::operator==(NodeData const&) const (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x804A620: BinTree::getDepthHelper(BinTree::Node*, NodeData, int, int&) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x804A783: BinTree::getDepth(NodeData&) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x804995C: main (in /net/metis/home2/jondi/a.out)
+==15848==  Address 0x41123a8 is 0 bytes inside a block of size 4 free'd
+==15848==    at 0x40054B4: operator delete(void*) (vg_replace_malloc.c:346)
+==15848==    by 0x80492DB: buildTree(BinTree&, std::basic_ifstream<char, std::char_traits<char> >&) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x8049774: main (in /net/metis/home2/jondi/a.out)
+==15848== 
+==15848== Invalid read of size 4
+==15848==    at 0x40B3440: std::string::compare(std::string const&) const (in /usr/lib/libstdc++.so.6.0.8)
+==15848==    by 0x8049121: bool std::operator==<char, std::char_traits<char>, std::allocator<char> >(std::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x8048E07: NodeData::operator==(NodeData const&) const (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x804A620: BinTree::getDepthHelper(BinTree::Node*, NodeData, int, int&) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x804A783: BinTree::getDepth(NodeData&) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x804995C: main (in /net/metis/home2/jondi/a.out)
+==15848==  Address 0x4112368 is 0 bytes inside a block of size 16 free'd
+==15848==    at 0x40054B4: operator delete(void*) (vg_replace_malloc.c:346)
+==15848==    by 0x40B318C: std::string::_Rep::_M_destroy(std::allocator<char> const&) (in /usr/lib/libstdc++.so.6.0.8)
+==15848==    by 0x40B48E7: std::string::reserve(unsigned int) (in /usr/lib/libstdc++.so.6.0.8)
+==15848==    by 0x40B4AA8: std::string::append(char const*, unsigned int) (in /usr/lib/libstdc++.so.6.0.8)
+==15848==    by 0x408B35E: std::basic_istream<char, std::char_traits<char> >& std::operator>><char, std::char_traits<char>, std::allocator<char> >(std::basic_istream<char, std::char_traits<char> >&, std::basic_string<char, std::char_traits<char>, std::allocator<char> >&) (in /usr/lib/libstdc++.so.6.0.8)
+==15848==    by 0x80491ED: buildTree(BinTree&, std::basic_ifstream<char, std::char_traits<char> >&) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x8049774: main (in /net/metis/home2/jondi/a.out)
+==15848== 
+==15848== Invalid read of size 1
+==15848==    at 0x40B3469: std::string::compare(std::string const&) const (in /usr/lib/libstdc++.so.6.0.8)
+==15848==    by 0x8049121: bool std::operator==<char, std::char_traits<char>, std::allocator<char> >(std::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x8048E07: NodeData::operator==(NodeData const&) const (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x804A620: BinTree::getDepthHelper(BinTree::Node*, NodeData, int, int&) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x804A701: BinTree::getDepthHelper(BinTree::Node*, NodeData, int, int&) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x804A783: BinTree::getDepth(NodeData&) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x804995C: main (in /net/metis/home2/jondi/a.out)
+==15848==  Address 0x41124a4 is 12 bytes inside a block of size 19 free'd
+==15848==    at 0x40054B4: operator delete(void*) (vg_replace_malloc.c:346)
+==15848==    by 0x40B318C: std::string::_Rep::_M_destroy(std::allocator<char> const&) (in /usr/lib/libstdc++.so.6.0.8)
+==15848==    by 0x40B5D36: std::basic_string<char, std::char_traits<char>, std::allocator<char> >::~basic_string() (in /usr/lib/libstdc++.so.6.0.8)
+==15848==    by 0x80492EB: buildTree(BinTree&, std::basic_ifstream<char, std::char_traits<char> >&) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x8049774: main (in /net/metis/home2/jondi/a.out)
+==15848== 
+Depth    --> and:  0
+Depth    --> not:  0
+Depth    --> sss:  0
+==15848== Invalid read of size 4
+==15848==    at 0x40B343B: std::string::compare(std::string const&) const (in /usr/lib/libstdc++.so.6.0.8)
+==15848==    by 0x8049121: bool std::operator==<char, std::char_traits<char>, std::allocator<char> >(std::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x8048E07: NodeData::operator==(NodeData const&) const (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x804A2F1: BinTree::equalHelper(BinTree::Node*, BinTree::Node*) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x804A38E: BinTree::operator==(BinTree const&) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x8049A58: main (in /net/metis/home2/jondi/a.out)
+==15848==  Address 0x41123a8 is 0 bytes inside a block of size 4 free'd
+==15848==    at 0x40054B4: operator delete(void*) (vg_replace_malloc.c:346)
+==15848==    by 0x80492DB: buildTree(BinTree&, std::basic_ifstream<char, std::char_traits<char> >&) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x8049774: main (in /net/metis/home2/jondi/a.out)
+==15848== 
+==15848== Invalid read of size 4
+==15848==    at 0x40B3440: std::string::compare(std::string const&) const (in /usr/lib/libstdc++.so.6.0.8)
+==15848==    by 0x8049121: bool std::operator==<char, std::char_traits<char>, std::allocator<char> >(std::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x8048E07: NodeData::operator==(NodeData const&) const (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x804A2F1: BinTree::equalHelper(BinTree::Node*, BinTree::Node*) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x804A38E: BinTree::operator==(BinTree const&) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x8049A58: main (in /net/metis/home2/jondi/a.out)
+==15848==  Address 0x4112368 is 0 bytes inside a block of size 16 free'd
+==15848==    at 0x40054B4: operator delete(void*) (vg_replace_malloc.c:346)
+==15848==    by 0x40B318C: std::string::_Rep::_M_destroy(std::allocator<char> const&) (in /usr/lib/libstdc++.so.6.0.8)
+==15848==    by 0x40B48E7: std::string::reserve(unsigned int) (in /usr/lib/libstdc++.so.6.0.8)
+==15848==    by 0x40B4AA8: std::string::append(char const*, unsigned int) (in /usr/lib/libstdc++.so.6.0.8)
+==15848==    by 0x408B35E: std::basic_istream<char, std::char_traits<char> >& std::operator>><char, std::char_traits<char>, std::allocator<char> >(std::basic_istream<char, std::char_traits<char> >&, std::basic_string<char, std::char_traits<char>, std::allocator<char> >&) (in /usr/lib/libstdc++.so.6.0.8)
+==15848==    by 0x80491ED: buildTree(BinTree&, std::basic_ifstream<char, std::char_traits<char> >&) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x8049774: main (in /net/metis/home2/jondi/a.out)
+==15848== 
+==15848== Invalid read of size 1
+==15848==    at 0x40B3469: std::string::compare(std::string const&) const (in /usr/lib/libstdc++.so.6.0.8)
+==15848==    by 0x8049121: bool std::operator==<char, std::char_traits<char>, std::allocator<char> >(std::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x8048E07: NodeData::operator==(NodeData const&) const (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x804A2F1: BinTree::equalHelper(BinTree::Node*, BinTree::Node*) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x804A33D: BinTree::equalHelper(BinTree::Node*, BinTree::Node*) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x804A38E: BinTree::operator==(BinTree const&) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x8049A58: main (in /net/metis/home2/jondi/a.out)
+==15848==  Address 0x41124a4 is 12 bytes inside a block of size 19 free'd
+==15848==    at 0x40054B4: operator delete(void*) (vg_replace_malloc.c:346)
+==15848==    by 0x40B318C: std::string::_Rep::_M_destroy(std::allocator<char> const&) (in /usr/lib/libstdc++.so.6.0.8)
+==15848==    by 0x40B5D36: std::basic_string<char, std::char_traits<char>, std::allocator<char> >::~basic_string() (in /usr/lib/libstdc++.so.6.0.8)
+==15848==    by 0x80492EB: buildTree(BinTree&, std::basic_ifstream<char, std::char_traits<char> >&) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x8049774: main (in /net/metis/home2/jondi/a.out)
+==15848== 
+T == T2?     equal
+T != first?  equal
+T == dup?    equal
+==15848== Invalid read of size 4
+==15848==    at 0x40B4745: std::string::assign(std::string const&) (in /usr/lib/libstdc++.so.6.0.8)
+==15848==    by 0x40B4833: std::string::operator=(std::string const&) (in /usr/lib/libstdc++.so.6.0.8)
+==15848==    by 0x8048D1B: NodeData::operator=(NodeData const&) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x804A061: BinTree::bstreeArrayHelper(BinTree::Node*, NodeData**, int&) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x804A52E: BinTree::bstreeToArray(NodeData**) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x8049B93: main (in /net/metis/home2/jondi/a.out)
+==15848==  Address 0x41123a8 is 0 bytes inside a block of size 4 free'd
+==15848==    at 0x40054B4: operator delete(void*) (vg_replace_malloc.c:346)
+==15848==    by 0x80492DB: buildTree(BinTree&, std::basic_ifstream<char, std::char_traits<char> >&) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x8049774: main (in /net/metis/home2/jondi/a.out)
+==15848== 
+==15848== Invalid read of size 4
+==15848==    at 0x40B475E: std::string::assign(std::string const&) (in /usr/lib/libstdc++.so.6.0.8)
+==15848==    by 0x40B4833: std::string::operator=(std::string const&) (in /usr/lib/libstdc++.so.6.0.8)
+==15848==    by 0x8048D1B: NodeData::operator=(NodeData const&) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x804A061: BinTree::bstreeArrayHelper(BinTree::Node*, NodeData**, int&) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x804A52E: BinTree::bstreeToArray(NodeData**) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x8049B93: main (in /net/metis/home2/jondi/a.out)
+==15848==  Address 0x4112370 is 8 bytes inside a block of size 16 free'd
+==15848==    at 0x40054B4: operator delete(void*) (vg_replace_malloc.c:346)
+==15848==    by 0x40B318C: std::string::_Rep::_M_destroy(std::allocator<char> const&) (in /usr/lib/libstdc++.so.6.0.8)
+==15848==    by 0x40B48E7: std::string::reserve(unsigned int) (in /usr/lib/libstdc++.so.6.0.8)
+==15848==    by 0x40B4AA8: std::string::append(char const*, unsigned int) (in /usr/lib/libstdc++.so.6.0.8)
+==15848==    by 0x408B35E: std::basic_istream<char, std::char_traits<char> >& std::operator>><char, std::char_traits<char>, std::allocator<char> >(std::basic_istream<char, std::char_traits<char> >&, std::basic_string<char, std::char_traits<char>, std::allocator<char> >&) (in /usr/lib/libstdc++.so.6.0.8)
+==15848==    by 0x80491ED: buildTree(BinTree&, std::basic_ifstream<char, std::char_traits<char> >&) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x8049774: main (in /net/metis/home2/jondi/a.out)
+==15848== 
+==15848== Invalid read of size 4
+==15848==    at 0x40B5CFA: std::basic_string<char, std::char_traits<char>, std::allocator<char> >::~basic_string() (in /usr/lib/libstdc++.so.6.0.8)
+==15848==    by 0x8048CE4: NodeData::~NodeData() (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x804A410: BinTree::makeEmptyHelper(BinTree::Node*) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x804A3F7: BinTree::makeEmptyHelper(BinTree::Node*) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x804A452: BinTree::makeEmpty() (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x804A539: BinTree::bstreeToArray(NodeData**) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x8049B93: main (in /net/metis/home2/jondi/a.out)
+==15848==  Address 0x41124e0 is 0 bytes inside a block of size 4 free'd
+==15848==    at 0x40054B4: operator delete(void*) (vg_replace_malloc.c:346)
+==15848==    by 0x80492DB: buildTree(BinTree&, std::basic_ifstream<char, std::char_traits<char> >&) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x8049774: main (in /net/metis/home2/jondi/a.out)
+==15848== 
+==15848== Invalid read of size 4
+==15848==    at 0x40D1919: __gnu_cxx::__exchange_and_add(int volatile*, int) (in /usr/lib/libstdc++.so.6.0.8)
+==15848==    by 0x40B5D23: std::basic_string<char, std::char_traits<char>, std::allocator<char> >::~basic_string() (in /usr/lib/libstdc++.so.6.0.8)
+==15848==    by 0x8048CE4: NodeData::~NodeData() (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x804A410: BinTree::makeEmptyHelper(BinTree::Node*) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x804A3F7: BinTree::makeEmptyHelper(BinTree::Node*) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x804A452: BinTree::makeEmpty() (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x804A539: BinTree::bstreeToArray(NodeData**) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x8049B93: main (in /net/metis/home2/jondi/a.out)
+==15848==  Address 0x41124a0 is 8 bytes inside a block of size 19 free'd
+==15848==    at 0x40054B4: operator delete(void*) (vg_replace_malloc.c:346)
+==15848==    by 0x40B318C: std::string::_Rep::_M_destroy(std::allocator<char> const&) (in /usr/lib/libstdc++.so.6.0.8)
+==15848==    by 0x40B5D36: std::basic_string<char, std::char_traits<char>, std::allocator<char> >::~basic_string() (in /usr/lib/libstdc++.so.6.0.8)
+==15848==    by 0x80492EB: buildTree(BinTree&, std::basic_ifstream<char, std::char_traits<char> >&) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x8049774: main (in /net/metis/home2/jondi/a.out)
+==15848== 
+==15848== Invalid free() / delete / delete[]
+==15848==    at 0x40054B4: operator delete(void*) (vg_replace_malloc.c:346)
+==15848==    by 0x40B318C: std::string::_Rep::_M_destroy(std::allocator<char> const&) (in /usr/lib/libstdc++.so.6.0.8)
+==15848==    by 0x40B5D36: std::basic_string<char, std::char_traits<char>, std::allocator<char> >::~basic_string() (in /usr/lib/libstdc++.so.6.0.8)
+==15848==    by 0x8048CE4: NodeData::~NodeData() (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x804A410: BinTree::makeEmptyHelper(BinTree::Node*) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x804A3F7: BinTree::makeEmptyHelper(BinTree::Node*) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x804A452: BinTree::makeEmpty() (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x804A539: BinTree::bstreeToArray(NodeData**) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x8049B93: main (in /net/metis/home2/jondi/a.out)
+==15848==  Address 0x4112498 is 0 bytes inside a block of size 19 free'd
+==15848==    at 0x40054B4: operator delete(void*) (vg_replace_malloc.c:346)
+==15848==    by 0x40B318C: std::string::_Rep::_M_destroy(std::allocator<char> const&) (in /usr/lib/libstdc++.so.6.0.8)
+==15848==    by 0x40B5D36: std::basic_string<char, std::char_traits<char>, std::allocator<char> >::~basic_string() (in /usr/lib/libstdc++.so.6.0.8)
+==15848==    by 0x80492EB: buildTree(BinTree&, std::basic_ifstream<char, std::char_traits<char> >&) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x8049774: main (in /net/metis/home2/jondi/a.out)
+==15848== 
+==15848== Invalid free() / delete / delete[]
+==15848==    at 0x40054B4: operator delete(void*) (vg_replace_malloc.c:346)
+==15848==    by 0x804A41B: BinTree::makeEmptyHelper(BinTree::Node*) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x804A3F7: BinTree::makeEmptyHelper(BinTree::Node*) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x804A452: BinTree::makeEmpty() (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x804A539: BinTree::bstreeToArray(NodeData**) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x8049B93: main (in /net/metis/home2/jondi/a.out)
+==15848==  Address 0x41124e0 is 0 bytes inside a block of size 4 free'd
+==15848==    at 0x40054B4: operator delete(void*) (vg_replace_malloc.c:346)
+==15848==    by 0x80492DB: buildTree(BinTree&, std::basic_ifstream<char, std::char_traits<char> >&) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x8049774: main (in /net/metis/home2/jondi/a.out)
+==15848== 
+==15848== Invalid read of size 4
+==15848==    at 0x40B5CFA: std::basic_string<char, std::char_traits<char>, std::allocator<char> >::~basic_string() (in /usr/lib/libstdc++.so.6.0.8)
+==15848==    by 0x8048CE4: NodeData::~NodeData() (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x804A410: BinTree::makeEmptyHelper(BinTree::Node*) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x804A452: BinTree::makeEmpty() (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x804A539: BinTree::bstreeToArray(NodeData**) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x8049B93: main (in /net/metis/home2/jondi/a.out)
+==15848==  Address 0x41123a8 is 0 bytes inside a block of size 4 free'd
+==15848==    at 0x40054B4: operator delete(void*) (vg_replace_malloc.c:346)
+==15848==    by 0x80492DB: buildTree(BinTree&, std::basic_ifstream<char, std::char_traits<char> >&) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x8049774: main (in /net/metis/home2/jondi/a.out)
+==15848== 
+==15848== Invalid free() / delete / delete[]
+==15848==    at 0x40054B4: operator delete(void*) (vg_replace_malloc.c:346)
+==15848==    by 0x804A41B: BinTree::makeEmptyHelper(BinTree::Node*) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x804A452: BinTree::makeEmpty() (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x804A539: BinTree::bstreeToArray(NodeData**) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x8049B93: main (in /net/metis/home2/jondi/a.out)
+==15848==  Address 0x41123a8 is 0 bytes inside a block of size 4 free'd
+==15848==    at 0x40054B4: operator delete(void*) (vg_replace_malloc.c:346)
+==15848==    by 0x80492DB: buildTree(BinTree&, std::basic_ifstream<char, std::char_traits<char> >&) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x8049774: main (in /net/metis/home2/jondi/a.out)
+==15848== 
+            $$
+        
+--15848-- REDIR: 0x7ef6c0 (mempcpy) redirected to 0x4007a10 (mempcpy)
+---------------------------------------------------------------
+Initial data:
+==15848== Conditional jump or move depends on uninitialised value(s)
+==15848==    at 0x80492B0: buildTree(BinTree&, std::basic_ifstream<char, std::char_traits<char> >&) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x8049C39: main (in /net/metis/home2/jondi/a.out)
+==15848== 
+  b a c b a c $$ 
+Tree Inorder:
+ 
+        
+Retrieve --> and:  not found
+Retrieve --> not:  not found
+Retrieve --> sss:  not found
+Depth    --> and:  0
+Depth    --> not:  0
+Depth    --> sss:  0
+T == T2?     equal
+T != first?  not equal
+T == dup?    not equal
+        
+---------------------------------------------------------------
+Initial data:
+  c b a $$ 
+Tree Inorder:
+ 
+        
+Retrieve --> and:  not found
+Retrieve --> not:  not found
+Retrieve --> sss:  not found
+Depth    --> and:  0
+Depth    --> not:  0
+Depth    --> sss:  0
+T == T2?     equal
+T != first?  not equal
+T == dup?    equal
+        
+---------------------------------------------------------------
+Initial data:
+   
+sh: pause: command not found
+--15848-- REDIR: 0x40d6600 (operator delete[](void*)) redirected to 0x40050b1 (operator delete[](void*))
+--15848-- REDIR: 0x7e7ab0 (free) redirected to 0x4005718 (free)
+==15848== 
+==15848== HEAP SUMMARY:
+==15848==     in use at exit: 324 bytes in 27 blocks
+==15848==   total heap usage: 124 allocs, 105 frees, 9,697 bytes allocated
+==15848== 
+==15848== Searching for pointers to 27 not-freed blocks
+==15848== Checked 87,500 bytes
+==15848== 
+==15848== LEAK SUMMARY:
+==15848==    definitely lost: 324 bytes in 27 blocks
+==15848==    indirectly lost: 0 bytes in 0 blocks
+==15848==      possibly lost: 0 bytes in 0 blocks
+==15848==    still reachable: 0 bytes in 0 blocks
+==15848==         suppressed: 0 bytes in 0 blocks
+==15848== Rerun with --leak-check=full to see details of leaked memory
+==15848== 
+==15848== Use --track-origins=yes to see where uninitialised values come from
+==15848== ERROR SUMMARY: 371 errors from 43 contexts (suppressed: 16 from 8)
+==15848== 
+==15848== 1 errors in context 1 of 43:
+==15848== Invalid free() / delete / delete[]
+==15848==    at 0x40054B4: operator delete(void*) (vg_replace_malloc.c:346)
+==15848==    by 0x804A41B: BinTree::makeEmptyHelper(BinTree::Node*) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x804A3F7: BinTree::makeEmptyHelper(BinTree::Node*) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x804A452: BinTree::makeEmpty() (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x804A539: BinTree::bstreeToArray(NodeData**) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x8049B93: main (in /net/metis/home2/jondi/a.out)
+==15848==  Address 0x41124e0 is 0 bytes inside a block of size 4 free'd
+==15848==    at 0x40054B4: operator delete(void*) (vg_replace_malloc.c:346)
+==15848==    by 0x80492DB: buildTree(BinTree&, std::basic_ifstream<char, std::char_traits<char> >&) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x8049774: main (in /net/metis/home2/jondi/a.out)
+==15848== 
+==15848== 
+==15848== 1 errors in context 2 of 43:
+==15848== Invalid read of size 4
+==15848==    at 0x40B5CFA: std::basic_string<char, std::char_traits<char>, std::allocator<char> >::~basic_string() (in /usr/lib/libstdc++.so.6.0.8)
+==15848==    by 0x8048CE4: NodeData::~NodeData() (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x804A410: BinTree::makeEmptyHelper(BinTree::Node*) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x804A3F7: BinTree::makeEmptyHelper(BinTree::Node*) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x804A452: BinTree::makeEmpty() (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x804A539: BinTree::bstreeToArray(NodeData**) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x8049B93: main (in /net/metis/home2/jondi/a.out)
+==15848==  Address 0x41124e0 is 0 bytes inside a block of size 4 free'd
+==15848==    at 0x40054B4: operator delete(void*) (vg_replace_malloc.c:346)
+==15848==    by 0x80492DB: buildTree(BinTree&, std::basic_ifstream<char, std::char_traits<char> >&) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x8049774: main (in /net/metis/home2/jondi/a.out)
+==15848== 
+==15848== 
+==15848== 1 errors in context 3 of 43:
+==15848== Invalid read of size 4
+==15848==    at 0x40A548E: std::basic_ostream<char, std::char_traits<char> >& std::operator<< <char, std::char_traits<char>, std::allocator<char> >(std::basic_ostream<char, std::char_traits<char> >&, std::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /usr/lib/libstdc++.so.6.0.8)
+==15848==    by 0x8048E97: operator<<(std::ostream&, NodeData const&) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x804A23A: BinTree::sideways(BinTree::Node*, int) const (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x804A1FF: BinTree::sideways(BinTree::Node*, int) const (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x804A28B: BinTree::displaySideways() const (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x8049800: main (in /net/metis/home2/jondi/a.out)
+==15848==  Address 0x4112498 is 0 bytes inside a block of size 19 free'd
+==15848==    at 0x40054B4: operator delete(void*) (vg_replace_malloc.c:346)
+==15848==    by 0x40B318C: std::string::_Rep::_M_destroy(std::allocator<char> const&) (in /usr/lib/libstdc++.so.6.0.8)
+==15848==    by 0x40B5D36: std::basic_string<char, std::char_traits<char>, std::allocator<char> >::~basic_string() (in /usr/lib/libstdc++.so.6.0.8)
+==15848==    by 0x80492EB: buildTree(BinTree&, std::basic_ifstream<char, std::char_traits<char> >&) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x8049774: main (in /net/metis/home2/jondi/a.out)
+==15848== 
+==15848== 
+==15848== 1 errors in context 4 of 43:
+==15848== Invalid read of size 4
+==15848==    at 0x40A548C: std::basic_ostream<char, std::char_traits<char> >& std::operator<< <char, std::char_traits<char>, std::allocator<char> >(std::basic_ostream<char, std::char_traits<char> >&, std::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /usr/lib/libstdc++.so.6.0.8)
+==15848==    by 0x8048E97: operator<<(std::ostream&, NodeData const&) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x804A23A: BinTree::sideways(BinTree::Node*, int) const (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x804A1FF: BinTree::sideways(BinTree::Node*, int) const (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x804A28B: BinTree::displaySideways() const (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x8049800: main (in /net/metis/home2/jondi/a.out)
+==15848==  Address 0x41124e0 is 0 bytes inside a block of size 4 free'd
+==15848==    at 0x40054B4: operator delete(void*) (vg_replace_malloc.c:346)
+==15848==    by 0x80492DB: buildTree(BinTree&, std::basic_ifstream<char, std::char_traits<char> >&) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x8049774: main (in /net/metis/home2/jondi/a.out)
+==15848== 
+==15848== 
+==15848== 1 errors in context 5 of 43:
+==15848== Invalid read of size 4
+==15848==    at 0x40A548E: std::basic_ostream<char, std::char_traits<char> >& std::operator<< <char, std::char_traits<char>, std::allocator<char> >(std::basic_ostream<char, std::char_traits<char> >&, std::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /usr/lib/libstdc++.so.6.0.8)
+==15848==    by 0x8048E97: operator<<(std::ostream&, NodeData const&) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x804AA75: BinTree::inorderHelper(std::ostream&, BinTree::Node*) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x804AAAB: BinTree::inorderHelper(std::ostream&, BinTree::Node*) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x804AACE: operator<<(std::ostream&, BinTree&) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x80497F5: main (in /net/metis/home2/jondi/a.out)
+==15848==  Address 0x4112498 is 0 bytes inside a block of size 19 free'd
+==15848==    at 0x40054B4: operator delete(void*) (vg_replace_malloc.c:346)
+==15848==    by 0x40B318C: std::string::_Rep::_M_destroy(std::allocator<char> const&) (in /usr/lib/libstdc++.so.6.0.8)
+==15848==    by 0x40B5D36: std::basic_string<char, std::char_traits<char>, std::allocator<char> >::~basic_string() (in /usr/lib/libstdc++.so.6.0.8)
+==15848==    by 0x80492EB: buildTree(BinTree&, std::basic_ifstream<char, std::char_traits<char> >&) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x8049774: main (in /net/metis/home2/jondi/a.out)
+==15848== 
+==15848== 
+==15848== 1 errors in context 6 of 43:
+==15848== Invalid read of size 4
+==15848==    at 0x40A548C: std::basic_ostream<char, std::char_traits<char> >& std::operator<< <char, std::char_traits<char>, std::allocator<char> >(std::basic_ostream<char, std::char_traits<char> >&, std::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /usr/lib/libstdc++.so.6.0.8)
+==15848==    by 0x8048E97: operator<<(std::ostream&, NodeData const&) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x804AA75: BinTree::inorderHelper(std::ostream&, BinTree::Node*) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x804AAAB: BinTree::inorderHelper(std::ostream&, BinTree::Node*) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x804AACE: operator<<(std::ostream&, BinTree&) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x80497F5: main (in /net/metis/home2/jondi/a.out)
+==15848==  Address 0x41124e0 is 0 bytes inside a block of size 4 free'd
+==15848==    at 0x40054B4: operator delete(void*) (vg_replace_malloc.c:346)
+==15848==    by 0x80492DB: buildTree(BinTree&, std::basic_ifstream<char, std::char_traits<char> >&) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x8049774: main (in /net/metis/home2/jondi/a.out)
+==15848== 
+==15848== 
+==15848== 2 errors in context 7 of 43:
+==15848== Conditional jump or move depends on uninitialised value(s)
+==15848==    at 0x80492B0: buildTree(BinTree&, std::basic_ifstream<char, std::char_traits<char> >&) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x8049C39: main (in /net/metis/home2/jondi/a.out)
+==15848== 
+==15848== 
+==15848== 2 errors in context 8 of 43:
+==15848== Invalid read of size 1
+==15848==    at 0x7E0D0A: _IO_file_xsputn@@GLIBC_2.1 (in /lib/libc-2.5.so)
+==15848==    by 0x7D728E: fwrite (in /lib/libc-2.5.so)
+==15848==    by 0x40A4745: ??? (in /usr/lib/libstdc++.so.6.0.8)
+==15848==    by 0x40A54B2: std::basic_ostream<char, std::char_traits<char> >& std::operator<< <char, std::char_traits<char>, std::allocator<char> >(std::basic_ostream<char, std::char_traits<char> >&, std::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /usr/lib/libstdc++.so.6.0.8)
+==15848==    by 0x8048E97: operator<<(std::ostream&, NodeData const&) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x804AA75: BinTree::inorderHelper(std::ostream&, BinTree::Node*) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x804AAAB: BinTree::inorderHelper(std::ostream&, BinTree::Node*) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x804AACE: operator<<(std::ostream&, BinTree&) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x80497F5: main (in /net/metis/home2/jondi/a.out)
+==15848==  Address 0x41124a4 is 12 bytes inside a block of size 19 free'd
+==15848==    at 0x40054B4: operator delete(void*) (vg_replace_malloc.c:346)
+==15848==    by 0x40B318C: std::string::_Rep::_M_destroy(std::allocator<char> const&) (in /usr/lib/libstdc++.so.6.0.8)
+==15848==    by 0x40B5D36: std::basic_string<char, std::char_traits<char>, std::allocator<char> >::~basic_string() (in /usr/lib/libstdc++.so.6.0.8)
+==15848==    by 0x80492EB: buildTree(BinTree&, std::basic_ifstream<char, std::char_traits<char> >&) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x8049774: main (in /net/metis/home2/jondi/a.out)
+==15848== 
+==15848== 
+==15848== 2 errors in context 9 of 43:
+==15848== Invalid read of size 1
+==15848==    at 0x7E0CF9: _IO_file_xsputn@@GLIBC_2.1 (in /lib/libc-2.5.so)
+==15848==    by 0x7D728E: fwrite (in /lib/libc-2.5.so)
+==15848==    by 0x40A4745: ??? (in /usr/lib/libstdc++.so.6.0.8)
+==15848==    by 0x40A54B2: std::basic_ostream<char, std::char_traits<char> >& std::operator<< <char, std::char_traits<char>, std::allocator<char> >(std::basic_ostream<char, std::char_traits<char> >&, std::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /usr/lib/libstdc++.so.6.0.8)
+==15848==    by 0x8048E97: operator<<(std::ostream&, NodeData const&) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x804AA75: BinTree::inorderHelper(std::ostream&, BinTree::Node*) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x804AAAB: BinTree::inorderHelper(std::ostream&, BinTree::Node*) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x804AACE: operator<<(std::ostream&, BinTree&) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x80497F5: main (in /net/metis/home2/jondi/a.out)
+==15848==  Address 0x41124a5 is 13 bytes inside a block of size 19 free'd
+==15848==    at 0x40054B4: operator delete(void*) (vg_replace_malloc.c:346)
+==15848==    by 0x40B318C: std::string::_Rep::_M_destroy(std::allocator<char> const&) (in /usr/lib/libstdc++.so.6.0.8)
+==15848==    by 0x40B5D36: std::basic_string<char, std::char_traits<char>, std::allocator<char> >::~basic_string() (in /usr/lib/libstdc++.so.6.0.8)
+==15848==    by 0x80492EB: buildTree(BinTree&, std::basic_ifstream<char, std::char_traits<char> >&) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x8049774: main (in /net/metis/home2/jondi/a.out)
+==15848== 
+==15848== 
+==15848== 2 errors in context 10 of 43:
+==15848== Conditional jump or move depends on uninitialised value(s)
+==15848==    at 0x80492B0: buildTree(BinTree&, std::basic_ifstream<char, std::char_traits<char> >&) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x8049774: main (in /net/metis/home2/jondi/a.out)
+==15848== 
+==15848== 
+==15848== 3 errors in context 11 of 43:
+==15848== Invalid free() / delete / delete[]
+==15848==    at 0x40054B4: operator delete(void*) (vg_replace_malloc.c:346)
+==15848==    by 0x804A41B: BinTree::makeEmptyHelper(BinTree::Node*) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x804A452: BinTree::makeEmpty() (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x804A539: BinTree::bstreeToArray(NodeData**) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x8049B93: main (in /net/metis/home2/jondi/a.out)
+==15848==  Address 0x41123a8 is 0 bytes inside a block of size 4 free'd
+==15848==    at 0x40054B4: operator delete(void*) (vg_replace_malloc.c:346)
+==15848==    by 0x80492DB: buildTree(BinTree&, std::basic_ifstream<char, std::char_traits<char> >&) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x8049774: main (in /net/metis/home2/jondi/a.out)
+==15848== 
+==15848== 
+==15848== 3 errors in context 12 of 43:
+==15848== Invalid read of size 4
+==15848==    at 0x40B5CFA: std::basic_string<char, std::char_traits<char>, std::allocator<char> >::~basic_string() (in /usr/lib/libstdc++.so.6.0.8)
+==15848==    by 0x8048CE4: NodeData::~NodeData() (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x804A410: BinTree::makeEmptyHelper(BinTree::Node*) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x804A452: BinTree::makeEmpty() (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x804A539: BinTree::bstreeToArray(NodeData**) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x8049B93: main (in /net/metis/home2/jondi/a.out)
+==15848==  Address 0x41123a8 is 0 bytes inside a block of size 4 free'd
+==15848==    at 0x40054B4: operator delete(void*) (vg_replace_malloc.c:346)
+==15848==    by 0x80492DB: buildTree(BinTree&, std::basic_ifstream<char, std::char_traits<char> >&) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x8049774: main (in /net/metis/home2/jondi/a.out)
+==15848== 
+==15848== 
+==15848== 3 errors in context 13 of 43:
+==15848== Invalid read of size 4
+==15848==    at 0x40A548E: std::basic_ostream<char, std::char_traits<char> >& std::operator<< <char, std::char_traits<char>, std::allocator<char> >(std::basic_ostream<char, std::char_traits<char> >&, std::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /usr/lib/libstdc++.so.6.0.8)
+==15848==    by 0x8048E97: operator<<(std::ostream&, NodeData const&) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x804A23A: BinTree::sideways(BinTree::Node*, int) const (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x804A28B: BinTree::displaySideways() const (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x8049800: main (in /net/metis/home2/jondi/a.out)
+==15848==  Address 0x4112368 is 0 bytes inside a block of size 16 free'd
+==15848==    at 0x40054B4: operator delete(void*) (vg_replace_malloc.c:346)
+==15848==    by 0x40B318C: std::string::_Rep::_M_destroy(std::allocator<char> const&) (in /usr/lib/libstdc++.so.6.0.8)
+==15848==    by 0x40B48E7: std::string::reserve(unsigned int) (in /usr/lib/libstdc++.so.6.0.8)
+==15848==    by 0x40B4AA8: std::string::append(char const*, unsigned int) (in /usr/lib/libstdc++.so.6.0.8)
+==15848==    by 0x408B35E: std::basic_istream<char, std::char_traits<char> >& std::operator>><char, std::char_traits<char>, std::allocator<char> >(std::basic_istream<char, std::char_traits<char> >&, std::basic_string<char, std::char_traits<char>, std::allocator<char> >&) (in /usr/lib/libstdc++.so.6.0.8)
+==15848==    by 0x80491ED: buildTree(BinTree&, std::basic_ifstream<char, std::char_traits<char> >&) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x8049774: main (in /net/metis/home2/jondi/a.out)
+==15848== 
+==15848== 
+==15848== 3 errors in context 14 of 43:
+==15848== Invalid read of size 4
+==15848==    at 0x40A548C: std::basic_ostream<char, std::char_traits<char> >& std::operator<< <char, std::char_traits<char>, std::allocator<char> >(std::basic_ostream<char, std::char_traits<char> >&, std::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /usr/lib/libstdc++.so.6.0.8)
+==15848==    by 0x8048E97: operator<<(std::ostream&, NodeData const&) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x804A23A: BinTree::sideways(BinTree::Node*, int) const (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x804A28B: BinTree::displaySideways() const (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x8049800: main (in /net/metis/home2/jondi/a.out)
+==15848==  Address 0x41123a8 is 0 bytes inside a block of size 4 free'd
+==15848==    at 0x40054B4: operator delete(void*) (vg_replace_malloc.c:346)
+==15848==    by 0x80492DB: buildTree(BinTree&, std::basic_ifstream<char, std::char_traits<char> >&) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x8049774: main (in /net/metis/home2/jondi/a.out)
+==15848== 
+==15848== 
+==15848== 3 errors in context 15 of 43:
+==15848== Invalid read of size 4
+==15848==    at 0x40A548E: std::basic_ostream<char, std::char_traits<char> >& std::operator<< <char, std::char_traits<char>, std::allocator<char> >(std::basic_ostream<char, std::char_traits<char> >&, std::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /usr/lib/libstdc++.so.6.0.8)
+==15848==    by 0x8048E97: operator<<(std::ostream&, NodeData const&) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x804AA75: BinTree::inorderHelper(std::ostream&, BinTree::Node*) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x804AACE: operator<<(std::ostream&, BinTree&) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x80497F5: main (in /net/metis/home2/jondi/a.out)
+==15848==  Address 0x4112368 is 0 bytes inside a block of size 16 free'd
+==15848==    at 0x40054B4: operator delete(void*) (vg_replace_malloc.c:346)
+==15848==    by 0x40B318C: std::string::_Rep::_M_destroy(std::allocator<char> const&) (in /usr/lib/libstdc++.so.6.0.8)
+==15848==    by 0x40B48E7: std::string::reserve(unsigned int) (in /usr/lib/libstdc++.so.6.0.8)
+==15848==    by 0x40B4AA8: std::string::append(char const*, unsigned int) (in /usr/lib/libstdc++.so.6.0.8)
+==15848==    by 0x408B35E: std::basic_istream<char, std::char_traits<char> >& std::operator>><char, std::char_traits<char>, std::allocator<char> >(std::basic_istream<char, std::char_traits<char> >&, std::basic_string<char, std::char_traits<char>, std::allocator<char> >&) (in /usr/lib/libstdc++.so.6.0.8)
+==15848==    by 0x80491ED: buildTree(BinTree&, std::basic_ifstream<char, std::char_traits<char> >&) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x8049774: main (in /net/metis/home2/jondi/a.out)
+==15848== 
+==15848== 
+==15848== 3 errors in context 16 of 43:
+==15848== Invalid read of size 4
+==15848==    at 0x40A548C: std::basic_ostream<char, std::char_traits<char> >& std::operator<< <char, std::char_traits<char>, std::allocator<char> >(std::basic_ostream<char, std::char_traits<char> >&, std::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /usr/lib/libstdc++.so.6.0.8)
+==15848==    by 0x8048E97: operator<<(std::ostream&, NodeData const&) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x804AA75: BinTree::inorderHelper(std::ostream&, BinTree::Node*) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x804AACE: operator<<(std::ostream&, BinTree&) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x80497F5: main (in /net/metis/home2/jondi/a.out)
+==15848==  Address 0x41123a8 is 0 bytes inside a block of size 4 free'd
+==15848==    at 0x40054B4: operator delete(void*) (vg_replace_malloc.c:346)
+==15848==    by 0x80492DB: buildTree(BinTree&, std::basic_ifstream<char, std::char_traits<char> >&) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x8049774: main (in /net/metis/home2/jondi/a.out)
+==15848== 
+==15848== 
+==15848== 3 errors in context 17 of 43:
+==15848== Invalid read of size 1
+==15848==    at 0x40B3469: std::string::compare(std::string const&) const (in /usr/lib/libstdc++.so.6.0.8)
+==15848==    by 0x8049121: bool std::operator==<char, std::char_traits<char>, std::allocator<char> >(std::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x8048E07: NodeData::operator==(NodeData const&) const (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x804A620: BinTree::getDepthHelper(BinTree::Node*, NodeData, int, int&) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x804A701: BinTree::getDepthHelper(BinTree::Node*, NodeData, int, int&) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x804A783: BinTree::getDepth(NodeData&) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x804995C: main (in /net/metis/home2/jondi/a.out)
+==15848==  Address 0x41124a4 is 12 bytes inside a block of size 19 free'd
+==15848==    at 0x40054B4: operator delete(void*) (vg_replace_malloc.c:346)
+==15848==    by 0x40B318C: std::string::_Rep::_M_destroy(std::allocator<char> const&) (in /usr/lib/libstdc++.so.6.0.8)
+==15848==    by 0x40B5D36: std::basic_string<char, std::char_traits<char>, std::allocator<char> >::~basic_string() (in /usr/lib/libstdc++.so.6.0.8)
+==15848==    by 0x80492EB: buildTree(BinTree&, std::basic_ifstream<char, std::char_traits<char> >&) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x8049774: main (in /net/metis/home2/jondi/a.out)
+==15848== 
+==15848== 
+==15848== 3 errors in context 18 of 43:
+==15848== Invalid read of size 1
+==15848==    at 0x40B3469: std::string::compare(std::string const&) const (in /usr/lib/libstdc++.so.6.0.8)
+==15848==    by 0x8049121: bool std::operator==<char, std::char_traits<char>, std::allocator<char> >(std::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x8048E07: NodeData::operator==(NodeData const&) const (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x804A915: BinTree::retrieveHelper(BinTree::Node*, NodeData const&, NodeData*&) const (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x804A9DC: BinTree::retrieveHelper(BinTree::Node*, NodeData const&, NodeData*&) const (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x804AA10: BinTree::retrieve(NodeData const&, NodeData*&) const (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x8049819: main (in /net/metis/home2/jondi/a.out)
+==15848==  Address 0x41124a4 is 12 bytes inside a block of size 19 free'd
+==15848==    at 0x40054B4: operator delete(void*) (vg_replace_malloc.c:346)
+==15848==    by 0x40B318C: std::string::_Rep::_M_destroy(std::allocator<char> const&) (in /usr/lib/libstdc++.so.6.0.8)
+==15848==    by 0x40B5D36: std::basic_string<char, std::char_traits<char>, std::allocator<char> >::~basic_string() (in /usr/lib/libstdc++.so.6.0.8)
+==15848==    by 0x80492EB: buildTree(BinTree&, std::basic_ifstream<char, std::char_traits<char> >&) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x8049774: main (in /net/metis/home2/jondi/a.out)
+==15848== 
+==15848== 
+==15848== 3 errors in context 19 of 43:
+==15848== Invalid read of size 4
+==15848==    at 0x40B344E: std::string::compare(std::string const&) const (in /usr/lib/libstdc++.so.6.0.8)
+==15848==    by 0x80490BF: bool std::operator><char, std::char_traits<char>, std::allocator<char> >(std::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x8048DAD: NodeData::operator>(NodeData const&) const (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x804A9A0: BinTree::retrieveHelper(BinTree::Node*, NodeData const&, NodeData*&) const (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x804AA10: BinTree::retrieve(NodeData const&, NodeData*&) const (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x8049819: main (in /net/metis/home2/jondi/a.out)
+==15848==  Address 0x4112368 is 0 bytes inside a block of size 16 free'd
+==15848==    at 0x40054B4: operator delete(void*) (vg_replace_malloc.c:346)
+==15848==    by 0x40B318C: std::string::_Rep::_M_destroy(std::allocator<char> const&) (in /usr/lib/libstdc++.so.6.0.8)
+==15848==    by 0x40B48E7: std::string::reserve(unsigned int) (in /usr/lib/libstdc++.so.6.0.8)
+==15848==    by 0x40B4AA8: std::string::append(char const*, unsigned int) (in /usr/lib/libstdc++.so.6.0.8)
+==15848==    by 0x408B35E: std::basic_istream<char, std::char_traits<char> >& std::operator>><char, std::char_traits<char>, std::allocator<char> >(std::basic_istream<char, std::char_traits<char> >&, std::basic_string<char, std::char_traits<char>, std::allocator<char> >&) (in /usr/lib/libstdc++.so.6.0.8)
+==15848==    by 0x80491ED: buildTree(BinTree&, std::basic_ifstream<char, std::char_traits<char> >&) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x8049774: main (in /net/metis/home2/jondi/a.out)
+==15848== 
+==15848== 
+==15848== 3 errors in context 20 of 43:
+==15848== Invalid read of size 4
+==15848==    at 0x40B344C: std::string::compare(std::string const&) const (in /usr/lib/libstdc++.so.6.0.8)
+==15848==    by 0x80490BF: bool std::operator><char, std::char_traits<char>, std::allocator<char> >(std::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x8048DAD: NodeData::operator>(NodeData const&) const (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x804A9A0: BinTree::retrieveHelper(BinTree::Node*, NodeData const&, NodeData*&) const (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x804AA10: BinTree::retrieve(NodeData const&, NodeData*&) const (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x8049819: main (in /net/metis/home2/jondi/a.out)
+==15848==  Address 0x41123a8 is 0 bytes inside a block of size 4 free'd
+==15848==    at 0x40054B4: operator delete(void*) (vg_replace_malloc.c:346)
+==15848==    by 0x80492DB: buildTree(BinTree&, std::basic_ifstream<char, std::char_traits<char> >&) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x8049774: main (in /net/metis/home2/jondi/a.out)
+==15848== 
+==15848== 
+==15848== 4 errors in context 21 of 43:
+==15848== Invalid free() / delete / delete[]
+==15848==    at 0x40054B4: operator delete(void*) (vg_replace_malloc.c:346)
+==15848==    by 0x40B318C: std::string::_Rep::_M_destroy(std::allocator<char> const&) (in /usr/lib/libstdc++.so.6.0.8)
+==15848==    by 0x40B5D36: std::basic_string<char, std::char_traits<char>, std::allocator<char> >::~basic_string() (in /usr/lib/libstdc++.so.6.0.8)
+==15848==    by 0x8048CE4: NodeData::~NodeData() (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x804A410: BinTree::makeEmptyHelper(BinTree::Node*) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x804A3F7: BinTree::makeEmptyHelper(BinTree::Node*) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x804A452: BinTree::makeEmpty() (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x804A539: BinTree::bstreeToArray(NodeData**) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x8049B93: main (in /net/metis/home2/jondi/a.out)
+==15848==  Address 0x4112498 is 0 bytes inside a block of size 19 free'd
+==15848==    at 0x40054B4: operator delete(void*) (vg_replace_malloc.c:346)
+==15848==    by 0x40B318C: std::string::_Rep::_M_destroy(std::allocator<char> const&) (in /usr/lib/libstdc++.so.6.0.8)
+==15848==    by 0x40B5D36: std::basic_string<char, std::char_traits<char>, std::allocator<char> >::~basic_string() (in /usr/lib/libstdc++.so.6.0.8)
+==15848==    by 0x80492EB: buildTree(BinTree&, std::basic_ifstream<char, std::char_traits<char> >&) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x8049774: main (in /net/metis/home2/jondi/a.out)
+==15848== 
+==15848== 
+==15848== 4 errors in context 22 of 43:
+==15848== Invalid read of size 4
+==15848==    at 0x40B475E: std::string::assign(std::string const&) (in /usr/lib/libstdc++.so.6.0.8)
+==15848==    by 0x40B4833: std::string::operator=(std::string const&) (in /usr/lib/libstdc++.so.6.0.8)
+==15848==    by 0x8048D1B: NodeData::operator=(NodeData const&) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x804A061: BinTree::bstreeArrayHelper(BinTree::Node*, NodeData**, int&) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x804A52E: BinTree::bstreeToArray(NodeData**) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x8049B93: main (in /net/metis/home2/jondi/a.out)
+==15848==  Address 0x4112370 is 8 bytes inside a block of size 16 free'd
+==15848==    at 0x40054B4: operator delete(void*) (vg_replace_malloc.c:346)
+==15848==    by 0x40B318C: std::string::_Rep::_M_destroy(std::allocator<char> const&) (in /usr/lib/libstdc++.so.6.0.8)
+==15848==    by 0x40B48E7: std::string::reserve(unsigned int) (in /usr/lib/libstdc++.so.6.0.8)
+==15848==    by 0x40B4AA8: std::string::append(char const*, unsigned int) (in /usr/lib/libstdc++.so.6.0.8)
+==15848==    by 0x408B35E: std::basic_istream<char, std::char_traits<char> >& std::operator>><char, std::char_traits<char>, std::allocator<char> >(std::basic_istream<char, std::char_traits<char> >&, std::basic_string<char, std::char_traits<char>, std::allocator<char> >&) (in /usr/lib/libstdc++.so.6.0.8)
+==15848==    by 0x80491ED: buildTree(BinTree&, std::basic_ifstream<char, std::char_traits<char> >&) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x8049774: main (in /net/metis/home2/jondi/a.out)
+==15848== 
+==15848== 
+==15848== 4 errors in context 23 of 43:
+==15848== Invalid read of size 4
+==15848==    at 0x40B4745: std::string::assign(std::string const&) (in /usr/lib/libstdc++.so.6.0.8)
+==15848==    by 0x40B4833: std::string::operator=(std::string const&) (in /usr/lib/libstdc++.so.6.0.8)
+==15848==    by 0x8048D1B: NodeData::operator=(NodeData const&) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x804A061: BinTree::bstreeArrayHelper(BinTree::Node*, NodeData**, int&) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x804A52E: BinTree::bstreeToArray(NodeData**) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x8049B93: main (in /net/metis/home2/jondi/a.out)
+==15848==  Address 0x41123a8 is 0 bytes inside a block of size 4 free'd
+==15848==    at 0x40054B4: operator delete(void*) (vg_replace_malloc.c:346)
+==15848==    by 0x80492DB: buildTree(BinTree&, std::basic_ifstream<char, std::char_traits<char> >&) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x8049774: main (in /net/metis/home2/jondi/a.out)
+==15848== 
+==15848== 
+==15848== 4 errors in context 24 of 43:
+==15848== Invalid read of size 1
+==15848==    at 0x7E0C63: _IO_file_xsputn@@GLIBC_2.1 (in /lib/libc-2.5.so)
+==15848==    by 0x7D728E: fwrite (in /lib/libc-2.5.so)
+==15848==    by 0x40A4745: ??? (in /usr/lib/libstdc++.so.6.0.8)
+==15848==    by 0x40A54B2: std::basic_ostream<char, std::char_traits<char> >& std::operator<< <char, std::char_traits<char>, std::allocator<char> >(std::basic_ostream<char, std::char_traits<char> >&, std::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /usr/lib/libstdc++.so.6.0.8)
+==15848==    by 0x8048E97: operator<<(std::ostream&, NodeData const&) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x804AA75: BinTree::inorderHelper(std::ostream&, BinTree::Node*) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x804AAAB: BinTree::inorderHelper(std::ostream&, BinTree::Node*) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x804AACE: operator<<(std::ostream&, BinTree&) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x80497F5: main (in /net/metis/home2/jondi/a.out)
+==15848==  Address 0x41124a4 is 12 bytes inside a block of size 19 free'd
+==15848==    at 0x40054B4: operator delete(void*) (vg_replace_malloc.c:346)
+==15848==    by 0x40B318C: std::string::_Rep::_M_destroy(std::allocator<char> const&) (in /usr/lib/libstdc++.so.6.0.8)
+==15848==    by 0x40B5D36: std::basic_string<char, std::char_traits<char>, std::allocator<char> >::~basic_string() (in /usr/lib/libstdc++.so.6.0.8)
+==15848==    by 0x80492EB: buildTree(BinTree&, std::basic_ifstream<char, std::char_traits<char> >&) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x8049774: main (in /net/metis/home2/jondi/a.out)
+==15848== 
+==15848== 
+==15848== 5 errors in context 25 of 43:
+==15848== Invalid read of size 4
+==15848==    at 0x40B3D07: std::string::_Rep::_M_clone(std::allocator<char> const&, unsigned int) (in /usr/lib/libstdc++.so.6.0.8)
+==15848==    by 0x40B47AA: std::string::assign(std::string const&) (in /usr/lib/libstdc++.so.6.0.8)
+==15848==    by 0x40B4833: std::string::operator=(std::string const&) (in /usr/lib/libstdc++.so.6.0.8)
+==15848==    by 0x8048D1B: NodeData::operator=(NodeData const&) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x804A152: BinTree::copyHelper(BinTree::Node*&, BinTree::Node*) (in /net/metis/home2/jondi/a.out)
+==15848==    by 0x804A19

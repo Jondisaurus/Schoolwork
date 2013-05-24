@@ -1,0 +1,243 @@
+Script started on Wed 14 Mar 2012 02:45:21 PM PDT
+]0;jondi@uw1-320-20:~[jondi@uw1-320-20 ~]$ g++ *.cpp
+In file included from classicdvd.cpp:1:
+classicdvd.h:48:7: warning: no newline at end of file
+In file included from comedydvd.cpp:1:
+comedydvd.h:48:7: warning: no newline at end of file
+commanddata.cpp:35:2: warning: no newline at end of file
+customerdata.cpp:99:2: warning: no newline at end of file
+customer_list.cpp:87:2: warning: no newline at end of file
+In file included from dramadvd.cpp:1:
+dramadvd.h:48:7: warning: no newline at end of file
+hashtable.cpp: In member function ‘cust*& HashTable::getCust(int)’:
+hashtable.cpp:130: warning: reference to local variable ‘notFound’ returned
+hashtable.cpp:130: warning: reference to local variable ‘notFound’ returned
+hashtable.cpp:130: warning: reference to local variable ‘notFound’ returned
+In file included from mediastore.h:6,
+                 from manager.h:12,
+                 from main.cpp:3:
+classicdvd.h:48:7: warning: no newline at end of file
+In file included from mediastore.h:7,
+                 from manager.h:12,
+                 from main.cpp:3:
+comedydvd.h:48:7: warning: no newline at end of file
+In file included from mediastore.h:9,
+                 from manager.h:12,
+                 from main.cpp:3:
+dramadvd.h:48:7: warning: no newline at end of file
+main.cpp:22:3: warning: no newline at end of file
+In file included from mediastore.h:6,
+                 from manager.h:12,
+                 from manager.cpp:1:
+classicdvd.h:48:7: warning: no newline at end of file
+In file included from mediastore.h:7,
+                 from manager.h:12,
+                 from manager.cpp:1:
+comedydvd.h:48:7: warning: no newline at end of file
+In file included from mediastore.h:9,
+                 from manager.h:12,
+                 from manager.cpp:1:
+dramadvd.h:48:7: warning: no newline at end of file
+manager.cpp:109:2: warning: no newline at end of file
+In file included from mediastore.h:6,
+                 from mediastore.cpp:2:
+classicdvd.h:48:7: warning: no newline at end of file
+In file included from mediastore.h:7,
+                 from mediastore.cpp:2:
+comedydvd.h:48:7: warning: no newline at end of file
+In file included from mediastore.h:9,
+                 from mediastore.cpp:2:
+dramadvd.h:48:7: warning: no newline at end of file
+]0;jondi@uw1-320-20:~[jondi@uw1-320-20 ~]$ valgrind ./a.out
+==21991== Memcheck, a memory error detector
+==21991== Copyright (C) 2002-2009, and GNU GPL'd, by Julian Seward et al.
+==21991== Using Valgrind-3.5.0 and LibVEX; rerun with -h for copyright info
+==21991== Command: ./a.out
+==21991== 
+==21991== Invalid write of size 4
+==21991==    at 0x804F672: HashTable::HashTable() (in /net/metis/home2/jondi/a.out)
+==21991==    by 0x804E3D5: customer_list::customer_list() (in /net/metis/home2/jondi/a.out)
+==21991==    by 0x8050390: Manager::Manager() (in /net/metis/home2/jondi/a.out)
+==21991==    by 0x804FC36: main (in /net/metis/home2/jondi/a.out)
+==21991==  Address 0x4025800 is 0 bytes after a block of size 400 alloc'd
+==21991==    at 0x4005FAD: operator new[](unsigned int) (vg_replace_malloc.c:258)
+==21991==    by 0x804F653: HashTable::HashTable() (in /net/metis/home2/jondi/a.out)
+==21991==    by 0x804E3D5: customer_list::customer_list() (in /net/metis/home2/jondi/a.out)
+==21991==    by 0x8050390: Manager::Manager() (in /net/metis/home2/jondi/a.out)
+==21991==    by 0x804FC36: main (in /net/metis/home2/jondi/a.out)
+==21991== 
+
+----==== OUTPUT ENTIRE STOCK ====----
+Outputting Classics Database: 
+11   0    Holiday             George Cukor           9  1938  Katherine Hepburn
+11   0    Gone With the Wind  Victor Fleming         2  1939  Vivien Leigh
+10   0    The Wizard of Oz    Victor Fleming         7  1939  Judy Garland
+11   0    The Philadelphia S  George Cukor           5  1940  Katherine Hepburn
+10   0    The Maltese Falcon  John Huston           10  1941  Humphrey Bogart
+11   0    Casablanca          Michael Curtiz         8  1942  Ingrid Bergman
+11   0    It's a Wonderful L  Frank Capra           11  1946  James Steward
+10   0    A Clockwork Orange  Stanley Kubrick        2  1971  Malcolm McDowell
+10   0    Harold and Maude    Hal Ashby              3  1971  Ruth Gordon
+
+Outputting Comedies Database: 
+10   0    Annie Hall          Woody Allen            0  1977   
+10   0    Fargo               Joel Coen              0  1996   
+10   0    National Lampoon's  John Landis            0  1978   
+10   0    Pirates of the Car  Gore Verbinski         0  2003   
+10   0    Sleepless in Seatt  Nora Ephron            0  1993   
+10   0    When Harry Met Sal  Rob Reiner             0  1989   
+10   0    You've Got Mail     Nora Ephron            0  1998   
+
+Outputting Dramas Database: 
+10   0    Good Morning Vietn  Barry Levinson         0  1988   
+10   0    Unforgiven          Clint Eastwood         0  1992   
+10   0    Good Will Hunting   Gus Van Sant           0  2000   
+10   0    Silence of the Lam  Jonathan Demme         0  1991   
+10   0    Dogfight            Nancy Savoca           0  1991   
+10   0    King of Hearts      Phillippe De Broca     0  1967   
+10   0    Schindler's List    Steven Spielberg       0  1993   
+
+
+ Outputting Data for Minnie Mouse -==- User# 1000
+
+
+
+
+ Outputting Data for Freddie Frog -==- User# 5000
+
+
+
+
+ Outputting Data for Wally Wacky -==- User# 8000
+
+
+==21991== Invalid read of size 4
+==21991==    at 0x804E0CC: customer_list::getUser(int) (in /net/metis/home2/jondi/a.out)
+==21991==    by 0x80500F2: Manager::run() (in /net/metis/home2/jondi/a.out)
+==21991==    by 0x804FD1B: main (in /net/metis/home2/jondi/a.out)
+==21991==  Address 0xbeac5868 is just below the stack ptr.  To suppress, use: --workaround-gcc296-bugs=yes
+==21991== 
+ Movie not found! Movie not found! Movie not found!USER# 1234 NOT FOUND!! Movie not found!
+No more copies of Harold and Maude remain.
+No more copies of Harold and Maude remain.
+No more copies of Harold and Maude remain. Movie not found!
+----==== OUTPUT ENTIRE STOCK ====----
+Outputting Classics Database: 
+11   0    Holiday             George Cukor           9  1938  Katherine Hepburn
+11   0    Gone With the Wind  Victor Fleming         2  1939  Vivien Leigh
+10   0    The Wizard of Oz    Victor Fleming         7  1939  Judy Garland
+10   1    The Philadelphia S  George Cukor           5  1940  Katherine Hepburn
+9    1    The Maltese Falcon  John Huston           10  1941  Humphrey Bogart
+11   0    Casablanca          Michael Curtiz         8  1942  Ingrid Bergman
+11   0    It's a Wonderful L  Frank Capra           11  1946  James Steward
+9    1    A Clockwork Orange  Stanley Kubrick        2  1971  Malcolm McDowell
+0    10   Harold and Maude    Hal Ashby              3  1971  Ruth Gordon
+
+Outputting Comedies Database: 
+9    1    Annie Hall          Woody Allen            0  1977   
+8    2    Fargo               Joel Coen              0  1996   
+9    1    National Lampoon's  John Landis            0  1978   
+10   0    Pirates of the Car  Gore Verbinski         0  2003   
+9    1    Sleepless in Seatt  Nora Ephron            0  1993   
+9    1    When Harry Met Sal  Rob Reiner             0  1989   
+9    1    You've Got Mail     Nora Ephron            0  1998   
+
+Outputting Dramas Database: 
+9    1    Good Morning Vietn  Barry Levinson         0  1988   
+9    1    Unforgiven          Clint Eastwood         0  1992   
+9    1    Good Will Hunting   Gus Van Sant           0  2000   
+9    1    Silence of the Lam  Jonathan Demme         0  1991   
+8    2    Dogfight            Nancy Savoca           0  1991   
+9    1    King of Hearts      Phillippe De Broca     0  1967   
+9    1    Schindler's List    Steven Spielberg       0  1993   
+
+
+ Outputting Data for Minnie Mouse -==- User# 1000
+Borrow == Fargo               Joel Coen              0  1996   
+Borrow == Harold and Maude    Hal Ashby              3  1971  Ruth Gordon
+Borrow == Good Will Hunting   Gus Van Sant           0  2000   
+Borrow == The Philadelphia S  George Cukor           5  1940  Katherine Hepburn
+Borrow == Good Morning Vietn  Barry Levinson         0  1988   
+
+
+
+
+ Outputting Data for Mickey Mouse -==- User# 1111
+Borrow == The Maltese Falcon  John Huston           10  1941  Humphrey Bogart
+Borrow == Harold and Maude    Hal Ashby              3  1971  Ruth Gordon
+Borrow == A Clockwork Orange  Stanley Kubrick        2  1971  Malcolm McDowell
+
+
+
+
+ Outputting Data for Freddie Frog -==- User# 5000
+Borrow == Harold and Maude    Hal Ashby              3  1971  Ruth Gordon
+Return == Harold and Maude    Hal Ashby              3  1971  Ruth Gordon
+Borrow == Harold and Maude    Hal Ashby              3  1971  Ruth Gordon
+Return == Harold and Maude    Hal Ashby              3  1971  Ruth Gordon
+Borrow == Harold and Maude    Hal Ashby              3  1971  Ruth Gordon
+Return == Harold and Maude    Hal Ashby              3  1971  Ruth Gordon
+Borrow == Harold and Maude    Hal Ashby              3  1971  Ruth Gordon
+
+
+
+
+ Outputting Data for Wally Wacky -==- User# 8000
+Borrow == National Lampoon's  John Landis            0  1978   
+Borrow == Harold and Maude    Hal Ashby              3  1971  Ruth Gordon
+Borrow == Harold and Maude    Hal Ashby              3  1971  Ruth Gordon
+Return == You've Got Mail     Nora Ephron            0  1998   
+Borrow == You've Got Mail     Nora Ephron            0  1998   
+
+
+
+
+ Outputting Data for Porky Pig -==- User# 8888
+Borrow == Harold and Maude    Hal Ashby              3  1971  Ruth Gordon
+Borrow == Dogfight            Nancy Savoca           0  1991   
+Borrow == Silence of the Lam  Jonathan Demme         0  1991   
+Borrow == When Harry Met Sal  Rob Reiner             0  1989   
+Borrow == Annie Hall          Woody Allen            0  1977   
+
+
+sh: pause: command not found
+==21991== Invalid read of size 4
+==21991==    at 0x804F24C: HashTable::clear() (in /net/metis/home2/jondi/a.out)
+==21991==    by 0x804F5EE: HashTable::~HashTable() (in /net/metis/home2/jondi/a.out)
+==21991==    by 0x804E494: customer_list::~customer_list() (in /net/metis/home2/jondi/a.out)
+==21991==    by 0x804FE8A: Manager::~Manager() (in /net/metis/home2/jondi/a.out)
+==21991==    by 0x804FD39: main (in /net/metis/home2/jondi/a.out)
+==21991==  Address 0x4 is not stack'd, malloc'd or (recently) free'd
+==21991== 
+==21991== 
+==21991== Process terminating with default action of signal 11 (SIGSEGV)
+==21991==  Access not within mapped region at address 0x4
+==21991==    at 0x804F24C: HashTable::clear() (in /net/metis/home2/jondi/a.out)
+==21991==    by 0x804F5EE: HashTable::~HashTable() (in /net/metis/home2/jondi/a.out)
+==21991==    by 0x804E494: customer_list::~customer_list() (in /net/metis/home2/jondi/a.out)
+==21991==    by 0x804FE8A: Manager::~Manager() (in /net/metis/home2/jondi/a.out)
+==21991==    by 0x804FD39: main (in /net/metis/home2/jondi/a.out)
+==21991==  If you believe this happened as a result of a stack
+==21991==  overflow in your program's main thread (unlikely but
+==21991==  possible), you can try to increase the size of the
+==21991==  main thread stack using the --main-stacksize= flag.
+==21991==  The main thread stack size used in this run was 10485760.
+==21991== 
+==21991== HEAP SUMMARY:
+==21991==     in use at exit: 9,666 bytes in 320 blocks
+==21991==   total heap usage: 873 allocs, 553 frees, 50,064 bytes allocated
+==21991== 
+==21991== LEAK SUMMARY:
+==21991==    definitely lost: 3,648 bytes in 96 blocks
+==21991==    indirectly lost: 1,359 bytes in 55 blocks
+==21991==      possibly lost: 2,411 bytes in 97 blocks
+==21991==    still reachable: 2,248 bytes in 72 blocks
+==21991==         suppressed: 0 bytes in 0 blocks
+==21991== Rerun with --leak-check=full to see details of leaked memory
+==21991== 
+==21991== For counts of detected and suppressed errors, rerun with: -v
+==21991== ERROR SUMMARY: 3 errors from 3 contexts (suppressed: 15 from 8)
+Segmentation fault
+]0;jondi@uw1-320-20:~[jondi@uw1-320-20 ~]$ exit
+
+Script done on Wed 14 Mar 2012 02:45:48 PM PDT

@@ -1,0 +1,47 @@
+Script started on Thu 20 Oct 2011 05:37:08 PM PDT
+]0;jondi@uw1-320-22:~[jondi@uw1-320-22 ~]$ g++ lab2.cpp intset.cpp
+]0;jondi@uw1-320-22:~[jondi@uw1-320-22 ~]$ valgrind ./a.out
+==10856== Memcheck, a memory error detector
+==10856== Copyright (C) 2002-2009, and GNU GPL'd, by Julian Seward et al.
+==10856== Using Valgrind-3.5.0 and LibVEX; rerun with -h for copyright info
+==10856== Command: ./a.out
+==10856== 
+Enter ints for set A:  
+3 7 9 -1
+Enter ints for set B:  
+3 5 9 12 15 -1
+A = { 3 7 9}
+B = { 3 5 9 12 15}
+
+Compute  C = A + B
+C = { 3 5 7 9 12 15}
+
+Ask if  A == C
+A is not == C
+
+Ask if  A != C
+A is not == C
+
+Compute B - A = { 5 12 15}
+Compute A - B = { 7}
+Compute  D = (A * B) + D
+Before: D = { 5 10 12}    After: D = { 3 5 9 10 12}
+
+Test assignment operators
+X = { 3 5 9 10 12}    Y = { 3 9}
+
+0 not in set
+-1000 not in set
+A not empty
+==10856== 
+==10856== HEAP SUMMARY:
+==10856==     in use at exit: 0 bytes in 0 blocks
+==10856==   total heap usage: 51 allocs, 51 frees, 20,453 bytes allocated
+==10856== 
+==10856== All heap blocks were freed -- no leaks are possible
+==10856== 
+==10856== For counts of detected and suppressed errors, rerun with: -v
+==10856== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 15 from 8)
+]0;jondi@uw1-320-22:~[jondi@uw1-320-22 ~]$ exit
+
+Script done on Thu 20 Oct 2011 05:38:42 PM PDT

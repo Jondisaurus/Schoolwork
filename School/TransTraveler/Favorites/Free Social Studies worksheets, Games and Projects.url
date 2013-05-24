@@ -1,0 +1,12 @@
+[DEFAULT]
+BASEURL=http://www.softschools.com/social_studies/
+[DOC#252]
+BASEURL=http://an.tacoda.net/an/tpp.html
+ORIGURL=http://an.tacoda.net/an/tpp.html
+[InternetShortcut]
+URL=http://www.softschools.com/social_studies/
+IDList=
+IconFile=http://www.softschools.com/favicon.ico
+IconIndex=1
+[{000214A0-0000-0000-C000-000000000046}]
+Prop3=19,2

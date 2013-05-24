@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<jnlp href="launch.jnlp" spec="1.0+">
+    <information>
+        <title>ChatServer</title>
+        <vendor>jondi521</vendor>
+        <homepage href=""/>
+        <description>ChatServer</description>
+        <description kind="short">ChatServer</description>
+    <offline-allowed/>
+</information>
+    <update check="background"/>
+    <resources>
+        <j2se version="1.6+"/>
+        <jar href="ChatServer.jar" main="true"/>
+    </resources>
+    <application-desc main-class="ChatServer">
+    <argument>1234</argument>
+</application-desc>
+</jnlp>

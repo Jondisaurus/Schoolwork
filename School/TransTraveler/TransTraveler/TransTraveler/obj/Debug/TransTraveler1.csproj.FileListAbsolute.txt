@@ -1,0 +1,15 @@
+C:\Users\Scott\documents\visual studio 2010\Projects\TransTraveler\TransTraveler\Bin\Debug\ApplicationIcon.png
+C:\Users\Scott\documents\visual studio 2010\Projects\TransTraveler\TransTraveler\Bin\Debug\Background.png
+C:\Users\Scott\documents\visual studio 2010\Projects\TransTraveler\TransTraveler\Bin\Debug\TransTraveler.dll
+C:\Users\Scott\documents\visual studio 2010\Projects\TransTraveler\TransTraveler\Bin\Debug\TransTraveler.pdb
+C:\Users\Scott\documents\visual studio 2010\Projects\TransTraveler\TransTraveler\Bin\Debug\AppManifest.xaml
+C:\Users\Scott\documents\visual studio 2010\Projects\TransTraveler\TransTraveler\Bin\Debug\TransTraveler.xap
+C:\Users\Scott\documents\visual studio 2010\Projects\TransTraveler\TransTraveler\Bin\Debug\Microsoft.Phone.Controls.dll
+C:\Users\Scott\documents\visual studio 2010\Projects\TransTraveler\TransTraveler\Bin\Debug\Microsoft.Phone.Controls.xml
+C:\Users\Scott\documents\visual studio 2010\Projects\TransTraveler\TransTraveler\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Scott\documents\visual studio 2010\Projects\TransTraveler\TransTraveler\obj\Debug\App.g.i.cs
+C:\Users\Scott\documents\visual studio 2010\Projects\TransTraveler\TransTraveler\obj\Debug\MainPage.g.i.cs
+C:\Users\Scott\documents\visual studio 2010\Projects\TransTraveler\TransTraveler\obj\Debug\TransTraveler.g.resources
+C:\Users\Scott\documents\visual studio 2010\Projects\TransTraveler\TransTraveler\obj\Debug\TransTraveler.dll
+C:\Users\Scott\documents\visual studio 2010\Projects\TransTraveler\TransTraveler\obj\Debug\TransTraveler.pdb
+C:\Users\Scott\documents\visual studio 2010\Projects\TransTraveler\TransTraveler\obj\Debug\XapCacheFile.xml

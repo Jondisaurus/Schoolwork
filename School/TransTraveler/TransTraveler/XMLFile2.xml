@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <signs>
+    <sign src="image.jpg">translation</sign>
+    <sign src="image.jpg">translation</sign>
+    <sign src="image.jpg">translation</sign>
+    <sign src="image.jpg">translation</sign>
+  </signs>
+  <tips>
+    <tip>TEXT</tip>
+    <tip>TEXT</tip>
+    <tip>TEXT</tip>
+    <tip>TEXT</tip>
+  </tips>
+</root>

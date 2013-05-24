@@ -1,0 +1,9 @@
+[DEFAULT]
+BASEURL=http://sites.google.com/site/maplehillsorgsite/
+[InternetShortcut]
+URL=http://sites.google.com/site/maplehillsorgsite/
+IDList=
+IconFile=http://www.google.com/images/icons/product/sites-16.ico
+IconIndex=1
+[{000214A0-0000-0000-C000-000000000046}]
+Prop3=19,2

@@ -1,0 +1,12 @@
+[DEFAULT]
+BASEURL=http://www.netflix.com/MemberHome
+[DOC_bwbridge]
+BASEURL=http://www.netflix.com/iframes/bwbridge-postMessage.html
+ORIGURL=http://www.netflix.com/iframes/bwbridge-postMessage.html
+[InternetShortcut]
+URL=http://www.netflix.com/MemberHome
+IDList=
+IconFile=http://cdn-0.nflximg.com/us/icons/nficon.ico
+IconIndex=1
+[{000214A0-0000-0000-C000-000000000046}]
+Prop3=19,2

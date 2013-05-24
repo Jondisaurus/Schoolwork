@@ -1,0 +1,207 @@
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+
+import java.io.*;
+import java.net.UnknownHostException;
+import java.rmi.*;
+import java.rmi.server.UnicastRemoteObject;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+
+
+/**
+ *
+ * @author jondi521
+ */
+public class DFS_Client extends UnicastRemoteObject implements ClientInterface{
+    
+    String fileName;
+    String accessMode;
+    String userName;
+    boolean owner;
+    int state; 
+    boolean emacOpen;
+    Process run; 
+    File cache; 
+    Thread T; 
+    static String serverIP;
+    static int port; 
+    String myIP; 
+    
+    
+    public final int INVALID = 0;
+    public final int SHARED = 1;
+    public final int OWNED = 2; 
+    
+    static final int EMACSCLOSED = 0;
+    static final int EMACSOPEN = 1; 
+    static final int NEWEMACS = 2;
+
+    //user input
+    
+    public DFS_Client() throws RemoteException
+    {
+        userName = System.getProperty("user.name");
+        cache = null; 
+        try {
+            myIP = java.net.InetAddress.getLocalHost().getHostName();
+            
+            getCache();
+            
+            emacsState(true);
+            
+            fileName = "file.txt";
+            
+            downloadFile();
+        } catch (UnknownHostException ex) {}
+          catch (IOException ex) {}
+     
+    }
+    
+    void getUserInput() throws IOException{
+        // Sets the fileName and accessMode variables to be used in operation
+
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        
+        
+        boolean runAgain = true;
+        System.out.println("FileClient: Next file to open");
+        System.out.print("File Name:  ");
+        fileName = br.readLine();
+        
+        while(runAgain){ // validate accessMode input
+            accessMode = br.readLine(); 
+
+            if(!(accessMode.matches("r") || accessMode.matches("w")))
+            {
+                System.out.println("Invalid action: input again");
+            }
+            else{runAgain = false;}
+        }
+    }
+    
+    boolean getCache() throws IOException{
+        // Returns false if the file was not found and was created. 
+            
+        cache = new File("/tmp/" + userName + ".txt");
+        
+        boolean cacheCreated = cache.createNewFile(); 
+       
+        return cacheCreated; 
+    }
+    
+    // cache files
+    
+    // download new file
+    void downloadFile() throws IOException{
+        
+        OutputStream out = new FileOutputStream(cache.getPath());
+        try{
+             System.out.println("Connected to: " + serverIP);
+             ServerInterface server = //Connect to server in args
+                  (ServerInterface)Naming.lookup
+                  ( "rmi://" + serverIP + ":"+ port +"/RMI_Server");
+            
+             out.write((server.download(myIP, fileName, accessMode)).get());
+             
+         }catch(NotBoundException e){System.out.println(e);}
+          catch(RemoteException ex){System.out.println(ex);}
+    }
+    
+    // open file with emacs
+    
+    void uploadFile() throws IOException{
+        boolean cacheCreated = false;
+        byte[] input = new byte[(int)cache.length()];
+        
+        if(cache == null){
+            System.out.println("ERROR Cache File not found!");
+            return;
+        }
+        
+        InputStream in = new FileInputStream(cache.getPath());
+        try{
+             System.out.println("Connected to: " + serverIP);
+             ServerInterface server = //Connect to server in args
+                  (ServerInterface)Naming.lookup
+                  ( "rmi://" + serverIP + ":"+ port +"/whoserver");
+             FileContents upload = new FileContents(input);
+             
+             if(!server.upload(myIP, fileName, upload)){
+                 System.out.println("ERROR in Upload!");
+             }
+         }catch(NotBoundException e){System.out.println(e);}
+          catch(RemoteException ex){System.out.println(ex);}
+    }
+
+    int emacsState(boolean createWindow){
+        
+        if(T != null){
+            if(!T.isAlive())
+            {
+                T = null; 
+            }
+            else return EMACSOPEN; 
+        }
+        
+        
+        
+        if(T == null && createWindow){
+            T = new Thread(new clientEmacs(), userName + "_EmacsThread");
+            T.start();
+            return NEWEMACS; // 2 = Thread was dead, but new window opened 
+        }
+        else if(T == null && !createWindow){
+             return EMACSCLOSED;  // 0 = Thread is dead
+        }
+        else{
+            return EMACSOPEN; // 1 = Emacs window is open
+        }
+    }
+    
+    // access cached file
+    
+    // replace file
+    
+    public boolean invalidate() throws RemoteException{
+        
+        state = INVALID;
+        
+        return true;
+    }
+    
+    public boolean writeback() throws RemoteException{
+        try {
+            uploadFile();
+        } catch (IOException ex) {
+        }
+
+        return true;
+    }
+    
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        // TODO code application logic here
+        
+        if ( args.length < 2 ) { 
+	    System.err.println( "usage: java DFS_Client port "
+                    + "ip-address" );
+	    System.exit( -1 );
+	}
+        
+        port = Integer.parseInt(args[0]);
+        serverIP = args[1];
+        try {
+            new DFS_Client(); 
+        } catch (RemoteException ex) {
+            Logger.getLogger(DFS_Client.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }
+}

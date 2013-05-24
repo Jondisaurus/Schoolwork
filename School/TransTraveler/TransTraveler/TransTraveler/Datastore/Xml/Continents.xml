@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<continents>
+	<continent>
+		<name>Asia</name>
+		<countries>
+			<country>China</country>
+			<country>Japan</country>
+		</countries>
+	</continent>
+	<continent>
+		<name>Africa</name>
+		<countries/>
+	</continent>
+	<continent>
+		<name>North America</name>
+		<countries>
+			<country>Mexico</country>
+			<country>USA</country>
+		</countries>
+	</continent>
+	<continent>
+		<name>South America</name>
+		<countries/>
+	</continent>
+	<continent>
+		<name>Europe</name>
+		<countries/>
+	</continent>
+	<continent>
+		<name>Australia</name>
+		<countries/>
+	</continent>
+</continents> 

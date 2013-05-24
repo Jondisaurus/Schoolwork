@@ -1,0 +1,12 @@
+[DEFAULT]
+BASEURL=http://www.accuweather.com/us/wa/issaquah/98027/forecast-details.asp?fday=1
+[DOC#562]
+BASEURL=http://tag.admeld.com/ad/iframe/80/accuweather/300x250/accuweather_atf?t=1305607158135&tz=420&hu=&ht=js&hp=0&url=http%3A%2F%2Fwww.accuweather.com%2Fus%2Fwa%2Fissaquah%2F98027%2Fforecast-details.asp%3Ffday%3D1&refer=
+ORIGURL=http://tag.admeld.com/ad/iframe/80/accuweather/300x250/accuweather_atf?t=1305607158135&tz=420&hu=&ht=js&hp=0&url=http%3A%2F%2Fwww.accuweather.com%2Fus%2Fwa%2Fissaquah%2F98027%2Fforecast-details.asp%3Ffday%3D1&refer=
+[InternetShortcut]
+URL=http://www.accuweather.com/us/wa/issaquah/98027/forecast-details.asp?fday=1
+IDList=
+IconFile=http://vortex.accuweather.com/adc2010/images/favicons/accuweather_16x16.ico
+IconIndex=1
+[{000214A0-0000-0000-C000-000000000046}]
+Prop3=19,2

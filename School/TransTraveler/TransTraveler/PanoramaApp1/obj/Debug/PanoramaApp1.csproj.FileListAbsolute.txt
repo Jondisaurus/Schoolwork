@@ -1,0 +1,15 @@
+C:\Users\Scott\documents\visual studio 2010\Projects\TransTraveler\PanoramaApp1\Bin\Debug\ApplicationIcon.png
+C:\Users\Scott\documents\visual studio 2010\Projects\TransTraveler\PanoramaApp1\Bin\Debug\Background.png
+C:\Users\Scott\documents\visual studio 2010\Projects\TransTraveler\PanoramaApp1\Bin\Debug\PanoramaApp1.dll
+C:\Users\Scott\documents\visual studio 2010\Projects\TransTraveler\PanoramaApp1\Bin\Debug\PanoramaApp1.pdb
+C:\Users\Scott\documents\visual studio 2010\Projects\TransTraveler\PanoramaApp1\Bin\Debug\AppManifest.xaml
+C:\Users\Scott\documents\visual studio 2010\Projects\TransTraveler\PanoramaApp1\Bin\Debug\PanoramaApp1.xap
+C:\Users\Scott\documents\visual studio 2010\Projects\TransTraveler\PanoramaApp1\Bin\Debug\Microsoft.Phone.Controls.dll
+C:\Users\Scott\documents\visual studio 2010\Projects\TransTraveler\PanoramaApp1\Bin\Debug\Microsoft.Phone.Controls.xml
+C:\Users\Scott\documents\visual studio 2010\Projects\TransTraveler\PanoramaApp1\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Scott\documents\visual studio 2010\Projects\TransTraveler\PanoramaApp1\obj\Debug\App.g.i.cs
+C:\Users\Scott\documents\visual studio 2010\Projects\TransTraveler\PanoramaApp1\obj\Debug\MainPage.g.i.cs
+C:\Users\Scott\documents\visual studio 2010\Projects\TransTraveler\PanoramaApp1\obj\Debug\PanoramaApp1.g.resources
+C:\Users\Scott\documents\visual studio 2010\Projects\TransTraveler\PanoramaApp1\obj\Debug\PanoramaApp1.dll
+C:\Users\Scott\documents\visual studio 2010\Projects\TransTraveler\PanoramaApp1\obj\Debug\PanoramaApp1.pdb
+C:\Users\Scott\documents\visual studio 2010\Projects\TransTraveler\PanoramaApp1\obj\Debug\XapCacheFile.xml

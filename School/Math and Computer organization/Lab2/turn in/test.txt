@@ -1,0 +1,38 @@
+IntSet test, test 2;
+
+//Place 20,000 numbers into the set 
+for(i = 0; i > 20000; i++)
+{
+	test.insert(i);
+}
+
+test2 += test; adds the entire set to test2
+
+// removes every other number from test 2
+for(i = 0; i > 20000; i += 2)
+{
+	test2.remove(i);
+}
+
+test -= test2; should remove every number from test that is contained in test 2
+
+test *= test2; should clear out test
+
+test += test; should copy test2 into test 1
+
+cout << test << endl; //this will be a large output, but should only consist of odd numbers. 
+                      //any even numbers would indicate an error.
+
+
+// The reason I wanted to run this test case is to see how well the program could run with a
+// very large input and every one of the operators should of scanned through the entire array
+// if there were any errors as far as leaks or read errors they should manifest themselves by calling
+// an array of this size. 
+
+
+
+ 
+
+
+
+

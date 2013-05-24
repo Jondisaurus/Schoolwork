@@ -1,0 +1,33 @@
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+import java.io.*;
+
+/**
+ *
+ * @author jondi521
+ */
+public class clientEmacs implements Runnable {
+    String userName;
+    
+    public clientEmacs(){
+        String userName = System.getProperty("user.name"); 
+    }
+    
+    
+    public void run(){
+        try{
+            Process run = Runtime.getRuntime()
+                    .exec("emacs /tmp/" + userName + ".txt");
+            System.out.println("Waiting for EMACS to close . . . ");
+            run.waitFor();
+            
+        }catch(InterruptedException e){}
+        catch(IOException ex){}
+        
+        System.out.println("File closed in EMACS.");
+        
+        System.exit(0);
+    }
+}
