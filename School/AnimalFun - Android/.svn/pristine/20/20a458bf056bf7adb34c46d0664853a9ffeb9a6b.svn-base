@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+	<TextView
+	    style="@android:style/TextAppearance.Small"
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:layout_weight="1"
+	    android:padding="6dp"
+	    android:text="AnimalFun was created as a project by a team of computer science students in attendance at The University of Washington- Bothell. Its intention is to give young children (4-6 yr olds) the opportunity to learn basic math and communication skills through a simple interface" />
+
+    <TextView
+        style="@style/bold_title"
+        android:text="Developers:"/>
+    
+    <TextView
+        style="@style/name_entry"
+        android:text="* Alex Dow" />
+    <TextView
+        style="@style/name_entry"
+        android:text="* Dorota Pasek" />
+	<TextView
+        style="@style/name_entry"
+        android:text="* Jonathan Difrancesco" />
+	<TextView
+        style="@style/name_entry"
+        android:text="* Kyle Morrison" />
+	<TextView
+        style="@style/name_entry"
+        android:text="* Michael Moseichuk" />
+	<TextView
+        style="@style/name_entry"
+        android:layout_weight="0.20"
+        android:text="* Thuan Trinh" />
+
+    <TextView
+        style="@style/bold_title"
+        android:text="Project Lead:"/>
+    
+    <TextView
+        style="@style/name_entry"
+        android:layout_weight="0.20"
+        android:text="* Kyle Morrison" />
+    <TextView
+        style="@style/bold_title"
+        android:text="Artist:" />
+    
+    <TextView
+        style="@style/name_entry"
+        android:layout_weight="0.20"
+        android:text="* Veronica Hall" />
+    <TextView
+        style="@style/bold_title"
+        android:text="Sound Technician" />
+    
+    <TextView
+        style="@style/name_entry"
+        android:layout_weight="1"
+        android:text="* Johnathan Maxwell" />
+
+</LinearLayout>

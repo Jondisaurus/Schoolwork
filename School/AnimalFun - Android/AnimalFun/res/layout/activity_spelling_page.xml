@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/spellingLayout"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:layout_gravity="center_horizontal"
+    android:baselineAligned="false"
+    android:measureWithLargestChild="false"
+    android:orientation="vertical"
+    android:weightSum="14.0" >
+
+    <TextView android:textSize="20.0sp" android:typeface="sans" android:layout_gravity="center_horizontal" android:id="@+id/promptTextView" android:layout_width="wrap_content" android:layout_height="0.0dip" android:text="TextView" android:layout_weight="1.0" android:textAlignment="center" />
+    <TextView android:textSize="20.0sp" android:typeface="sans" android:layout_gravity="center_horizontal" android:id="@+id/continueTextView" android:layout_width="wrap_content" android:layout_height="0.0dip" android:text="TextView" android:layout_weight="1.0" android:textAlignment="center" />
+    <ImageView android:layout_gravity="top|center" android:id="@+id/imageBox" android:layout_width="fill_parent" android:layout_height="0.0dip" android:src="@drawable/bear" android:scaleType="fitCenter" android:baselineAlignBottom="false" android:cropToPadding="false" android:layout_weight="4.0" />
+    <TextView android:textSize="40.0sp" android:typeface="monospace" android:gravity="center" android:id="@+id/analyzedNameTextView" android:layout_width="fill_parent" android:layout_height="0.0dip" android:text="TextView" android:layout_weight="2.0" />
+    <EditText android:textSize="40.0sp" android:typeface="sans" android:gravity="top|center" android:id="@+id/userInputTextBox" android:layout_width="fill_parent" android:layout_height="0.0dip" android:text="Default Input" android:ems="10" android:layout_weight="2.0" android:inputType="text" />
+    <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="4.0" />
+</LinearLayout>

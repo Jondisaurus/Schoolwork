@@ -1,0 +1,141 @@
+<!-- <?xml version="1.0" encoding="utf-8"?> -->
+<!-- <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"> -->
+<!--     <CheckBoxPreference -->
+<!--         android:key="pref_sync" -->
+<!--         android:title="@+string/pref_sync" -->
+<!--         android:summary="@+string/pref_sync_summ" -->
+<!--         android:layout_width="fill_parent" -->
+<!--         android:layout_height="wrap_content" -->
+<!--         android:defaultValue="true" /> -->
+<!--     <ListPreference -->
+<!--         android:layout_width="fill_parent" -->
+<!--         android:layout_height="wrap_content" -->
+<!--         android:dependency="pref_sync" -->
+<!--         android:key="pref_syncConnectionType" -->
+<!--         android:title="@+string/pref_syncConnectionType" -->
+<!--         android:dialogTitle="@+string/pref_syncConnectionType" -->
+<!--         android:entries="@+array/pref_syncConnectionTypes_entries" -->
+<!--         android:entryValues="@+array/pref_syncConnectionTypes_values" -->
+<!--         android:defaultValue="@+string/pref_syncConnectionTypes_default" /> -->
+<!-- 	<PreferenceCategory  -->
+<!--         android:title="@+string/pref_sms_storage_title" -->
+<!--         android:key="pref_key_storage_settings"> -->
+<!--         <CheckBoxPreference -->
+<!--             android:key="pref_key_auto_delete" -->
+<!--             android:summary="@+string/pref_summary_auto_delete" -->
+<!--             android:title="@+string/pref_title_auto_delete" -->
+<!--             android:defaultValue="false"/> -->
+<!--         <Preference  -->
+<!--             android:key="pref_key_sms_delete_limit" -->
+<!--             android:dependency="pref_key_auto_delete" -->
+<!--             android:summary="@+string/pref_summary_delete_limit" -->
+<!--             android:title="@+string/pref_title_sms_delete" /> -->
+<!--         <Preference  -->
+<!--             android:key="pref_key_mms_delete_limit" -->
+<!--             android:dependency="pref_key_auto_delete" -->
+<!--             android:summary="@+string/pref_summary_delete_limit" -->
+<!--             android:title="@+string/pref_title_mms_delete" /> -->
+<!--     </PreferenceCategory> -->
+<!-- </PreferenceScreen> -->
+
+<!-- <?xml version="1.0" encoding="utf-8"?> -->
+
+<!-- <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"> -->
+
+<!--     <PreferenceCategory  -->
+<!--         android:title="First Category" -->
+<!--         android:key="first_category"> -->
+        
+<!--         <CheckBoxPreference  -->
+<!--             android:key="perform_updates" -->
+<!--             android:summary="Enable or disable data updates" -->
+<!--             android:title="Enable updates"  -->
+<!--             android:defaultValue="true" -->
+<!--         /> -->
+        
+<!--         <ListPreference  -->
+<!--             android:key="updates_interval" -->
+<!--             android:title="Updates interval" -->
+<!--             android:summary="Define how often updates will be performed" -->
+<!--             android:defaultValue="1000"  -->
+<!--             android:entries="@array/updateInterval" -->
+<!--             android:entryValues="@array/updateIntervalValues" -->
+<!--             android:dependency="perform_updates" -->
+<!--         />     -->
+            
+<!--     </PreferenceCategory> -->
+
+<!--     <PreferenceCategory  -->
+<!--         android:title="Second Category" -->
+<!--         android:key="second_category"> -->
+
+<!--         <EditTextPreference -->
+<!--             android:key="welcome_message" -->
+<!--             android:title="Welcome Message"  -->
+<!--             android:summary="Define the Welcome message to be shown" -->
+<!--             android:dialogTitle="Welcome Message" -->
+<!--             android:dialogMessage="Provide a message"     -->
+<!--             android:defaultValue="Default welcome message" /> -->
+
+<!--     </PreferenceCategory> -->
+    
+<!-- </PreferenceScreen> -->
+
+<!-- <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"> -->
+<!-- 	<CheckBoxPreference android:key="music" -->
+<!-- 		android:title="music_title" android:summary="music_summary" -->
+<!--         android:defaultValue="true" /> -->
+<!--     <CheckBoxPreference android:key="hints" -->
+<!-- 		android:title="hints_title" android:summary="hints_summary" -->
+<!--         android:defaultValue="true" /> -->
+<!-- </PreferenceScreen> -->
+
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory 
+        android:title="Theme"
+        android:key="theme">
+        
+<!--         <CheckBoxPreference  -->
+<!--             android:key="perform_updates" -->
+<!--             android:summary="Enable or disable data updates" -->
+<!--             android:title="Enable updates"  -->
+<!--             android:defaultValue="true" -->
+<!--         /> -->
+        
+<!--         <ListPreference  -->
+<!--             android:key="myTheme" -->
+<!--             android:title="Theme" -->
+<!--             android:summary="Define how often updates will be performed" -->
+<!--             android:defaultValue="1000"  -->
+<!--             android:entries="@array/updateInterval" -->
+<!--             android:entryValues="@array/updateIntervalValues" -->
+<!--             android:dependency="perform_updates" -->
+<!--         />     -->
+        
+        <ListPreference 
+            android:entries="@array/themes" 
+            android:title="Theme" 
+            android:key="Theme" 
+            android:summary="Change the theme" 
+            android:defaultValue="0" 
+            android:entryValues="@array/themeValues" />
+            
+    </PreferenceCategory>
+
+<!--     <PreferenceCategory  -->
+<!--         android:title="Second Category" -->
+<!--         android:key="second_category"> -->
+
+<!--         <EditTextPreference -->
+<!--             android:key="welcome_message" -->
+<!--             android:title="Welcome Message"  -->
+<!--             android:summary="Define the Welcome message to be shown" -->
+<!--             android:dialogTitle="Welcome Message" -->
+<!--             android:dialogMessage="Provide a message"     -->
+<!--             android:defaultValue="Default welcome message" /> -->
+
+<!--     </PreferenceCategory> -->
+    
+</PreferenceScreen>
+

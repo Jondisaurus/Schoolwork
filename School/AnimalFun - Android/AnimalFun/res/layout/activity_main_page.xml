@@ -1,0 +1,61 @@
+<!-- <activity android:theme="@android:style/Theme.Holo.NoActionBar"> -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:weightSum="3" >
+
+    <TableRow
+        android:id="@+id/tableRow1"
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:padding="5px" >
+
+        <ImageButton
+            android:id="@+id/btn_learning"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="false"
+            android:contentDescription="@string/contentDesc_learning"
+            android:scaleType="fitCenter"
+            android:src="@drawable/learning" />
+
+    </TableRow>
+
+        <TableRow
+            android:id="@+id/tableRow2"
+            android:layout_width="fill_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:padding="5px" >
+
+            <ImageButton
+                android:id="@+id/btn_spelling"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/contentDesc_Spelling"
+                android:scaleType="fitCenter"
+                android:src="@drawable/spelling" />
+    
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/tableRow3"
+            android:layout_width="fill_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:padding="5px" >
+
+            <ImageButton
+                android:id="@+id/btn_math"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/contentDesc_Math"
+                android:scaleType="fitCenter"
+                android:src="@drawable/math" />
+
+        </TableRow>
+
+</LinearLayout>

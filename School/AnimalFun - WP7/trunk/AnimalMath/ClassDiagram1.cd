@@ -1,0 +1,131 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="AnimalMath.AnimalLearning" Collapsed="true">
+    <Position X="2.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>AnimalController\AnimalLearning.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AnimalMath.AnimalMath" Collapsed="true">
+    <Position X="4" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABACAAAAEAAACAAAAAAAIAAEAAAAUAABQBAAAIQAA=</HashCode>
+      <FileName>AnimalController\AnimalMath.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AnimalMath.VerifiedLetter" Collapsed="true">
+    <Position X="0.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAA=</HashCode>
+      <FileName>AnimalController\AnimalSpelling.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AnimalMath.VerifiedLetterCollection" Collapsed="true">
+    <Position X="2.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAgAAAAAAAAAAAAgAAAAAAAAAAAAA=</HashCode>
+      <FileName>AnimalController\AnimalSpelling.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AnimalMath.AnimalSpelling" Collapsed="true">
+    <Position X="7.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAACIAAEAAAABASAAAAAQAAAGABAAAgAQAAEAAAAAAA=</HashCode>
+      <FileName>AnimalController\AnimalSpelling.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AnimalMath.SpellingResultsService" Collapsed="true">
+    <Position X="7.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAACAAAACQIAABAAAgAQAAAAABAAAA=</HashCode>
+      <FileName>AnimalController\SpellingResultsService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AnimalMath.Animal" Collapsed="true">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAAAAAAAAIAACAAAAAAAAAAAAAIAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>AnimalModels\Animal.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AnimalMath.Animals" Collapsed="true">
+    <Position X="5.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAgAAAIAAICCAAAAAAAAAAACAgAAAIAAEQEAIBAg=</HashCode>
+      <FileName>AnimalModels\Animals.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AnimalMath.SpellingResult" Collapsed="true">
+    <Position X="4" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAEAAAAAAACAABgAAAAAAAAgAgAAAAAEAAAAAAA=</HashCode>
+      <FileName>AnimalModels\SpellingResult.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AnimalMath.LearningPage" Collapsed="true">
+    <Position X="2.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAA=</HashCode>
+      <FileName>AnimalView\LearningPage.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AnimalMath.MathPage" Collapsed="true">
+    <Position X="5.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>GAMAAABAACAAAACAAAAggAAGEAAAAAAPEAAABAABACA=</HashCode>
+      <FileName>AnimalView\MathPage.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AnimalMath.SpellingPage" Collapsed="true">
+    <Position X="2.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAQAAAAAAiAAAAAAAAABAAAAEAAAAAAAAIAAAAAAA=</HashCode>
+      <FileName>AnimalView\SpellingPage.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AnimalMath.SpellingResultsPage" Collapsed="true">
+    <Position X="5.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAJQAAIAEAAAAAAAQCAIAEAAIAEAAAAAACAAAEAAAAA=</HashCode>
+      <FileName>AnimalView\SpellingResultsPage.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AnimalMath.App" Collapsed="true">
+    <Position X="0.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAgAQAIAAAAhAAAAAAAAAAAAAAAEQAAAAAAAIIAAAA=</HashCode>
+      <FileName>App.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AnimalMath.MainPage" Collapsed="true">
+    <Position X="4" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAQAAAAAAAAAAAAAAAIAAAAIAAAAAAAgAA=</HashCode>
+      <FileName>MainPage.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AnimalMath.AnimalView.SettingsPage" Collapsed="true">
+    <Position X="7.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgQIQAAAAAAAAAgAABAAAAAACAEAAAAgAAAAIAAAA=</HashCode>
+      <FileName>AnimalView\SettingsPage.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AnimalMath.XNAFrameworkDispatcherService" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="4" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAJAAACAAAAAA=</HashCode>
+      <FileName>AnimalController\XNAFrameworkDispatcherService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.417" Collapsed="true" />
+  </Class>
+  <Class Name="AnimalMath.SoundLoader" Collapsed="true">
+    <Position X="0.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAQABAAAAAAAAAAAAABAAAAAQAAAAAAAAAA=</HashCode>
+      <FileName>AnimalController\SoundLoader.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

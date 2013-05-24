@@ -1,0 +1,52 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Net;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Animation;
+using System.Windows.Shapes;
+using Microsoft.Phone.Controls;
+
+namespace AnimalMath
+{
+    public partial class MainPage : PhoneApplicationPage
+    {
+        // Constructor
+        public MainPage()
+        {
+            InitializeComponent();
+        }
+
+        // Handle a tap on the button for Learning
+        void Button_Learning_Click(object sender, RoutedEventArgs e)
+        {
+            //this line is what navigates to the specific page
+            this.NavigationService.Navigate(new Uri("/AnimalMath;component/AnimalView/LearningPage.xaml", UriKind.Relative));
+        }
+
+        // Handle a tap on the button for Spelling
+        void Button_Spelling_Click(object sender, RoutedEventArgs e)
+        {
+            //this line is what navigates to the specific page
+            this.NavigationService.Navigate(new Uri("/AnimalMath;component/AnimalView/SpellingPage.xaml", UriKind.Relative));
+        }
+
+        // Handle a tap on the button for Math
+        void Button_Math_Click(object sender, RoutedEventArgs e)
+        {
+            //this line is what navigates to the specific page
+            this.NavigationService.Navigate(new Uri("/AnimalMath;component/AnimalView/MathPage.xaml", UriKind.Relative));
+        }
+    }
+}
+
+
+
+//Don't Delete the code after this line.
+//Michael's saved snippets for later
+
+//TestMedia.Play(); //this allows you to play the Media Element that is on the main page

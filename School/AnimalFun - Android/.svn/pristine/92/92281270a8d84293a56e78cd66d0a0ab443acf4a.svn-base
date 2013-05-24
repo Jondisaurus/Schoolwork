@@ -1,0 +1,169 @@
+<!-- 
+Layout is created using a table layout.
+Bottom two rows are pushed to the bottom by the rows on top. -->
+
+<TableLayout 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+	android:id="@+id/TableLayout01" 
+	android:stretchColumns="*"
+	android:layout_height="fill_parent" 
+	android:layout_width="fill_parent">
+
+    <TableRow
+        android:layout_width="fill_parent"
+		android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/math_topText"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_margin="2dp"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:text="Count the "
+            android:textColor="@android:color/black"
+            android:textSize="30dp"
+            android:textStyle="bold" />
+
+    </TableRow>
+
+<!-- The images are contained within the next three rows -->
+	<TableRow 
+	    android:id="@+id/TableRow0" 
+	    style="@style/math_tableRow_image">
+
+		<LinearLayout 
+		    android:id="@+id/top_layout" 
+		    style="@style/math_LinLay_image_h">
+
+			<LinearLayout 
+			    style="@style/math_LinLay_image_v">
+				<ImageView 
+				    android:id="@+id/math_imageView1" 
+				    style="@style/math_image" />
+			</LinearLayout>
+			<LinearLayout 
+			    style="@style/math_LinLay_image_v">
+				<ImageView 
+				    android:id="@+id/math_imageView2" 
+				    style="@style/math_image" />
+			</LinearLayout>
+			<LinearLayout 
+			    style="@style/math_LinLay_image_v">
+				<ImageView 
+				    android:id="@+id/math_imageView3" 
+				    style="@style/math_image" />
+			</LinearLayout>
+		</LinearLayout>
+	</TableRow>
+
+	<TableRow 
+	    android:id="@+id/tableRow1" 
+	    style="@style/math_tableRow_image">
+
+		<LinearLayout 
+		    android:id="@+id/center_layout" 
+		    style="@style/math_LinLay_image_h">
+
+			<LinearLayout 
+			    style="@style/math_LinLay_image_v">
+
+				<ImageView 
+				    android:id="@+id/math_imageView4" 
+				    style="@style/math_image" />
+			</LinearLayout>
+
+			<LinearLayout 
+			    style="@style/math_LinLay_image_v">
+
+				<ImageView 
+				    android:id="@+id/math_imageView5" 
+				    style="@style/math_image" />
+			</LinearLayout>
+
+			<LinearLayout 
+			    style="@style/math_LinLay_image_v">
+
+				<ImageView 
+				    android:id="@+id/math_imageView6" 
+				    style="@style/math_image" />
+			</LinearLayout>
+		</LinearLayout>
+	</TableRow>
+		<TableRow 
+	    android:id="@+id/tableRow2" 
+	    style="@style/math_tableRow_image">
+
+		<LinearLayout 
+		    android:id="@+id/bottom_layout" 
+		    style="@style/math_LinLay_image_h">
+
+			<LinearLayout 
+			    style="@style/math_LinLay_image_v">
+
+				<ImageView 
+				    android:id="@+id/math_imageView7" 
+				    style="@style/math_image" />
+			</LinearLayout>
+
+			<LinearLayout 
+			    style="@style/math_LinLay_image_v">
+
+				<ImageView 
+				    android:id="@+id/math_imageView8" 
+				    style="@style/math_image" />
+			</LinearLayout>
+
+			<LinearLayout 
+			    style="@style/math_LinLay_image_v">
+
+				<ImageView 
+				    android:id="@+id/math_imageView9" 
+				    style="@style/math_image" />
+			</LinearLayout>
+		</LinearLayout>
+	</TableRow>
+<!-- Buttons are contained within the next two rows -->
+	<TableRow 
+	    android:layout_width="wrap_content"
+		android:layout_height="wrap_content">
+		<LinearLayout 
+		    android:id="@+id/bottom_layout" 
+		    style="@style/math_LinLay_image_h">
+
+			<Button 
+			    android:id="@+id/math_button1"
+			    style="@style/math_button" 
+			    android:onClick="processClick"
+			    android:text="Button1" />
+			<Button 
+			    android:id="@+id/math_button2"
+			    style="@style/math_button" 
+			    android:onClick="processClick"
+			    android:text="Button2" />
+		</LinearLayout>
+	</TableRow>
+
+	<TableRow 
+	    android:layout_width="wrap_content"
+		android:layout_height="wrap_content">
+		<LinearLayout 
+		    android:id="@+id/bottom_layout" 
+		    style="@style/math_LinLay_image_h">
+
+			<Button 
+			    android:id="@+id/math_button3"
+			    style="@style/math_button" 
+			    android:onClick="processClick"
+			    android:text="Button3" />
+
+			<Button 
+			    android:id="@+id/math_button4"
+			    style="@style/math_button"
+			    android:onClick="processClick"
+				android:text="Button4" />
+
+		</LinearLayout>
+	</TableRow>
+</TableLayout>
+

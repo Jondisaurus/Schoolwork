@@ -1,0 +1,42 @@
+package com.example.animalfun;
+
+import android.content.Context;
+
+
+public class Animal {
+
+    private String animalName;
+
+    public Animal(String animalName)
+    {
+        this.animalName = animalName;
+    }
+
+    public String getAnimalName()
+    {
+        return animalName;
+    }
+    
+    public String getAnimalNamePlural()
+    {
+    	if(animalName == "Starfish")
+    		return animalName;
+    	else
+    		return animalName + "s";
+    }
+
+    //How does this get done? It looks hardcoded.
+    //You need to pass in "this" from whatever activity you are in to be able
+    //to get the resource
+    public int getAnimalImage(Context context)
+    {
+    	return context.getResources().getIdentifier(
+    		animalName.toLowerCase(), "drawable", context.getPackageName());
+    }
+
+//    public String getAnimalSound()
+//    {
+//        return animalName.toLowerCase() + ".wav";
+//    }
+}
+

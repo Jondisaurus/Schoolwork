@@ -1,0 +1,153 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Net;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Animation;
+using System.Windows.Navigation;
+using System.Windows.Shapes;
+using Microsoft.Phone.Controls;
+
+namespace AnimalMath
+{
+    public partial class MathPage : PhoneApplicationPage
+    {
+        public MathPage()
+        {
+            InitializeComponent();
+        }
+        static int MAX_NUMBER = 9;                  //maximum number for animals displayed
+        static int MAX_CHOICES = 4;                 //max number for choices, should always be 4
+        int csize = MAX_CHOICES;                    //
+        int nsize = MAX_NUMBER;                     //used for array size in random # selection
+        int num0 = 0;                               //used to hold random integer for button 0
+        int num1 = 0;                               //used to hold random integer for button 1
+        int num2 = 0;                               //used to hold random integer for button 2
+        int num3 = 0;                               //used to hold random integer for button 3
+        int correctAnswer;                          //stores the correct answer
+        Random random = new Random();               //instantiate new Random object
+        int[] num_array = new int[MAX_NUMBER];      //instantiate a new # array
+        int[] choice_array = new int[MAX_CHOICES];  //instantiate a new # array for choices
+
+
+        //function to get random numbers that are unique using the Durstenfeld algorithm
+        //sometimes known as the (Fisher–Yates shuffle)
+        int getRandomNum()
+        {
+            int sub = random.Next(nsize-1);         //set the subscript to a random # in range
+            int numToReturn = num_array[sub];       //set number to return based on subscript
+            choice_array[csize - 1] = numToReturn;
+            csize--;
+            nsize--;                                //reduce array size
+            num_array[sub] = num_array[nsize];      //set number in subscript to last number in array
+            return numToReturn;                     //return number that was randomly chosen
+        }
+
+        int pickCorrectAnswer()
+        {
+            int pick = MAX_CHOICES;
+            int cSub = random.Next(pick);
+            return choice_array[cSub];
+        }
+
+
+        void GenerateRandom()
+        {
+            for (int i = 0; i < MAX_NUMBER; i++){
+                num_array[i] = i + 1;               // initialise them to their indexes
+            }
+            this.num0 = getRandomNum();             //retrieve unique random number to display
+            this.num1 = getRandomNum();             //retrieve unique random number to display
+            this.num2 = getRandomNum();             //retrieve unique random number to display
+            this.num3 = getRandomNum();             //retrieve unique random number to display
+            correctAnswer = pickCorrectAnswer();    //pick an answer out of the random generated ones
+        }
+
+        //this function runs when you navigate to this page
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            base.OnNavigatedTo(e);
+            GenerateRandom();
+            //correctAnswer = 3;
+            this.answer_PH.Text = this.correctAnswer.ToString("N0");
+            this.Math_Answer_0.Content = this.num0.ToString("N0");
+            this.Math_Answer_1.Content = this.num1.ToString("N0");
+            this.Math_Answer_2.Content = this.num2.ToString("N0");
+            this.Math_Answer_3.Content = this.num3.ToString("N0");
+        }
+
+        Boolean isAnswerCorrect(int possibleAnswer)
+        {
+            if (possibleAnswer == correctAnswer)
+                return true;
+            else
+                return false;
+        }
+
+        void changeColorRight(Button sender)
+        {
+            sender.Background = new SolidColorBrush(Colors.Green);
+        }
+
+        void changeColorWrong(Button sender)
+        {
+            sender.Background = new SolidColorBrush(Colors.Red);
+        }
+
+        //this function runs when you click on the named object
+        void Math_Answer_0_Click(object sender, RoutedEventArgs e)
+        {
+            if (isAnswerCorrect(num0))
+            {
+                changeColorRight(this.Math_Answer_0);
+            }
+            else
+            {
+                changeColorWrong(this.Math_Answer_0);
+            }
+        }
+        //this function runs when you click on the named object
+        void Math_Answer_1_Click(object sender, RoutedEventArgs e)
+        {
+            if (isAnswerCorrect(num1))
+            {
+                changeColorRight(this.Math_Answer_1);
+            }
+            else
+            {
+                changeColorWrong(this.Math_Answer_1);
+            }
+        }
+        //this function runs when you click on the named object
+        void Math_Answer_2_Click(object sender, RoutedEventArgs e)
+        {
+            if (isAnswerCorrect(num2))
+            {
+                changeColorRight(this.Math_Answer_2);
+            }
+            else
+            {
+                changeColorWrong(this.Math_Answer_2);
+            }
+        }
+        //this function runs when you click on the named object
+        void Math_Answer_3_Click(object sender, RoutedEventArgs e)
+        {
+            if (isAnswerCorrect(num3))
+            {
+                changeColorRight(this.Math_Answer_3);
+            }
+            else
+            {
+                changeColorWrong(this.Math_Answer_3);
+            }
+        }
+
+
+
+    }
+}

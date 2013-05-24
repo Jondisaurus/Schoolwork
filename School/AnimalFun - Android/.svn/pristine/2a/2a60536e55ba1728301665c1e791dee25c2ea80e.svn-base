@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">AnimalFun</string>
+    <string name="menu_settings">Settings</string>
+    <string name="menu_about">About Us</string>
+    <string name="contentDesc_learning">Button for Learning Page</string>
+    <string name="contentDesc_Spelling">Button for Spelling Page</string>
+    <string name="contentDesc_Math">Button for Math Page</string>
+
+</resources>
+
+
+<!-- <string name="hello_world">Hello world!</string> -->

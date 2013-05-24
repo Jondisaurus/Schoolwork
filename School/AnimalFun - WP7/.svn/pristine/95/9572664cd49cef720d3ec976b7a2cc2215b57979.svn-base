@@ -1,0 +1,119 @@
+﻿using System;
+using System.IO.IsolatedStorage;
+using System.Collections.Generic;
+using System.Linq;
+using System.Net;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Navigation;
+using Microsoft.Phone.Controls;
+using Microsoft.Phone.Shell;
+
+namespace AnimalMath.AnimalView
+{
+    public partial class SettingsPage : PhoneApplicationPage
+    {
+        IsolatedStorageSettings settings;
+
+        //Storage keys for settings lookup
+        const string BackgroundKeyName = "BackgroundSetting";
+        const string DifficultyKeyName = "DifficultySetting";
+        
+
+        //Default settings
+        const string BackgroundSettingDefault = "";
+        const int DifficultySettingDefault = 0;
+
+        public SettingsPage()
+        {
+            InitializeComponent();
+
+            settings = IsolatedStorageSettings.ApplicationSettings;
+        }
+
+        public bool AddOrUpdateValue(string Key, Object value)
+        {
+            bool valueChanged = false;
+
+            // If the key exists
+            if (settings.Contains(Key))
+            {
+                // If the value has changed
+                if (settings[Key] != value)
+                {
+                    // Store the new value
+                    settings[Key] = value;
+                    valueChanged = true;
+                }
+            }
+            // Otherwise create the key.
+            else
+            {
+                settings.Add(Key, value);
+                valueChanged = true;
+            }
+            return valueChanged;
+        }
+        
+        /// Get the current value of the setting, or if it is not found, set the 
+        /// setting to the default setting.
+        public T GetValueOrDefault<T>(string Key, T defaultValue)
+        {
+            T value;
+
+            // If the key exists, retrieve the value.
+            if (settings.Contains(Key))
+            {
+                value = (T)settings[Key];
+            }
+            // Otherwise, use the default value.
+            else
+            {
+                value = defaultValue;
+            }
+            return value;
+        }
+
+        //Save settings
+        public void Save()
+        {
+            settings.Save();
+        }
+
+        /// <summary>
+        /// Property to get and set a ListBox Setting Key.
+        /// </summary>
+        public int DifficultySetting
+        {
+            get
+            {
+                return GetValueOrDefault<int>(DifficultyKeyName, DifficultySettingDefault);
+            }
+            set
+            {
+                if (AddOrUpdateValue(DifficultyKeyName, value))
+                {
+                    Save();
+                }
+            }
+        }
+
+        /// <summary>
+        /// Property to get and set a ListBox Setting Key.
+        /// </summary>
+        public string BackgroundSetting
+        {
+            get
+            {
+                return GetValueOrDefault<string>(BackgroundKeyName, BackgroundSettingDefault);
+            }
+            set
+            {
+                if (AddOrUpdateValue(BackgroundKeyName, value))
+                {
+                    Save();
+                }
+            }
+        }
+    }
+}

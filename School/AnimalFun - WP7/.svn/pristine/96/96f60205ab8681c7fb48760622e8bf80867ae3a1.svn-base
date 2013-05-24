@@ -1,0 +1,167 @@
+﻿using System;
+using System.Collections.ObjectModel;
+using System.Collections.Generic;
+using System.Linq;
+using System.Net;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Animation;
+using System.Windows.Media.Imaging;
+using System.Windows.Shapes;
+using System.Windows.Resources;
+using Microsoft.Phone.Controls;
+using Microsoft.Xna.Framework.Audio;
+using Microsoft.Xna.Framework;
+using Media = System.Windows.Media;
+namespace AnimalMath
+{
+    // This class is responsible for the spelling module
+    public partial class SpellingPage : PhoneApplicationPage
+    {
+        Animals animals;
+        List<int> animalIndexes;
+        Animal currentAnimal;
+        Random randomizer;
+       
+        // constructor
+        public SpellingPage()
+        {
+            InitializeComponent();
+        }
+
+        // Initializes properties and displays the first animal on load.
+        private void PhoneApplicationPage_Loaded(object sender, RoutedEventArgs e)
+        {
+            animals = new Animals();
+            randomizer = new Random();
+            // Create a list of all animal indexes to be displayed.
+            animalIndexes = new List<int>(animals.getSize());
+            for (int i = 0; i < animals.getSize(); i++)
+            {
+                animalIndexes.Add(i);
+            }
+            SetupNewAnimal();
+        }        
+
+        // Prepares the page for a new animal and displays it.
+        private void SetupNewAnimal()
+        {
+            SetNextAnimal();
+            DisplayCurrentAnimal();
+            SetAnalyzedNameTextBox(String.Empty);
+        }
+
+        // Displays the current animal, if there is no animal left 
+        // shows a message to the user.
+        private void DisplayCurrentAnimal()
+        {
+            if (currentAnimal == null)
+            {
+                this.NavigationService.GoBack();                
+            }
+            else
+            {
+                imageBox.Source = new BitmapImage(currentAnimal.getAnimalImage());
+                userInputTextBox.MaxLength = currentAnimal.getAnimalName().Length;
+                userInputTextBox.Text = String.Empty;
+                analyzedNameTextBlock.Text = String.Empty;
+            }   
+        }
+
+        // Sets the next animal based on a random animal index. No animal in the animal set
+        // is reapeted. Once the set of remaining animals is empty, sets the current animal
+        // to null.
+        private void SetNextAnimal()
+        {
+            if (animalIndexes.Count == 0)
+            {
+                currentAnimal = null;
+            }
+            else
+            {
+                int nextAnimalIndexReference = randomizer.Next(animalIndexes.Count);
+                int nextAnimalIndex = animalIndexes[nextAnimalIndexReference];
+                animalIndexes.RemoveAt(nextAnimalIndexReference);
+                currentAnimal = animals.getAnimalIndex(nextAnimalIndex);
+            }
+        }
+
+        // Moves the view to the next random animal.
+        private void nextButton_Click(object sender, RoutedEventArgs e)
+        {
+            SetupNewAnimal();
+        }
+        
+        // Shows the given input length, coloring each letter green (correct) or red (incorrect).
+        private void SetAnalyzedNameTextBox(String input)
+        {
+            analyzedNameTextBlock.Inlines.Clear();
+            if (currentAnimal == null)
+            {
+                return;
+            }
+            bool isCorrect;
+            Collection<Inline> inlineCollection = VerifyInput(input, currentAnimal.getAnimalName(), out isCorrect);
+            foreach (Inline inline in inlineCollection)
+            {
+                analyzedNameTextBlock.Inlines.Add(inline);
+            }
+            if (isCorrect)
+            {
+                Focus();
+            }
+        }
+
+        // Displays colored user input when the text is changed.
+        private void userInputTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            SetAnalyzedNameTextBox(((TextBox)sender).Text);
+        }
+
+        // Creates a run based on a given letter and color.
+        private Run CreateRun(char letter, Media.Color color)
+        {
+            Run letterRun = new Run();
+            letterRun.Text = Char.ToUpper(letter).ToString();
+            letterRun.Foreground = new SolidColorBrush(color);
+            return letterRun;
+        }
+
+        // Returns a collection of inlines representing an assessed user input.  
+        // Sets isCorrect based on whether the user typed the correct animal name.
+        private Collection<Inline> VerifyInput(String userInput, String expectedInput, out bool isCorrect)
+        {
+            if (userInput.Length > expectedInput.Length)
+            {
+                throw new ArgumentException("User input cannot be longer than expected input");
+            }
+            Collection<Inline> collection = new Collection<Inline>();
+            isCorrect = true;
+            for (int i = 0; i < userInput.Length; i++)
+            {
+                Run letterRun;
+                if (Char.ToLower(userInput[i]) == Char.ToLower(expectedInput[i]))
+                {
+                    letterRun = CreateRun(userInput[i], Colors.Green);
+                }
+                else
+                {
+                    letterRun = CreateRun(userInput[i], Colors.Red);
+                    isCorrect = false;
+                }
+                collection.Add(letterRun);
+            }
+
+            // Adds the number of missing characters as stars.
+            for (int i = userInput.Length; i < expectedInput.Length; i++)
+            {
+                collection.Add(CreateRun('*', Colors.Red));
+                isCorrect = false;
+            }
+            return collection;            
+        }
+    }
+}

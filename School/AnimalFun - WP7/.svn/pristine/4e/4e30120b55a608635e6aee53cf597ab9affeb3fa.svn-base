@@ -1,0 +1,111 @@
+﻿using System;
+using System.Net;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Documents;
+using System.Windows.Ink;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Animation;
+using System.Windows.Shapes;
+
+using System.Collections.ObjectModel;
+using System.Collections.Generic;
+using System.Linq;
+
+using System.Windows.Resources;
+using Media = System.Windows.Media;
+
+namespace AnimalMath
+{
+    public class AnimalSpelling
+    {
+        private Animals animals;
+        private Animal currentAnimal;
+        private Random randomizer;
+        private bool allAnimalsUsed;
+
+        public Animal getCurrentAnimal() 
+        {
+            return this.currentAnimal;
+        }
+
+        public AnimalSpelling()
+        {
+            animals = new Animals();
+            randomizer = new Random();
+            allAnimalsUsed = false;
+        }
+
+        public bool getAllUsed()
+        {
+            return this.allAnimalsUsed;
+        }
+
+
+        // Sets the next animal based on a random animal index. No animal in the animal set
+        // is reapeted. Once the set of remaining animals is empty, sets the current animal
+        // to null.
+        public void SetNextAnimal()
+        {
+            while (true)
+            {
+                if(animals.getTotalUsed() == animals.getSize())
+                {
+                    allAnimalsUsed = true;
+                    animals.resetAnimals();
+                }
+
+                int nextAnimalIndex = randomizer.Next(animals.getSize());
+
+                if (!animals.getUsed(nextAnimalIndex))
+                {
+                    currentAnimal = animals.getAnimalIndex(nextAnimalIndex);
+                    animals.setUsed(nextAnimalIndex);
+                    return;
+                }    
+            }
+        }
+
+        // Creates a run based on a given letter and color.
+        private Run CreateRun(char letter, Media.Color color)
+        {
+            Run letterRun = new Run();
+            letterRun.Text = Char.ToUpper(letter).ToString();
+            letterRun.Foreground = new SolidColorBrush(color);
+            return letterRun;
+        }
+
+        // Returns a collection of inlines representing an assessed user input.  
+        // Sets isCorrect based on whether the user typed the correct animal name.
+        public Collection<Inline> VerifyInput(String userInput, String expectedInput, out bool isCorrect)
+        {
+            Collection<Inline> collection = new Collection<Inline>();
+            isCorrect = true;
+
+            for (int i = 0; i < userInput.Length; i++)
+            {
+                Run letterRun;
+                if (Char.ToLower(userInput[i]) == Char.ToLower(expectedInput[i]))
+                {
+                    letterRun = CreateRun(userInput[i], Colors.Green);
+                }
+                else
+                {
+                    letterRun = CreateRun(userInput[i], Colors.Red);
+                    isCorrect = false;
+                }
+                collection.Add(letterRun);
+            }
+
+            // Adds the number of missing characters as stars.
+            for (int i = userInput.Length; i < expectedInput.Length; i++)
+            {
+                collection.Add(CreateRun('*', Colors.Red));
+                isCorrect = false;
+            }
+            return collection;
+        }
+
+    }
+}

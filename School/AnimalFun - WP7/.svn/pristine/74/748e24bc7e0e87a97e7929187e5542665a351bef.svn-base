@@ -1,0 +1,59 @@
+﻿<phone:PhoneApplicationPage
+    x:Class="AnimalMath.AnimalView.SettingsPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait" Orientation="Portrait"
+    mc:Ignorable="d"
+    shell:SystemTray.IsVisible="True" d:DesignHeight="768" d:DesignWidth="480">
+    
+    <!-->
+    
+    ===DELETE THIS LATER===
+    This is a rough skeleton of the settings page. The only two items that we have 
+    really concluded on is the difficulty, which involves making signifigant changes
+    to some of the elements, and the background. 
+    
+    The background component seems easy 
+    enough to handle, we will just have to place an "on load" event that changes the
+    back ground to the selected image/color. I think what we should have is a choice 
+    between 4 different backgrounds 
+    
+    The Difficulty, on the other hand, seems like it may be a challege to implement.
+    This will involve changing the other games somewhat to handle a variable change
+    in difficulty.  -Jondi
+    
+    -->
+
+    <!--LayoutRoot is the root grid where all page content is placed-->
+    <Grid x:Name="LayoutRoot" Background="Transparent">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!--TitlePanel contains the name of the application and page title-->
+        <StackPanel Grid.Row="0" Margin="12,17,0,28">
+            <TextBlock Text="animal APPLICATION" Style="{StaticResource PhoneTextNormalStyle}"/>
+            <TextBlock Text="Settings" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
+        </StackPanel>
+
+        <!--ContentPanel - place additional content here-->
+        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
+            <TextBlock HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Difficulty" VerticalAlignment="Top" Height="43" Width="229" FontSize="36"/>
+            <TextBlock HorizontalAlignment="Left" Margin="10,120,0,0" TextWrapping="Wrap" Text="Background" VerticalAlignment="Top" Height="53" Width="229" FontSize="36"/>
+            <TextBlock HorizontalAlignment="Left" Margin="10,230,0,0" TextWrapping="Wrap" Text="Ani-manliness" VerticalAlignment="Top" Height="43" Width="229" FontSize="36"/>
+            <TextBlock HorizontalAlignment="Left" Margin="10,340,0,0" TextWrapping="Wrap" Text="Babies" VerticalAlignment="Top" Height="43" Width="229" FontSize="36"/>
+            <Button Content="Accept" HorizontalAlignment="Left" Margin="10,508,0,0" VerticalAlignment="Top"/>
+            <Button Content="Cancel" HorizontalAlignment="Left" Margin="317,508,0,0" VerticalAlignment="Top"/>
+
+        </Grid>
+    </Grid>
+
+</phone:PhoneApplicationPage>

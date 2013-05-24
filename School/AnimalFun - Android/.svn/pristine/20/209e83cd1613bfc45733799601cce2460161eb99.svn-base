@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<lint>
+    <issue id="ContentDescription">
+        <ignore path="res\layout\activity_math_page.xml" />
+    </issue>
+    <issue id="NewApi">
+        <ignore path="src/com/example/animalfun/LearningPage.java" />
+        <ignore path="src/com/example/animalfun/ScreenSlidePageFragment.java" />
+    </issue>
+</lint>

@@ -1,0 +1,42 @@
+﻿using System;
+using System.Net;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Documents;
+using System.Windows.Ink;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Animation;
+using System.Windows.Shapes;
+
+namespace AnimalMath
+{
+    //A class that holds information for a single animal
+    public class Animal
+    {
+        //Only remember the name, everything else returns a relative path to the image
+        //or the sound file. Both must actually be compiled into the programs directory
+        //Must still determine relative path
+        private String animalName;
+
+        public Animal(String animalName)
+        {
+            this.animalName = animalName;
+        }
+
+        public String getAnimalName()
+        {
+            return this.animalName;
+        }
+
+        public Uri getAnimalImage()
+        {
+            return new Uri( ("/AnimalMath;component/AnimalModels/Images/Animals/" + animalName.ToLower() + ".png"), UriKind.RelativeOrAbsolute);
+        }
+
+        public Uri getAnimalSound()
+        {
+            return new Uri(("/AnimalMath;component/AnimalModels/Sounds/" + animalName.ToLower() + ".wav"), UriKind.RelativeOrAbsolute);
+        }
+    }
+}

@@ -1,0 +1,244 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Net;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Media.Animation;
+using System.Windows.Navigation;
+using System.Windows.Shapes;
+using Microsoft.Xna.Framework.Input.Touch;
+using Microsoft.Phone.Controls;
+
+namespace AnimalMath
+{
+    public partial class MathPage : PhoneApplicationPage
+    {
+        public MathPage()
+        {
+            InitializeComponent();
+            refreshPage();              //initially set up the page using refreshPage()
+        }
+
+        //*************************Variable Declaration/Initialization***************************************
+        Animals animals = new Animals();                //animals object
+        int[] button = new int[AnimalMath.MAX_CHOICES]; //used to hold random int for buttons 0-3[4 buttons]
+        Boolean choseCorrect = false;                   //check for if right answer has been chosen
+        Uri animalPath;                                 //uri for loading animal image
+        BitmapImage chosenAnimal;                       //animal chosen to display
+        //***************************************************************************************************
+
+
+        //chooses a random animal from the model, creates random positions and places images randomely
+        void generateImagePlacement()
+        {
+            animalPath = animals.getAnimalIndex(AnimalMath.random.Next(animals.getSize())).getAnimalImage();
+            chosenAnimal = new BitmapImage(animalPath);     //holds new image to be placed
+            AnimalMath.GenerateRandomArrays();              //reset random generation for new unique numbers
+            int position;                                   //position for animal to be placed in
+            for (int k = 0; k < AnimalMath.correctAnswer; k++)
+            {
+                position = AnimalMath.getRandomNum();       //get new unique random integer
+                placeImage(position, chosenAnimal);         //call function to place images within grid
+            }
+        }
+
+        //reset all images to be blank
+        void resetImages()
+        {
+            AnimalGrid_1_1.Source = AnimalMath.blankImage;  //reset image
+            AnimalGrid_1_2.Source = AnimalMath.blankImage;  //reset image
+            AnimalGrid_1_3.Source = AnimalMath.blankImage;  //reset image
+            AnimalGrid_2_1.Source = AnimalMath.blankImage;  //reset image
+            AnimalGrid_2_2.Source = AnimalMath.blankImage;  //reset image
+            AnimalGrid_2_3.Source = AnimalMath.blankImage;  //reset image
+            AnimalGrid_3_1.Source = AnimalMath.blankImage;  //reset image
+            AnimalGrid_3_2.Source = AnimalMath.blankImage;  //reset image
+            AnimalGrid_3_3.Source = AnimalMath.blankImage;  //reset image
+        }
+
+        //place image into position
+        void placeImage(int position, BitmapImage chosenAnimal)
+        {
+            switch (position)
+            {
+                case 1:
+                    AnimalGrid_1_1.Source = chosenAnimal;
+                    break;
+                case 2:
+                    AnimalGrid_1_2.Source = chosenAnimal;
+                    break;
+                case 3:
+                    AnimalGrid_1_3.Source = chosenAnimal;
+                    break;
+                case 4:
+                    AnimalGrid_2_1.Source = chosenAnimal;
+                    break;
+                case 5:
+                    AnimalGrid_2_2.Source = chosenAnimal;
+                    break;
+                case 6:
+                    AnimalGrid_2_3.Source = chosenAnimal;
+                    break;
+                case 7:
+                    AnimalGrid_3_1.Source = chosenAnimal;
+                    break;
+                case 8:
+                    AnimalGrid_3_2.Source = chosenAnimal;
+                    break;
+                case 9:
+                    AnimalGrid_3_3.Source = chosenAnimal;
+                    break;
+            }
+        }
+
+        //used to call a getRandomNum() on each button
+        void GenerateRandom()
+        {
+            AnimalMath.GenerateRandomArrays();                  //reset random generation for new unique numbers
+            for (int i = 0; i < AnimalMath.MAX_CHOICES; i++)
+            {
+                this.button[i] = AnimalMath.getRandomNum();     //retrieve unique random number to display
+            }
+        }
+
+        //used to populate buttons with numbers.
+        void PopulateButtons()
+        {
+            this.topBarText.Text = "How Many Animal's Are There?";          //set title to starting title
+            choseCorrect = false;                                           //correct answer hasnt been found yet
+            refreshButtonColors();                                          //refresh buttons
+            GenerateRandom();                                               //generate new numbers
+            this.Math_Answer_0.Content = this.button[0].ToString("N0");     //Put number on Button 0
+            this.Math_Answer_1.Content = this.button[1].ToString("N0");     //Put number on Button 1
+            this.Math_Answer_2.Content = this.button[2].ToString("N0");     //Put number on Button 2
+            this.Math_Answer_3.Content = this.button[3].ToString("N0");     //Put number on Button 3
+        }
+
+
+        void refreshPage()
+        {
+            PopulateButtons();          //repopulate buttons
+            resetImages();              //reset images to be blank
+            generateImagePlacement();   //generate and place images into grid
+        }
+        
+
+        //put all the things in here that you want to do on a right answer
+        void processRightAnswer(Button sender)
+        {
+            changeColorRight(sender);
+            this.topBarText.Text = "Good Job! Click to try another!";
+            choseCorrect = true;
+            //this.Math_Answer_0.IsEnabled = false;
+        }
+
+        //put all the things in here that you want to do on a wrong answer
+        void processWrongAnswer(Button sender)
+        {
+            changeColorWrong(sender);
+        }
+
+        //function that changes the background color of a button if its right
+        void changeColorRight(Button sender)
+        {
+            sender.Background = new SolidColorBrush(Colors.Green);
+        }
+
+        //function that changes the background color of a button if its wrong
+        void changeColorWrong(Button sender)
+        {
+            sender.Background = new SolidColorBrush(Colors.Red);
+        }
+
+        //change button colors back to the original ones
+        void refreshButtonColors()
+        {
+            this.Math_Answer_0.Background = new SolidColorBrush(Colors.Transparent);
+            this.Math_Answer_1.Background = new SolidColorBrush(Colors.Transparent);
+            this.Math_Answer_2.Background = new SolidColorBrush(Colors.Transparent);
+            this.Math_Answer_3.Background = new SolidColorBrush(Colors.Transparent);
+        }
+
+        //this function runs when you click on the named object
+        void Math_Answer_0_Click(object sender, RoutedEventArgs e)
+        {
+            if (AnimalMath.isAnswerCorrect(button[0]))
+            {
+                processRightAnswer(this.Math_Answer_0);
+            }
+            else
+            {
+                processWrongAnswer(this.Math_Answer_0);
+            }
+        }
+        //this function runs when you click on the named object
+        void Math_Answer_1_Click(object sender, RoutedEventArgs e)
+        {
+            if (AnimalMath.isAnswerCorrect(button[1]))
+            {
+                processRightAnswer(this.Math_Answer_1);
+            }
+            else
+            {
+                processWrongAnswer(this.Math_Answer_1);
+            }
+        }
+        //this function runs when you click on the named object
+        void Math_Answer_2_Click(object sender, RoutedEventArgs e)
+        {
+            if (AnimalMath.isAnswerCorrect(button[2]))
+            {
+                processRightAnswer(this.Math_Answer_2);
+            }
+            else
+            {
+                processWrongAnswer(this.Math_Answer_2);
+            }
+        }
+        //this function runs when you click on the named object
+        void Math_Answer_3_Click(object sender, RoutedEventArgs e)
+        {
+            if (AnimalMath.isAnswerCorrect(button[3]))
+            {
+                processRightAnswer(this.Math_Answer_3);
+            }
+            else
+            {
+                processWrongAnswer(this.Math_Answer_3);
+            }
+        }
+
+
+        //when you flick the screen, you can make it do something here
+        private void OnFlick(object sender, FlickGestureEventArgs e)
+        {
+            if (e.HorizontalVelocity < 0) // determine direction (Right > 0)
+            {
+                //Some Action
+                refreshPage();      //reset the page to new images and #'s
+            }
+            else
+            {
+                //Some Action
+                refreshPage();      //reset the page to new images and #'s
+            }
+
+        }
+
+        //when clicking on screan
+        protected override void OnMouseLeftButtonDown(MouseButtonEventArgs e)
+        {
+            base.OnMouseLeftButtonDown(e);
+            if (choseCorrect)       //if correct answer has been found
+            {
+                //Some Action
+                refreshPage();      //reset the page to new images and #'s
+            }
+        }
+    }
+}
