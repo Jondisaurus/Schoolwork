@@ -1,13 +1,17 @@
-
+#include "Socket.h"
 
 
 class FTPClient{
 	char* userName;
 	char* password;
+	int* clientSD; 
+	Socket* sock; 
 
 public:
 	FTPClient(); 
-	~FTPClient(); 
+	~FTPClient();
+
+
 	bool open(char* hostName, int port); //open a TCP connection to port
 	bool close();
 	void quit(); 
