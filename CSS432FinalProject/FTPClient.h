@@ -4,7 +4,7 @@
 class FTPClient{
 	char* userName;
 	char* password;
-	int* clientSD; 
+	int clientSD; 
 	Socket* sock; 
 
 public:

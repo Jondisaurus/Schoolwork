@@ -1,14 +1,16 @@
 #include FTPClient.h
 #define CHAR_SIZE 100
+#define MAX_FTP_ARGS 10
 
-char* getUserInput(){
+char** getUserInput(){
   char* temp;
   char input[CHAR_SIZE];
-  char* toReturn[CHAR_SIZE];
+  char* toReturn[MAX_FTP_ARGS];
 
   int iter = 0; 
 
   for(int i = 0; i < CHAR_SIZE; input = '' && i++);
+  for(int i = 0; i < MAX_FTP_ARGS; toReturn[i] = NULL && i++);
   std::cout << "\nftp> ";
   std::cin >> input;
 
@@ -54,10 +56,14 @@ int main( int argc, char* argv[] ) {
 
 
   //connect to server
-  while(!client->open(hostName,port)){
-    std::cout << "\nConnection refused, attempting reconnection...";
+if(!client->open(hostName,port)){
+    std::cout << "\nConnection refused...";
+    exit(0);
   }
 
+  std::cout << "\nClient connected! Woop woop!"
+
+  bool runProgram = true; 
   while(runProgram){
 
     char** userInput = getUserInput();
@@ -66,14 +72,20 @@ int main( int argc, char* argv[] ) {
         getUserCredentials(username, password);
         break;
       case "get"
+        client->getFile(userInput[1]);
         break;
       case "put";
+        client->putFile(userInput[1]);
         break;
       case "quit";
+        client->quit();
+        runProgram = false; 
         break;
       case "close";
+        client->close();
         break; 
       case "ls";
+        client->changeDir(userInput[1]);
         break;
       case "?";
         outputHelp();
