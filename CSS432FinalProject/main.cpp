@@ -1,4 +1,5 @@
-#include FTPClient.h
+#include "FTPClient.h"
+#include <iostream> 
 #define CHAR_SIZE 100
 #define MAX_FTP_ARGS 10
 
@@ -9,14 +10,14 @@ char** getUserInput(){
 
   int iter = 0; 
 
-  for(int i = 0; i < CHAR_SIZE; input = '' && i++);
+  for(int i = 0; i < CHAR_SIZE; input = ' ' && i++);
   for(int i = 0; i < MAX_FTP_ARGS; toReturn[i] = NULL && i++);
   std::cout << "\nftp> ";
   std::cin >> input;
 
   toReturn[iter] = strtok(temp, " ");
 
-  while(toReturn != NULL){
+  while(toReturn[iter] != NULL){
     iter++;
     toReturn[iter] = strtok(temp, " ");
   }
@@ -46,7 +47,7 @@ int main( int argc, char* argv[] ) {
   char* dirName = new char[CHAR_SIZE];
 
   for(int i = 0; i < CHAR_SIZE; i++){
-    userName[i] = password[i] = dirName[i] = '';
+    userName[i] = password[i] = dirName[i] = ' ';
   }
 
   if(argc != 3){
@@ -71,26 +72,26 @@ if(!client->open(hostName,port)){
       case "login":
         getUserCredentials(username, password);
         break;
-      case "get"
+      case "get":
         client->getFile(userInput[1]);
         break;
-      case "put";
+      case "put":
         client->putFile(userInput[1]);
         break;
-      case "quit";
+      case "quit":
         client->quit();
         runProgram = false; 
         break;
-      case "close";
+      case "close":
         client->close();
         break; 
-      case "ls";
+      case "ls":
         client->changeDir(userInput[1]);
         break;
-      case "?";
+      case "?":
         outputHelp();
         break;
-      case default;
+      default:
         std::cout << "\nInput not recognized, please re-enter or type ? for help";
         break;           
     }
