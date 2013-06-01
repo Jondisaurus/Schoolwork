@@ -10,7 +10,9 @@ char** getUserInput(){
 
   int iter = 0; 
 
-  for(int i = 0; i < CHAR_SIZE; input = ' ' && i++);
+  for(int i = 0; i < CHAR_SIZE;i++){
+     input[i] = ' ';
+  }
   for(int i = 0; i < MAX_FTP_ARGS; toReturn[i] = NULL && i++);
   std::cout << "\nftp> ";
   std::cin >> input;
@@ -24,7 +26,7 @@ char** getUserInput(){
   return toReturn; 
 }
 
-void getUserCredentials(char*& username, char*& password){
+void getUserCredentials(char*& userName, char*& password){
   //Get User/Pass
   std::cout << "\nTo login please enter your...";
   std::cout << "\nUsername: ";
@@ -57,20 +59,24 @@ int main( int argc, char* argv[] ) {
 
 
   //connect to server
-if(!client->open(hostName,port)){
-    std::cout << "\nConnection refused...";
-    exit(0);
-  }
+  if(!client->open(argv[1],atoi(argv[2]))){
+     std::cout << "\nConnection refused...";
+     exit(0);
+   }
 
-  std::cout << "\nClient connected! Woop woop!"
+  std::cout << "\nClient connected! Woop woop!";
 
   bool runProgram = true; 
   while(runProgram){
 
     char** userInput = getUserInput();
+
+
+    //NOTE I DONT KNOW HOW TO WRITE C SWITCHES APPARENTLY
+    //DUMB DUMB DUMB DUMB DUMB
     switch(userInput[0]){
       case "login":
-        getUserCredentials(username, password);
+        getUserCredentials(userName, password);
         break;
       case "get":
         client->getFile(userInput[1]);
