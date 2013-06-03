@@ -80,17 +80,19 @@ bool FTPClient::login(char *username, char *password) {
 int FTPClient::sendUserName(char* username) {
     std::cout << "sendUserName()" << std::endl;
     int code;
-    char buffer[4096];
+    char buffer[100];
     strcpy(buffer, "USER ");
     strcat(buffer, username);
+    strcat(buffer,  " \r\n");
     //Send the message!
     int i;
     if((i = sendMessage(buffer)) < 0) {
 	perror("Can't send message\n");
 	return 1;
     }
-    std::cout << "sendMessage() returns " << i << std::endl;
-    strcpy(buffer, recvMessage());
+    //std::cout << "sendMessage() returns " << i << std::endl;
+    strcpy(buffer, recvMessage()); 
+    //strcpy(buffer, recvMessage());
     std::cout << "Recieved message: " << buffer << std::endl;
     std::cout <<  std::endl;
     return getReturnCode(buffer);
@@ -123,17 +125,20 @@ int FTPClient::sendPassword(char* password) {
 }
 
 int FTPClient::sendMessage(char* buffer) {
-    char message[strlen(buffer + 5)];
+    int send_length = strlen(buffer);
+    char message[send_length];
     strcpy(message, buffer);
 
-    message[strlen(buffer)+1] = 0; 
+    message[send_length] = 0; 
     //strcat(message, "\0");
-    std::cout << "Sending Message: " << strlen(message) << " ";
+    std::cout << "Sending Message: " << strlen(message) << " " << std::endl;
     std::cout << message << std::endl;
-    int size = write(clientSD, message, strlen(message+2));
+    int size = write(clientSD, message, send_length);
     std::cout << "Size: " << size << std::endl;
     return size;
 }
+
+
 
 #if 0
 void* FTPClient::waitForMessage(void *ptr) {
@@ -206,14 +211,15 @@ char* FTPClient::recvMessage() {
 
 char* FTPClient::recvMessage() {
     int size = 0;
-    char cmdBuf[BUFSIZE+1];
-    for(int i = 0; i = BUFSIZE; i++){
-        cmdBuf[i] = '\0';
+    char cmdBuf[BUFSIZE + 1];
+    for(int i = 0; i == BUFSIZE; i++){
+        cmdBuf[i] = 0;
     }
-
+    std::cout << "sending msg" << std::endl; 
     do{
         size = read(clientSD, cmdBuf, BUFSIZE);
     }while(size == 0);
+    std::cout << "msg sent" << std::endl;
     cmdBuf[size] = 0;
     std::cout << cmdBuf << std::endl; 
     return cmdBuf;
