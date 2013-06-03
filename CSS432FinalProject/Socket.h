@@ -1,5 +1,3 @@
-// This file implements a socket subclass that abstracts the socket get/set funtctions for 
-// CSS 432
 #ifndef JON_SOCKET
 #define JON_SOCKET
 
@@ -11,18 +9,16 @@
 #include <stdio.h>
 #include <string.h>
 #include <iostream>
+#include <stdlib.h>
+class Socket {
 
-class Socket{
+    public:
+        Socket(int);
+        int getServerSocket( );
+        int getClientSocket(char*);
 
-public:
-	Socket(int);
-	int getServerSocket( );
-	int getClientSocket(char*);
-
-private:
-	int port; 
-	int SD; 
+    private:
+        int port;
+        int SD;
 };
 #endif
-
-

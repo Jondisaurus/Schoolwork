@@ -1,27 +1,34 @@
 #include "Socket.h"
-
-
-class FTPClient{
-	char* userName;
-	char* password;
-	int clientSD; 
-	Socket* sock; 
-
+#include <string.h>
+#include <iostream>
+#include <sys/poll.h>
+#include <string>
+#include "Exception.h"
+#include <fstream>
+class FTPClient {
 public:
-	FTPClient(); 
-	~FTPClient();
+    FTPClient();
+    ~FTPClient();
 
-
-	bool open(char* hostName, int port); //open a TCP connection to port
-	bool close();
-	void quit(); 
-	bool sendUserName(char* nameToSend);
-	bool sendPassword(char* passToSend);
-	bool changeDir(char* dirName);
-	char* getCurrentDirContents(); //returns buffer with directory contents
-	bool getFile(char* fileName);
-	bool putFile(char* fileName);
+    int open(char* hostName, int port); //open a TCP connection to port
+    int close();
+    void quit();
+    bool login(char *username, char* password);
+    int sendUserName(char* nameToSend);
+    int sendMessage(char *buffer);
+    //void* waitForMessage(void *ptr);
+    char* recvMessage();
+    int sendPassword(char* passToSend);
+    bool changeDir(char* dirName);
+    char* getCurrentDirContents(); //returns buffer with directory contents
+    bool getFile(char* fileName);
+    bool putFile(char* fileName);
+    int getReturnCode(char *message);
 private:
-
+    char* userName;
+    char* password;
+    int clientSD;
+    int dataSD;
+    Socket* sock;
 };
 
