@@ -15,7 +15,7 @@ public:
     int open(char* hostName, int port); //open a TCP connection to port
     int close();
     void quit();
-    bool login(char *username, char* password);
+    int login(char *username, char* password);
     int sendUserName(char* nameToSend);
     //int sendMessage(); 
     int sendMessage(char *buffer);

@@ -1,32 +1,38 @@
 #include "FTPClient.h"
 #include <iostream>
-#define CHAR_SIZE 100
+#include <fstream>
+#define CHAR_SIZE 1000
 #define MAX_FTP_ARGS 10
 
+char** userInput;
+
 char** getUserInput() {
-#if 0
+    if(userInput){
+        delete userInput; 
+    }
+    userInput = new char*;
+
     char* temp;
     char input[CHAR_SIZE];
-    char toReturn[MAX_FTP_ARGS];
+
+    memset(input, '\0', sizeof(input));
 
     int iter = 0;
 
     for(int i = 0; i < CHAR_SIZE; i++) {
         input[i] = ' ';
     }
-    for(int i = 0; i < MAX_FTP_ARGS; toReturn[i] = NULL && i++);
+    //for(int i = 0; i < MAX_FTP_ARGS; toReturn[i] = NULL && i++);
     std::cout << "\nftp> ";
-    std::cin >> input;
+    std::cin.getline(input, CHAR_SIZE, '\n');
 
-    toReturn[iter] = strtok(temp, " ");
+    userInput[iter] = strtok(temp, " ");
 
-    while(toReturn[iter] != NULL) {
+    while(userInput[iter] != NULL) {
         iter++;
-        toReturn[iter] = strtok(temp, " ");
+        userInput[iter] = strtok(temp, " ");
     }
-    return toReturn;
-#endif
-    return NULL;
+    return userInput;
 }
 
 void getUserCredentials(char*& userName, char*& password) {
