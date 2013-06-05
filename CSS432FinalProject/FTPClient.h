@@ -5,6 +5,8 @@
 #include <string>
 #include "Exception.h"
 #include <fstream>
+
+#define BUFSIZE 8192
 class FTPClient {
 public:
     FTPClient();
@@ -15,6 +17,7 @@ public:
     void quit();
     bool login(char *username, char* password);
     int sendUserName(char* nameToSend);
+    int sendMessage(); 
     int sendMessage(char *buffer);
     //void* waitForMessage(void *ptr);
     char* recvMessage();
@@ -29,6 +32,8 @@ private:
     char* password;
     int clientSD;
     int dataSD;
+    int recvBytes; 
     Socket* sock;
+    char ctrlBuf[BUFSIZE + 1];
 };
 
