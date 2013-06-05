@@ -6,8 +6,9 @@ FTPClient::FTPClient() {
     char url[] = "ftp.tripod.com";
     char username[] = "css432";
     char password[] = "UWB0th3ll";
-    while((clientSD = open(url, 21) == 0))
-	std::cout << "Cant connect\n";
+    while(open(url, 21) == 0){
+	   std::cout << "Cant connect\n";
+    }
     int code = login(username, password);
     if(code == 230)
         std::cout << "Logged in\n" << std::endl;
@@ -59,19 +60,19 @@ bool FTPClient::login(char *username, char *password) {
     int code = sendUserName(username);
     std::cout << "Code " << code << std::endl;
     while(code != 331) {
-   	std::cout << "Incorrect username. Reenter:";
-	std::cin >> username;
-	code = sendUserName(username);
-	std::cout << std::endl;
+   	    std::cout << "Incorrect username. Reenter:";
+	   std::cin >> username;
+	   code = sendUserName(username);
+	   std::cout << std::endl;
     }
     std::cout <<"Good username" << std::endl;
 
     code = sendPassword(password);
     while(code != 230) {
- 	std::cout << "Incorrect password. Reenter:";
-	std::cin >> password;
-	code = sendPassword(password);
-      }
+ 	   std::cout << "Incorrect password. Reenter:";
+	   std::cin >> password;
+	   code = sendPassword(password);
+    }
 
     return true;
 }
@@ -85,20 +86,17 @@ int FTPClient::sendUserName(char* username) {
     char buffer[100];
     strcpy(buffer, "USER ");
     strcat(buffer, username);
-    strcat(buffer,  "\r\n");
+
     //Send the message!
     int i;
 
-    sendMessage(buffer);
-    recvMessage(); 
-
-    /*if((i = sendMessage(buffer)) < 0) {
+    if((i = sendMessage(buffer)) < 0) {
 	perror("Can't send message\n");
 	return 1;
     }
     std::cout << "sendMessage() returns " << i << std::endl;
-    */
-    strcpy(buffer, ctrlBuf);
+    
+    strcpy(buffer, recvMessage());
     std::cout << "Recieved message: " << buffer << std::endl;
     std::cout <<  std::endl;
     return getReturnCode(buffer);
@@ -116,35 +114,37 @@ int FTPClient::getReturnCode( char *message) {
 
 //Returns 230 if successful
 int FTPClient::sendPassword(char* password) {
-    return 0;
     int code;
     char buffer[2048];
     strcpy(buffer, "PASS ");
     strcat(buffer, password);
-    if(!sendMessage(buffer)) {
-	perror("Can't send message\n");
+    if(sendMessage(buffer) < 0) {
+	   perror("Can't send message\n");
     	return 1;
     }    
     strcpy(buffer, recvMessage());
     std::cout << buffer << std::endl;
     return getReturnCode(buffer);
 }
-
+/*
 int FTPClient::sendMessage(){
     memset( ctrlBuf, '\0', sizeof( ctrlBuf ) );
     ctrlBuf[send_bytes] = 0
 }
-
+*/
 int FTPClient::sendMessage(char* buffer) {
-    int send_length = strlen(buffer);
-    char message[send_length];
-    strcpy(message, buffer);
 
-    message[send_length] = 0; 
+    int send_length = strlen(buffer);
+    char message[send_length+2];
+    memset( message, '\0', sizeof( message ) );
+    strcpy(message, buffer);
+    strcat(message,  "\r\n");
+
+    //message[send_length] = 0; 
     //strcat(message, "\0");
     std::cout << "Sending Message: " << strlen(message) << " " << std::endl;
     std::cout << message << std::endl;
-    int size = write(clientSD, message, send_length);
+    int size = write(clientSD, message, send_length+2);
     std::cout << "Size: " << size << std::endl;
     return size;
 }
@@ -164,13 +164,13 @@ void* FTPClient::waitForMessage(void *ptr) {
   	std::cout << "killing thread";
     }
 }
-//#endif
+#endif
 char* FTPClient::recvMessage() {
     std::cout << "recvMessage()" << std::endl;
     char *buffer;
     buffer = new char[BUFSIZE];
     std::string message;
-    bzero(buffer, 2048);
+    bzero(buffer, 8196);
     char *retMsg;
     int size = 0;
 
@@ -183,17 +183,17 @@ char* FTPClient::recvMessage() {
 ///	ufds.revents = 0;
 ///	int val = poll(&ufds, 1, 1000);
 //	if(val > 0) {
-	    char buffer_in[2048];
-	    for(int i = 0; i < 2048; i++){
+	    char buffer_in[8196];
+	    for(int i = 0; i < 8196; i++){
             buffer_in[i] = '\0';
         }
-	    size = recv(clientSD, buffer_in, 2047,0);
+	    size = recv(clientSD, buffer_in, 8195,0);
 	    std::cout << "Size: " << size << std::endl;
  	    std::cout << buffer_in << std::endl;
 
 //	}
 	   if(size > 0) {
-	       message += buffer;
+	       message.append(buffer_in);
            std::cout << message << std::endl; 
 	   }
 	   else {
@@ -201,16 +201,17 @@ char* FTPClient::recvMessage() {
 	   }
     } while(size < 0);
 
-    std::cout << "JUst recieved " << message << std::endl;
+    //std::cout << "Just recieved " << message << std::endl;
 
     char error[] = "Error receiving message";
     if( size > 0) {
-  	retMsg = new char[message.length() + 1];
-	strcpy(retMsg, message.c_str());
-	int size = strlen(retMsg);
-	for(int i = size - 1; i > size - 3; i--)
-	    if(retMsg[i] == '\n' || retMsg[i] == '\r')
-		retMsg[i] = '\0';
+  	    retMsg = new char[message.length() + 1];
+	    strcpy(retMsg, message.c_str());
+	    int size = strlen(retMsg);
+	    for(int i = size - 1; i > size - 3; i--)
+	        if(retMsg[i] == '\n' || retMsg[i] == '\r')
+		        retMsg[i] = '\0';
+    //std::cout << "retMsg:  " << retMsg << std::endl; 
 	return retMsg;
     }
     //else if (size == 0)
@@ -218,23 +219,42 @@ char* FTPClient::recvMessage() {
     //else throw (new Exception (error, RECV_EXCEPTION));
 }
 
-#endif
 
+#if 0
 char* FTPClient::recvMessage() {
-    
+    struct pollfd ufds;
+    bool receive = false; 
+    char recvBuf[2048];
+
+    ufds.fd = clientSD;
+    ufds.events = POLLIN;
+    ufds.revents = 0; 
+    int val = poll(&ufds,1,1000);
+
+    while(val < 0){
+        val = poll(&ufds,1,1000);
+        std::cout << "val: " << val << std::endl; 
+    }
+
+    std::cout << "recieving msg" << std::endl; 
+    //if(receive){
+        recvBytes = read(clientSD, recvBuf, 2047);
+    //}
     //for(int i = 0; i == BUFSIZE; i++){
         //cntlBuf[i] = 0;
    ///}
-    std::cout << "recieving msg" << std::endl; 
-    do{
+    std::cout << "msg recieved: " << recvBuf << std::endl;
+
+    /*
+    do{/// isnt this about the same as polling?
         recvBytes = read(clientSD, ctrlBuf, BUFSIZE);
     }while(recvBytes == 0);
-    std::cout << "msg recieved: " << ctrlBuf << std::endl;
-    ctrlBuf[recvBytes] = 0;
-    std::cout << ctrlBuf << std::endl; 
+    */
+    recvBuf[recvBytes] = 0;
+    std::cout << recvBuf << std::endl; 
     return ctrlBuf;
 }
-
+#endif
 bool FTPClient::changeDir(char* dirName) {
     std::cout << "\nConsider yourself STUBBED!!";
     return true;

@@ -1,4 +1,5 @@
 #include "Socket.h"
+#include <string.h>
 
 Socket::Socket(int serverport) {
     port = serverport;
@@ -53,7 +54,8 @@ int Socket::getClientSocket(char* server_name) {
 
     //-Declaration of sockaddr_in structure.
     sockaddr_in sendSockAddr;
-    memset( (char *) &sendSockAddr, '\0', sizeof( sendSockAddr ) );
+    bzero(&sendSockAddr, sizeof(sendSockAddr));
+    //memset( (char *) &sendSockAddr, '\0', sizeof( sendSockAddr ) );
     sendSockAddr.sin_family      = AF_INET; // Address Family Internet
     sendSockAddr.sin_addr.s_addr =
         inet_addr( inet_ntoa( *(struct in_addr *) *host->h_addr_list ) );

@@ -17,10 +17,12 @@ public:
     void quit();
     bool login(char *username, char* password);
     int sendUserName(char* nameToSend);
-    int sendMessage(); 
+    //int sendMessage(); 
     int sendMessage(char *buffer);
-    //void* waitForMessage(void *ptr);
+    void* waitForMessage(void *ptr);
     char* recvMessage();
+    //int sendCommand();
+    //int recvCommand();
     int sendPassword(char* passToSend);
     bool changeDir(char* dirName);
     char* getCurrentDirContents(); //returns buffer with directory contents
@@ -35,5 +37,6 @@ private:
     int recvBytes; 
     Socket* sock;
     char ctrlBuf[BUFSIZE + 1];
+    char dataBuf[BUFSIZE + 1];
 };
 
